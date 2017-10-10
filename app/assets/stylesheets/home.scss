@@ -1,19 +1,21 @@
-// Overrides and adds customized styles in this file
-// Read more on documentation:
-// * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
-// * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
-//
+@import "font-awesome.min";
+@import "animated";
 
-.footer{
-  border-top: 0px;
-  padding-top: 0rem;
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity;
 }
 
-#blond {
-  padding-top: 40px;
-}
-
-#bander:before {
+#contacts1-2:before {
   content: "";
   position: absolute;
   left: 0px;
@@ -29,6 +31,7 @@
   bottom: 0;
 }
 .socialx ul {
+  padding: 20px;
   -webkit-transform: translate(-270px, 0);
   -moz-transform: translate(-270px, 0);
   -ms-transform: translate(-270px, 0);

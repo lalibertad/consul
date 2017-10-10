@@ -59,9 +59,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def sign_up_params
       params[:user].delete(:redeemable_code) if params[:user].present? && params[:user][:redeemable_code].blank?
-      params.require(:user).permit(:username, :email, :password,
+      params[:user][:username] = check_document params[:user][:document_number]
+      params.require(:user).permit(:document_number, :username, :email, :password,
                                    :password_confirmation, :terms_of_service, :locale,
                                    :redeemable_code)
+    end
+
+    def check_document(document)
+      begin
+        response = HTTParty.get("http://10.10.31.8/php/api/dni.php?numDni=#{document}")
+        if response == "null"
+          #render json: {available: false, message: t("devise_views.users.registrations.new.username_is_not_valid")}
+          return nil
+        end
+        datos = JSON.parse(response.body)
+        nombres = datos["NOMBRES"]
+        nombres.strip!
+        appat = datos["APPAT"]
+        appat.strip!
+        apmat = datos["APMAT"]
+        apmat.strip!
+        return "#{nombres}" + " " + "#{appat}" + " " + "#{apmat}"
+      rescue
+        #render json: {available: false, message: t("devise_views.users.registrations.new.service_is_not_available")}
+        return nil
+      end
     end
 
     def erase_params
