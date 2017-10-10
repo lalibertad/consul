@@ -1,3 +1,5 @@
+# ⚠️ ADVERTENCIA ❌: NO USE ESTE REPOSITORIO SI QUIERE INSTALAR SU PROPIO CONSUL. Vaya a https://github.com/consul/consul
+
 ![Logotipo de CONSUL](https://raw.githubusercontent.com/consul/consul/master/public/consul_logo.png)
 
 # CONSUL
