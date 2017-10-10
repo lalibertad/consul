@@ -56,7 +56,6 @@ gem 'whenever', '~> 0.9.7', require: false
 source 'https://rails-assets.org' do
   gem 'rails-assets-leaflet'
 end
-gem 'httparty', '~> 0.15.6'
 
 group :development, :test do
   gem "bullet", '~> 5.5.1'
