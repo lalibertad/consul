@@ -67,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def check_document(document)
       begin
-        response = HTTParty.get("http://10.10.31.8/php/api/dni.php?numDni=#{document}")
+        response = HTTParty.get("#{Rails.application.secrets.api_reniec}?numDni=#{document}")
         if response == "null"
           #render json: {available: false, message: t("devise_views.users.registrations.new.username_is_not_valid")}
           return nil
