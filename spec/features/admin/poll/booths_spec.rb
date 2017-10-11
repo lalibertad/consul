@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 feature 'Admin booths' do
 
   background do
