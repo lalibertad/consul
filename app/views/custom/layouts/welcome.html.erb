@@ -33,11 +33,87 @@
               <%= setting['org_name'] %>
           <% end %>
         </div>
-        <div class="mbr-navbar__hamburger mbr-hamburger text-white"><span class="mbr-hamburger__line"></span></div>
-        <% if user_signed_in? %>
-        <% else %>
-            <div class="mbr-navbar__column mbr-navbar__menu">
-              <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
+        <div class="mbr-navbar__hamburger mbr-hamburger text-white">
+          <span class="mbr-hamburger__line"></span>
+        </div>
+        <div class="mbr-navbar__column mbr-navbar__menu">
+          <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
+            <% if show_admin_menu? %>
+                <div class="mbr-navbar__column">
+                  <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
+                    <li class="mbr-navbar__item" id="despldrop">
+                      <%= link_to t("layouts.header.administration_menu"), href: "#", rel: "nofollow", class: "mbr-buttons__link btn text-white" do %>
+                        <%= t("layouts.header.administration_menu") %> <i class="fa fa-caret-down"></i>
+                      <% end %>
+                      <ul class="dropdown-menu">
+                        <% if current_user.administrator? %>
+                            <li>
+                              <%= link_to t("layouts.header.administration"), admin_root_path, class: "mbr-buttons__link" %>
+                            </li>
+                        <% end %>
+                        <% if current_user.administrator? || current_user.moderator? %>
+                            <li>
+                              <%= link_to t("layouts.header.moderation"), moderation_root_path, class: "mbr-buttons__link" %>
+                            </li>
+                        <% end %>
+                        <% if (feature?(:spending_proposals) || feature?(:budgets)) &&
+                            (current_user.administrator? || current_user.valuator?) %>
+                            <li>
+                              <%= link_to t("layouts.header.valuation"), valuation_root_path, class: "mbr-buttons__link" %>
+                            </li>
+                        <% end %>
+                        <% if current_user.administrator? || current_user.manager? %>
+                            <li>
+                              <%= link_to t("layouts.header.management"), management_sign_in_path, class: "mbr-buttons__link" %>
+                            </li>
+                        <% end %>
+                        <% if current_user.administrator? || current_user.poll_officer? %>
+                            <li>
+                              <%= link_to t("layouts.header.officing"), officing_root_path, class: "mbr-buttons__link" %>
+                            </li>
+                        <% end %>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+            <% end %>
+            <% if user_signed_in? %>
+                <div class="mbr-navbar__column">
+                  <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
+                    <li class="mbr-navbar__item">
+                      <%= link_to notifications_path, rel: "nofollow", style: "color: #fff" do %>
+                          <span class="mbr-google-map__marker"><%= t("layouts.header.notifications") %></span>
+                          <% if current_user.notifications_count > 0 %>
+                              <span class="fa fa-circle" aria-hidden="true" style="color: #ecf00b;font-size: 1rem;position: absolute;right: -10px;"></span>
+                              <span class="fa fa-bell fa-2x" aria-hidden="true" title="<%= t('layouts.header.new_notifications', count: current_user.notifications_count).html_safe %>"></span>
+                          <% else %>
+                              <span class="fa fa-bell-o fa-2x" aria-hidden="true" title="<%= t('layouts.header.no_notifications') %>"></span>
+                          <% end %>
+                      <% end %>
+                    </li>
+                    <li class="mbr-navbar__item">
+                      <%= layout_menu_link_to t("layouts.header.my_activity_link"),
+                                              user_path(current_user),
+                                              controller_name == 'users',
+                                              rel: "nofollow",
+                                              title: t("shared.go_to_page") +
+                                                  t("layouts.header.my_activity_link"), class: "mbr-buttons__link btn text-white" %>
+                    </li>
+                    <li class="mbr-navbar__item">
+                      <%= layout_menu_link_to t("layouts.header.my_account_link"),
+                                              account_path,
+                                              controller_name == 'account',
+                                              rel: "nofollow",
+                                              title: t("shared.go_to_page") +
+                                                  t("layouts.header.my_account_link"), class: "mbr-buttons__link btn text-white" %>
+                    </li>
+                    <li class="mbr-navbar__item">
+                      <%= link_to t("devise_views.menu.login_items.logout"),
+                                  destroy_user_session_path, rel: "nofollow", method: :delete, class: "mbr-buttons__link btn text-white" %>
+                    </li>
+                  </ul>
+                </div>
+            <% else %>
                 <div class="mbr-navbar__column">
                   <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
                     <li class="mbr-navbar__item">
@@ -54,9 +130,9 @@
                     </li>
                   </ul>
                 </div>
-              </nav>
-            </div>
-        <% end %>
+            <% end %>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
