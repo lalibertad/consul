@@ -17,6 +17,10 @@
 /tmp
 /.idea
 .idea/
+/Gemfile
+Gemfile
+/Gemfile.lock
+Gemfile.lock
 
 /spec/examples.txt
 /config/database.yml
