@@ -14,6 +14,7 @@ feature 'Answers' do
 
     visit admin_question_path(question)
 
+
     expect(page).to have_css(".poll_question_answer", count: 2)
 
     expect(page.body.index(answer1.title)).to be < page.body.index(answer2.title)

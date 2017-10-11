@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+
   devise_for :organizations, class_name: 'User',
                              controllers: {
                                registrations: 'organizations/registrations',

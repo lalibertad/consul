@@ -50,6 +50,7 @@ feature 'Answers' do
 
     click_link 'Edit'
 
+
     old_title = answer.title
     new_title = 'Ex Machina'
 

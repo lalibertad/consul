@@ -3,6 +3,7 @@ class Poll::Question < ActiveRecord::Base
   include Searchable
 
   acts_as_paranoid column: :hidden_at
+
   include ActsAsParanoidAliases
 
   belongs_to :poll

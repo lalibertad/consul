@@ -6,7 +6,7 @@ class PollsController < ApplicationController
   has_filters %w{current expired incoming}
   has_orders %w{most_voted newest oldest}, only: :show
 
-  ::Poll::Answer # trigger autoloadx
+  ::Poll::Answer # trigger autoload
 
   def index
     @polls = @polls.send(@current_filter).includes(:geozones).sort_for_list.page(params[:page])

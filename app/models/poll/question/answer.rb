@@ -32,4 +32,3 @@ class Poll::Question::Answer < ActiveRecord::Base
     where(question_id: question_id).maximum('given_order') || 0
   end
 end
-

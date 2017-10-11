@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'Polls' do
-  
 
   context '#index' do
 
