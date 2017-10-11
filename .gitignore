@@ -16,6 +16,7 @@
 !/log/.keep
 /tmp
 /.idea
+.idea/
 
 /spec/examples.txt
 /config/database.yml
