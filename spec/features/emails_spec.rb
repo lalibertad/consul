@@ -371,7 +371,7 @@ feature 'Emails' do
 
   end
 
-  context "Polls" do 
+  context "Polls" do
 
     scenario "Do not send email on poll comment", :js do
       user1 = create(:user, email_on_comment: true)
