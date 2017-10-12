@@ -59,31 +59,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def sign_up_params
       params[:user].delete(:redeemable_code) if params[:user].present? && params[:user][:redeemable_code].blank?
-      params[:user][:username] = check_document params[:user][:document_number]
-      params.require(:user).permit(:document_number, :username, :email, :password,
-                                   :password_confirmation, :terms_of_service, :locale,
-                                   :redeemable_code)
-    end
-
-    def check_document(document)
       begin
-        response = HTTParty.get("#{Rails.application.secrets.api_reniec}?numDni=#{document}")
-        if response == "null"
-          #render json: {available: false, message: t("devise_views.users.registrations.new.username_is_not_valid")}
-          return nil
+        params[:user][:document_type] = "1"
+        response = HTTParty.get("#{Rails.application.secrets.api_reniec}?numDni=#{params[:user][:document_number]}")
+        if response.body != "null"
+          datos = JSON.parse(response.body)
+          params[:user][:date_of_birth] = DateTime.strptime(datos["FENAC"] + "120000", "%Y%m%d%H%M%S")
+          if datos["SEXO"] == "M"
+            params[:user][:gender] = "Male"
+          else
+            params[:user][:gender] = "Female"
+          end
+          #if (Time.now.strftime("%Y%m%d") - datos["FENAC"]) < (User.minimum_required_age * 10000)
+          #end
+          nombres = datos["NOMBRES"]
+          nombres.strip!
+          appat = datos["APPAT"]
+          appat.strip!
+          apmat = datos["APMAT"]
+          apmat.strip!
+          params[:user][:username] = "#{nombres}" + " " + "#{appat}" + " " + "#{apmat}"
         end
-        datos = JSON.parse(response.body)
-        nombres = datos["NOMBRES"]
-        nombres.strip!
-        appat = datos["APPAT"]
-        appat.strip!
-        apmat = datos["APMAT"]
-        apmat.strip!
-        return "#{nombres}" + " " + "#{appat}" + " " + "#{apmat}"
-      rescue
-        #render json: {available: false, message: t("devise_views.users.registrations.new.service_is_not_available")}
-        return nil
       end
+      params.require(:user).permit(:document_number, :document_type, :username, :email, :password,
+                                   :password_confirmation, :terms_of_service, :locale,
+                                   :redeemable_code, :date_of_birth, :gender)
     end
 
     def erase_params
@@ -93,5 +93,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
     def after_inactive_sign_up_path_for(resource_or_scope)
       users_sign_up_success_path
     end
-
 end

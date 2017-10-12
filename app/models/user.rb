@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
-  validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
+  validates :document_number, uniqueness: { scope: :document_type }, allow_nil: false
 
   validate :validate_username_length
 
@@ -318,7 +318,7 @@ class User < ActiveRecord::Base
   private
 
     def clean_document_number
-      self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase if document_number.present?
+      self.document_number = document_number.gsub(/[^0-9]+/i, "") if document_number.present?
     end
 
     def validate_username_length
