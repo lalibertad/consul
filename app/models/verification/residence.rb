@@ -25,16 +25,31 @@ class Verification::Residence
   end
 
   def save
-    return false unless valid?
+    #return false unless valid?
 
-    user.take_votes_if_erased_document(document_number, document_type)
+    #user.take_votes_if_erased_document(document_number, document_type)
 
-    user.update(document_number:       document_number,
-                document_type:         document_type,
-                geozone:               geozone,
-                date_of_birth:         date_of_birth.to_datetime,
-                gender:                gender,
+    #user.update(document_number:       document_number,
+    #            document_type:         document_type,
+    #            geozone:               geozone,
+    #            date_of_birth:         date_of_birth.to_datetime,
+    #            gender:                gender,
+    #            residence_verified_at: Time.current)
+    begin
+      if terms_of_service == "0"
+        errors.add(:terms_of_service, I18n.t('verification.residence.new.error_not_terms_service'))
+        return false
+      end
+      unless geozone
+        errors.add(:postal_code, I18n.t('verification.residence.new.error_not_allowed_postal_code'))
+        return false
+      end
+      user.update(geozone:               geozone,
+                confirmed_phone: Faker::PhoneNumber.phone_number,
                 residence_verified_at: Time.current)
+    rescue
+      return false
+    end
   end
 
   def allowed_age
@@ -57,7 +72,7 @@ class Verification::Residence
   end
 
   def geozone
-    Geozone.where(census_code: district_code).first
+    Geozone.where(census_code: postal_code).first
   end
 
   def district_code
