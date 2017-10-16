@@ -1,3 +1,5 @@
+require 'obscenity/active_model'
+
 class Comment < ActiveRecord::Base
   include Flaggable
   include HasPublicAuthor
@@ -12,7 +14,7 @@ class Comment < ActiveRecord::Base
 
   attr_accessor :as_moderator, :as_administrator
 
-  validates :body, presence: true
+  validates :body, presence: true, obscenity: { sanitize: true, replacement: "[censurado]" }
   validates :user, presence: true
 
   validates :commentable_type, inclusion: { in: COMMENTABLE_TYPES }
