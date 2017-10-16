@@ -1,0 +1,29 @@
+---
+en:
+  layouts:
+    header:
+      logo: REGIONAL GOVERNMENT LA LIBERTAD
+      external_link_opendata: Open Data
+      external_link_opendata_url: http://datosabiertos.regionlalibertad.gob.pe/
+      external_link_transparency: Transparency
+      external_link_transparency_url: http://www.regionlalibertad.gob.pe/transparencia
+    footer:
+      copyright: DECIDE LA LIBERTAD, %{year}
+      open_data_text: All the details of the Regional Government are yours.
+  proposals:
+    index:
+      section_header:
+        description: Make a citizen proposal. If you get enough support and vote, you can get all the inhabitants to decide how they want our region to be.
+      section_footer:
+        help_text_1: "Citizen proposals are an opportunity for neighbors and groups to decide directly how they want the region La Libertad. Anyone can make a proposal on a topic that interests or worries for the Regional Government to carry out, after obtaining sufficient support and citizen voting."
+        help_text_2: "To create a proposal, you must register in %{org}. Proposals that get the support of 1% of the people on the web, are put to a vote. To support proposals it is necessary to have a verified account."
+        help_text_3: "A citizen vote is called when the proposals get the necessary support. Once celebrated, if there are more people in favor than against, the Regional Government assumes the proposal and carries it out."
+  polls:
+    index:
+      section_header:
+        description: Register to be able to vote on citizen proposals and the questions that ask their neighbors the Regional Government. Make regional decisions directly.
+      section_footer:
+        help_text_1: "Voting is convened when a citizen proposal reaches 1% of census supports with voting rights. Voting can also include issues that the Regional Government submits to the direct decision of the citizens."
+  welcome:
+    do:
+      description: If the proposal is accepted mainly, the Regional Government assumes it as its own and is done.

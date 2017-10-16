@@ -9,7 +9,7 @@ es:
           username_label: DNI de usuario
           username_note: Su DNI será validado con la base de datos de RENIEC
           username_is_not_valid: "DNI no válido"
-          service_is_not_available: "Servicio de Reniec no disponible"
+          service_is_not_available: "Servicio de RENIEC no disponible"
     organizations:
       registrations:
         new:

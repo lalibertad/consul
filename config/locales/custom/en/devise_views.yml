@@ -1,0 +1,17 @@
+---
+en:
+  devise_views:
+    users:
+      registrations:
+        new:
+          username_is_available: "Available user"
+          username_is_not_available: "Existing user"
+          username_label: User DNI
+          username_note: Your DNI will be validated with the RENIEC database
+          username_is_not_valid: "Invalid DNI"
+          service_is_not_available: "RENIEC service not available"
+    organizations:
+      registrations:
+        new:
+          responsible_name_label: DNI of the person responsible for the organization
+          responsible_name_note: It will be the person representing the association / group on whose behalf the proposals are presented. Your DNI will be validated with the RENIEC database
