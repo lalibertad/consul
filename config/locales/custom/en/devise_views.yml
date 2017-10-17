@@ -10,6 +10,7 @@ en:
           username_note: Your DNI will be validated with the RENIEC database
           username_is_not_valid: "Invalid DNI"
           service_is_not_available: "RENIEC service not available"
+          document_number: Document number
     organizations:
       registrations:
         new:

@@ -17,7 +17,10 @@
       <%= f.hidden_field :use_redeemable_code %>
       <%= f.hidden_field :locale, value: I18n.locale %>
 
-      <%= f.label :document_number %>
+      <label>
+        <%= t("devise_views.users.registrations.new.document_number") %>
+      </label>
+
       <p class="help-text" id="username-help-text"><%= t("devise_views.users.registrations.new.username_note") %></p>
       <%= f.text_field :document_number,  autofocus: true, oninput: "this.value=this.value.replace(/[^0-9]/g,'');", maxlength: "8", minlength: "8",
                                    placeholder: t("devise_views.users.registrations.new.username_label"),

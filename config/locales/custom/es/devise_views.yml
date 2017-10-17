@@ -10,8 +10,9 @@ es:
           username_note: Su DNI será validado con la base de datos de RENIEC
           username_is_not_valid: "DNI no válido"
           service_is_not_available: "Servicio de RENIEC no disponible"
+          document_number: Número de documento
     organizations:
       registrations:
         new:
           responsible_name_label: DNI de la persona responsable de la organización
-          responsible_name_note: Será la persona representante de la asociación/colectivo en cuyo nombre se presenten las propuestas. Su DNI será validado con la base de datos de la Reniec
+          responsible_name_note: Será la persona representante de la asociación/colectivo en cuyo nombre se presenten las propuestas. Su DNI será validado con la base de datos de RENIEC
