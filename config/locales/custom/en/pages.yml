@@ -1,0 +1,14 @@
+---
+en:
+  pages:
+    census_terms: To confirm the account, you must be 18 or older and be registered, having provided the information requested previously, will verify. By accepting the verification process, you also consent to the verification of this information, as well as the contact methods featuring in said files. The data provided will be acquired and processed in a file mentioned previously in the terms and conditions of use for the Portal.
+    more_info:
+      proposals:
+        description: "Propose what the Regional Government wants to do and support the proposals of other people."
+        feature_2_html: "The proposals that get the support of 0.1% of the people (over 18 years, 1,800 supports) are being evaluated."
+        feature_3_html: "If there are more people in favor than against, <strong>the Regional Government will publish their plan to accomplish</strong> the proposal and you can track its progress."
+      budgets:
+        feature_3_html: "Then there is a <strong>support phase</strong> to prioritize the most interesting, the most supported are evaluated by the Regional Government to see if they are viable and how much they are worth."
+      polls:
+        description: "Citizen proposals that reach 0.1% of support will be evaluated."
+        feature_2: "All verified users over 18 years old can vote."

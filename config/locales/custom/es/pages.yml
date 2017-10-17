@@ -1,0 +1,14 @@
+---
+es:
+  pages:
+    census_terms: Para verificar la cuenta hay que tener 18 años o más y estar empadronado aportando los datos indicados anteriormente, los cuales serán contrastados. Aceptando el proceso de verificación acepta dar su consentimiento para contrastar dicha información, así como medios de contacto que figuren en dichos ficheros. Los datos aportados serán incorporados y tratados en un fichero indicado anteriormente en las condiciones de uso del portal.
+    more_info:
+      proposals:
+        description: "Propón lo que quieres que el Gobierno Regional lleve a cabo y apoya propuestas de otras personas."
+        feature_2_html: "Las propuestas que consigan <strong>el apoyo del 0.1% de la gente</strong> (mayor de 18 años; 1.800 apoyos) pasan a ser evaluados."
+        feature_3_html: "Si hay más gente a favor que en contra en la votación, <strong>el Gobierno Regional asume la propuesta y se hace</strong>."
+      budgets:
+        feature_3_html: "Después hay una <strong>fase de apoyos</strong> para priorizar lo más interesante, las más apoyadas son evaluadas por el Gobierno Regional para ver si son viables y cuánto valen."
+      polls:
+        description: "Las propuestas ciudadanas que alcancen el 0.1% de apoyos pasarán a ser evaluados."
+        feature_2: "Pueden votar todas las personas empadronadas en la ciudad mayores de 18 años."
