@@ -1,5 +1,8 @@
 ---
 en:
+  debates:
+      form:
+        tags_label: Topics or Components
   layouts:
     header:
       logo: REGIONAL GOVERNMENT LA LIBERTAD
