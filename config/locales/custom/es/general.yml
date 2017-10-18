@@ -1,5 +1,8 @@
 ---
 es:
+  debates:
+    form:
+      tags_label: Temas o Componentes
   layouts:
     header:
       logo: GOBIERNO REGIONAL LA LIBERTAD
