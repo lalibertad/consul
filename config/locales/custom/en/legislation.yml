@@ -1,0 +1,10 @@
+---
+en:
+  legislation:
+    processes:
+      index:
+        section_footer:
+          description: Participate in the debates and processes prior to the approval of a ordinance or a regional action. Your opinion will be consider by the Regional Government.
+          help_text_1: "In participatory processes, the Regional Government offers to its citizens the opportunity to participate in the drafting and modification of regulations, affecting the city and to be able to give their opinion on certain actions that it plans to carry out."
+          help_text_2: "People registered in %{org} can participate with contributions in the public consultation of new ordinances, regulations and guidelines, among others. Your comments are analyzed by the corresponding area and considered for the final drafting of the ordinances."
+          help_text_3: "The Regional Government also opens processes to receive contributions and opinions on regional actions."
