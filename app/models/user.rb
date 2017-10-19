@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   acts_as_voter
   acts_as_paranoid column: :hidden_at
   include ActsAsParanoidAliases
-
   include Graphqlable
 
   has_one :administrator
