@@ -1,4 +1,8 @@
-
+@media (max-width: 600px){
+    .socialx{
+        display: none;
+    }
+}
 .socialx ul li {
   display: block;
   margin: 5px;

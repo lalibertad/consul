@@ -34,7 +34,10 @@
           <% end %>
         </div>
         <div class="mbr-navbar__hamburger mbr-hamburger text-white">
-          <span class="mbr-hamburger__line"></span>
+          <a href="#" onclick="menu_res()">
+            <span class="mbr-hamburger__line" style="color: #FFF">
+            </span>
+          </a>
         </div>
         <div class="mbr-navbar__column mbr-navbar__menu">
           <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
@@ -134,6 +137,31 @@
           </nav>
         </div>
       </div>
+      <ul style="font-size: large; padding-left: 0; display: none" id="menu_respon">
+        <% if user_signed_in? %>
+            <li style="list-style-type: none; padding-bottom: 5px;">
+              <%= layout_menu_link_to t("layouts.header.my_activity_link"),
+                                      user_path(current_user),
+                                      controller_name == 'users',
+                                      rel: "nofollow",
+                                      title: t("shared.go_to_page") +
+                                          t("layouts.header.my_activity_link"), style: "color: #FFF; text-decoration: none;" %>
+            </li>
+            <li style="list-style-type: none; padding-bottom: 5px;">
+              <%= link_to t("devise_views.menu.login_items.logout"),
+                          destroy_user_session_path, rel: "nofollow", method: :delete, style: "color: #FFF; text-decoration: none;" %>
+            </li>
+        <% else %>
+            <li style="list-style-type: none; padding-bottom: 5px;">
+              <%= link_to t("devise_views.menu.login_items.login"),
+                          new_user_session_path, rel: "nofollow", style: "color: #FFF; text-decoration: none;" %>
+            </li>
+            <li style="list-style-type: none; padding-bottom: 5px;">
+              <%= link_to t("devise_views.menu.login_items.signup"),
+                          new_user_registration_path, rel: "nofollow", style: "color: #FFF; text-decoration: none;" %>
+            </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </section>
