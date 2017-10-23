@@ -44,3 +44,11 @@ video {
 #despldrop:hover .dropdown-menu{
   display: block;
 }
+
+#menu-0.mbr-navbar--stuck .mbr-navbar__section{
+  background: linear-gradient(-45deg, #039ee8, #006064, #2185e2, #004a83) !important;
+  background-size: 400% 400% !important;
+  -webkit-animation: Gradient 30s ease infinite !important;
+  -moz-animation: Gradient 30s ease infinite !important;
+  animation: Gradient 30s ease infinite !important;
+}
