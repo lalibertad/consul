@@ -5,3 +5,4 @@
 #
 gem 'httparty', '~> 0.15.6'
 gem 'obscenity'
+gem "faker", '~> 1.7.3'
