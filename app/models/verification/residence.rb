@@ -47,6 +47,9 @@ class Verification::Residence
       user.update(geozone:               geozone,
                 confirmed_phone: Faker::PhoneNumber.phone_number,
                 residence_verified_at: Time.current)
+    rescue => e
+      errors.add(:terms_of_service, e)
+      return false
     end
   end
 
