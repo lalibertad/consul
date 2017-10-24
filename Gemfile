@@ -51,16 +51,11 @@ gem 'sprockets', '~> 3.7.1'
 gem 'turbolinks', '~> 2.5.3'
 gem 'turnout', '~> 2.4.0'
 gem 'uglifier', '~> 3.2.0'
-platforms :ruby do
-  gem 'unicorn', '~> 5.3.0'
-end
+gem 'unicorn', '~> 5.3.0'
 gem 'whenever', '~> 0.9.7', require: false
 source 'https://rails-assets.org' do
   gem 'rails-assets-leaflet'
 end
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
-gem 'bcrypt', platforms: :ruby
-gem 'puma', '~> 3.10'
 
 group :development, :test do
   gem "bullet", '~> 5.5.1'
