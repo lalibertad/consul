@@ -48,6 +48,7 @@ class Verification::Residence
                 confirmed_phone: Faker::PhoneNumber.phone_number,
                 residence_verified_at: Time.current)
     rescue
+      errors.add(:terms_of_service, "error desconocido")
       return false
     end
   end
