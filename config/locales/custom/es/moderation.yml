@@ -1,0 +1,7 @@
+---
+es:
+  moderation:
+    debates:
+      index:
+        orders:
+          trend: Tendencias

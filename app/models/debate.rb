@@ -41,6 +41,7 @@ class Debate < ActiveRecord::Base
   scope :last_week,                -> { where("created_at >= ?", 7.days.ago)}
   scope :featured,                 -> { where("featured_at is not null")}
   scope :public_for_api,           -> { all }
+  scope :sort_by_trend,            -> { order("cached_votes_up - cached_votes_down desc")}
 
   # Ahoy setup
   visitable # Ahoy will automatically assign visit_id on create
