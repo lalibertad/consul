@@ -64,11 +64,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
         response = HTTParty.get("#{Rails.application.secrets.api_reniec}?numDni=#{params[:user][:document_number]}")
         if response.body != "null"
           datos = JSON.parse(response.body)
-          params[:user][:date_of_birth] = DateTime.strptime(datos["FENAC"] + "120000", "%Y%m%d%H%M%S")
-          if datos["SEXO"] == "M"
-            params[:user][:gender] = "Male"
-          else
-            params[:user][:gender] = "Female"
+          if datos["FENAC"] != {}
+            params[:user][:date_of_birth] = DateTime.strptime(datos["FENAC"] + "120000", "%Y%m%d%H%M%S")
+          end
+          if datos["SEXO"] != {}
+            if datos["SEXO"] == "M"
+              params[:user][:gender] = "Male"
+            else
+              params[:user][:gender] = "Female"
+            end
           end
           #if (Time.now.strftime("%Y%m%d") - datos["FENAC"]) < (User.minimum_required_age * 10000)
           #end
@@ -80,6 +84,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           apmat.strip!
           params[:user][:username] = "#{nombres}" + " " + "#{appat}" + " " + "#{apmat}"
         end
+      rescue
       end
       params.require(:user).permit(:document_number, :document_type, :username, :email, :password,
                                    :password_confirmation, :terms_of_service, :locale,

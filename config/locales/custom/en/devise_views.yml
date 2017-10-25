@@ -1,6 +1,9 @@
 ---
 en:
   devise_views:
+    mailer:
+      confirmation_instructions:
+        title: Welcome to the Decide La Libertad Portal
     users:
       registrations:
         new:
