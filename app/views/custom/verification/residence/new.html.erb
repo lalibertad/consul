@@ -33,6 +33,13 @@
     <%= form_for @residence, as: "residence", url: residence_path do |f| %>
       <%= render "errors" %>
 
+        <div class="small-12 medium-5 clear">
+          <%= f.label t("verification.residence.new.profession") %>
+          <div class="medium-6">
+            <%= f.text_field :profession, label: false %>
+          </div>
+        </div>
+
       <div class="small-12 medium-5 clear">
         <%= f.label t("verification.residence.new.postal_code") %>
         <p class="help-text" id="postal-code-help-text"><%= t("verification.residence.new.postal_code_note") %></p>

@@ -3,7 +3,7 @@ class Verification::Residence
   include ActiveModel::Dates
   include ActiveModel::Validations::Callbacks
 
-  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service
+  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service, :profession
 
   before_validation :retrieve_census_data
 
@@ -45,6 +45,8 @@ class Verification::Residence
         return false
       end
       user.update(geozone:               geozone,
+                  # no guarda
+                  profession: profession,
                 confirmed_phone: Faker::PhoneNumber.phone_number,
                 residence_verified_at: Time.current)
     rescue => e
