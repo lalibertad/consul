@@ -3,5 +3,14 @@ es:
   moderation:
     debates:
       index:
+        headers:
+          agree: De acuerdo
+          disagree: Desacuerdo
         orders:
           trend: Tendencias
+    proposals:
+      index:
+        headers:
+          score: Apoyos
+        orders:
+          confidence_score: Más apoyadas

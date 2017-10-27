@@ -3,5 +3,14 @@ en:
   moderation:
     debates:
       index:
+        headers:
+          agree: Agree
+          disagree: Disagree
         orders:
           trend: Tendencies
+    proposals:
+      index:
+        headers:
+          score: Score
+        orders:
+          confidence_score: Highest rated
