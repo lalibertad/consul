@@ -4,36 +4,36 @@ DatabaseCleaner.clean_with :truncation
 
 print "Creating Settings"
 Setting.create(key: 'official_level_1_name', value: 'Empleados públicos')
-Setting.create(key: 'official_level_2_name', value: 'Gerente Regional')
-Setting.create(key: 'official_level_3_name', value: 'Gerente General')
-Setting.create(key: 'official_level_4_name', value: 'Consejeros Regionales')
-Setting.create(key: 'official_level_5_name', value: 'Gobernador')
+Setting.create(key: 'official_level_2_name', value: 'Organización Municipal')
+Setting.create(key: 'official_level_3_name', value: 'Directores generales')
+Setting.create(key: 'official_level_4_name', value: 'Concejales')
+Setting.create(key: 'official_level_5_name', value: 'Alcaldesa')
 Setting.create(key: 'max_ratio_anon_votes_on_debates', value: '50')
 Setting.create(key: 'max_votes_for_debate_edit', value: '1000')
 Setting.create(key: 'max_votes_for_proposal_edit', value: '1000')
-Setting.create(key: 'proposal_code_prefix', value: 'LIB')
+Setting.create(key: 'proposal_code_prefix', value: 'MAD')
 Setting.create(key: 'votes_for_proposal_success', value: '100')
 Setting.create(key: 'months_to_archive_proposals', value: '12')
 Setting.create(key: 'comments_body_max_length', value: '1000')
 
-Setting.create(key: 'twitter_handle', value: '@GRLaLibertad')
-Setting.create(key: 'twitter_hashtag', value: '#DecideLaLibertad')
-Setting.create(key: 'facebook_handle', value: 'GRLaLibertad')
-Setting.create(key: 'youtube_handle', value: 'channel/UC0IcCo7kPbktO-rply0HtJQ')
-Setting.create(key: 'telegram_handle', value: '')
-Setting.create(key: 'instagram_handle', value: 'grlalibertad')
+Setting.create(key: 'twitter_handle', value: '@consul_dev')
+Setting.create(key: 'twitter_hashtag', value: '#consul_dev')
+Setting.create(key: 'facebook_handle', value: 'CONSUL')
+Setting.create(key: 'youtube_handle', value: 'CONSUL')
+Setting.create(key: 'telegram_handle', value: 'CONSUL')
+Setting.create(key: 'instagram_handle', value: 'CONSUL')
 Setting.create(key: 'blog_url', value: '/blog')
-Setting.create(key: 'url', value: 'http://decidelalibertad.pe/')
-Setting.create(key: 'org_name', value: 'Decide La Libertad')
-Setting.create(key: 'place_name', value: 'Trujillo')
+Setting.create(key: 'url', value: 'http://localhost:3000')
+Setting.create(key: 'org_name', value: 'CONSUL')
+Setting.create(key: 'place_name', value: 'City')
 Setting.create(key: 'feature.debates', value: "true")
 Setting.create(key: 'feature.polls', value: "true")
 Setting.create(key: 'feature.spending_proposals', value: nil)
 Setting.create(key: 'feature.spending_proposal_features.voting_allowed', value: nil)
 Setting.create(key: 'feature.budgets', value: "true")
-Setting.create(key: 'feature.twitter_login', value: "false")
-Setting.create(key: 'feature.facebook_login', value: "false")
-Setting.create(key: 'feature.google_login', value: "false")
+Setting.create(key: 'feature.twitter_login', value: "true")
+Setting.create(key: 'feature.facebook_login', value: "true")
+Setting.create(key: 'feature.google_login', value: "true")
 Setting.create(key: 'feature.signature_sheets', value: "true")
 Setting.create(key: 'feature.legislation', value: "true")
 Setting.create(key: 'feature.user.recommendations', value: "true")
@@ -42,23 +42,23 @@ Setting.create(key: 'feature.map', value: "true")
 Setting.create(key: 'per_page_code_head', value: "")
 Setting.create(key: 'per_page_code_body', value: "")
 Setting.create(key: 'comments_body_max_length', value: '1000')
-Setting.create(key: 'mailer_from_name', value: 'Decide La Libertad')
-Setting.create(key: 'mailer_from_address', value: 'decide@regionlalibertad.gob.pe')
+Setting.create(key: 'mailer_from_name', value: 'CONSUL')
+Setting.create(key: 'mailer_from_address', value: 'noreply@consul.dev')
 Setting.create(key: 'meta_description', value: 'Citizen Participation and Open Government Application')
 Setting.create(key: 'meta_keywords', value: 'citizen participation, open government')
 Setting.create(key: 'verification_offices_url', value: 'http://oficinas-atencion-ciudadano.url/')
-Setting.create(key: 'min_age_to_participate', value: '18')
+Setting.create(key: 'min_age_to_participate', value: '16')
 Setting.create(key: 'proposal_improvement_path', value: nil)
-Setting.create(key: 'map_latitude', value: -8.112595421768354)
-Setting.create(key: 'map_longitude', value: -79.02875661849977)
-Setting.create(key: 'map_zoom', value: 12)
+Setting.create(key: 'map_latitude', value: 51.48)
+Setting.create(key: 'map_longitude', value: 0.0)
+Setting.create(key: 'map_zoom', value: 10)
 
 puts " ✅"
 print "Creating Geozones"
 
-Geozone.create(name: "Trujillo")
-#Geozone.create(name: "Existent District", census_code: "01")
-#('A'..'Z').each { |i| Geozone.create(name: "District #{i}", external_code: i.ord, census_code: i.ord) }
+Geozone.create(name: "city")
+Geozone.create(name: "Existent District", census_code: "01")
+('A'..'Z').each { |i| Geozone.create(name: "District #{i}", external_code: i.ord, census_code: i.ord) }
 
 puts " ✅"
 print "Creating Users"
@@ -73,7 +73,7 @@ def create_user(email, username = Faker::Name.name)
     confirmed_at:           Time.current,
     terms_of_service:       "1",
     gender:                 ['Male', 'Female'].sample,
-    date_of_birth:          rand((Time.current - 80.years)..(Time.current - 18.years)),
+    date_of_birth:          rand((Time.current - 80.years)..(Time.current - 16.years)),
     public_activity:        (rand(1..100) > 30)
   )
 end
@@ -81,7 +81,7 @@ end
 admin = create_user('admin@consul.dev', 'admin')
 admin.create_administrator
 admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1", verified_at: Time.current, document_number: "1111111111")
-=begin
+
 moderator = create_user('mod@consul.dev', 'mod')
 moderator.create_moderator
 
@@ -141,7 +141,7 @@ end
 
 org_user_ids = User.organizations.pluck(:id)
 not_org_users = User.where(['users.id NOT IN(?)', org_user_ids])
-=end
+
 puts " ✅"
 print "Creating Tags Categories"
 
@@ -162,7 +162,6 @@ ActsAsTaggableOn::Tag.category.create!(name:  "Seguridad y Emergencias")
 ActsAsTaggableOn::Tag.category.create!(name:  "Medio Ambiente")
 
 puts " ✅"
-=begin
 print "Creating Debates"
 
 tags = Faker::Lorem.words(25)
@@ -530,13 +529,13 @@ print "Creating polls"
 puts " ✅"
 print "Active Polls"
 poll_active = Poll.create(name: "Active Poll",
-                   #slug: "active-poll",
+                   slug: "active-poll",
                    starts_at: 1.month.ago,
                    ends_at:   1.month.from_now,
                    geozone_restricted: false)
 
 poll_active_geolocalized = Poll.create(name: "Active Poll Restricted",
-                   #slug: "active-poll-restricted",
+                   slug: "active-poll-restricted",
                    starts_at: 1.month.ago,
                    ends_at:   1.month.from_now,
                    geozone_restricted: true,
@@ -545,7 +544,7 @@ poll_active_geolocalized = Poll.create(name: "Active Poll Restricted",
 puts " ✅"
 print "Upcoming Poll"
 poll = Poll.create(name: "Upcoming Poll",
-                   #slug: "upcoming-poll",
+                   slug: "upcoming-poll",
                    starts_at: 1.month.from_now,
                    ends_at:   2.months.from_now)
 
@@ -559,7 +558,7 @@ poll = Poll.create(name: "Recounting Poll",
 puts " ✅"
 print "Expired Poll"
 poll_expired = Poll.create(name: "Expired Poll",
-                   #slug: "expired-poll",
+                   slug: "expired-poll",
                    starts_at: 2.months.ago,
                    ends_at:   1.month.ago)
 
@@ -787,5 +786,4 @@ end
 end
 
 puts " ✅"
-=end
 puts "All dev seeds created successfuly 👍"
