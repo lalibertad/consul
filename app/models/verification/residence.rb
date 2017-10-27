@@ -45,7 +45,6 @@ class Verification::Residence
         return false
       end
       user.update(geozone:               geozone,
-                  # no guarda
                   profession: profession,
                 confirmed_phone: Faker::PhoneNumber.phone_number,
                 residence_verified_at: Time.current)

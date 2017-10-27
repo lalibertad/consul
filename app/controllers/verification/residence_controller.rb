@@ -20,7 +20,7 @@ class Verification::ResidenceController < ApplicationController
   private
 
     def residence_params
-      params.require(:residence).permit(:postal_code, :terms_of_service)
+      params.require(:residence).permit(:postal_code, :terms_of_service, :profession)
     end
 
     def redirect_to_next_path

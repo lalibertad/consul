@@ -36,7 +36,7 @@
         <div class="small-12 medium-5 clear">
           <%= f.label t("verification.residence.new.profession") %>
           <div class="medium-6">
-            <%= f.text_field :profession, label: false %>
+            <%= f.text_field :profession, label: false, required: "required" %>
           </div>
         </div>
 
@@ -44,13 +44,13 @@
         <%= f.label t("verification.residence.new.postal_code") %>
         <p class="help-text" id="postal-code-help-text"><%= t("verification.residence.new.postal_code_note") %></p>
         <div class="medium-6">
-          <%= f.text_field :postal_code, label: false, aria: {describedby: "postal-code-help-text"}, oninput: "this.value=this.value.replace(/[^0-9]/g,'');", maxlength: "5", minlength: "5" %>
+          <%= f.text_field :postal_code, label: false, aria: {describedby: "postal-code-help-text"}, oninput: "this.value=this.value.replace(/[^0-9]/g,'');", maxlength: "5", minlength: "5", required: "required" %>
         </div>
       </div>
 
       <div class="small-12">
         <%= f.label :terms_of_service do %>
-          <%= f.check_box :terms_of_service, title: t('verification.residence.new.accept_terms_text_title'), label: false %>
+          <%= f.check_box :terms_of_service, title: t('verification.residence.new.accept_terms_text_title'), label: false, required: "required" %>
           <span class="checkbox">
             <%= t("verification.residence.new.accept_terms_text",
                 terms_url: link_to(t("verification.residence.new.terms"), "/census_terms",
