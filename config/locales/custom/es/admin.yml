@@ -1,0 +1,18 @@
+---
+es:
+  admin:
+    users:
+      columns:
+        action: Acción
+        show: Mostrar
+        close: Cerrar
+      information:
+        info: Información del Usuario
+        name: "Nombre:"
+        document: "DNI:"
+        email: "Email:"
+        district: "Distrito:"
+        age: "Edad:"
+        sex: "Sexo:"
+        education: "Educación:"
+        warning: "ADVERTENCIA: Esta información es confidencial, de ser vulnerada se tomará acciones legales en su contra."

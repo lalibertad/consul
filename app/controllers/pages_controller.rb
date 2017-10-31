@@ -12,4 +12,18 @@ class PagesController < ApplicationController
   rescue ActionView::MissingTemplate
     head 404
   end
+
+  def more
+    @log = Log.new
+    @log.user_id = current_user.id
+    @log.citizen_id = params[:id]
+    if @log.save
+      @user = User.find(params[:id])
+      @zone = @user.geozone
+      @response = {estado: 1, citizen: @user, zone: @zone}
+    else
+      @response = { estado: 0 }
+    end
+    render :json => @response
+  end
 end

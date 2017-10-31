@@ -122,3 +122,35 @@ $(function(){
   $(document).on('page:load', initialize_modules);
   $(document).on('ajax:complete', initialize_modules);
 });
+
+function showUser(id) {
+    $.ajax({
+        url: '/more-show/' + id,
+        success: function (response) {
+            if (response.estado === 1){
+                $('#uname').text(response.citizen.username);
+                $('#udoc').text(response.citizen.document_number);
+                $('#uema').text(response.citizen.email);
+                if (response.zone){
+                    $('#udist').text(response.zone.name);
+                }
+                $('#uyea').text((new Date().getFullYear() - new Date(response.citizen.date_of_birth).getFullYear()));
+                $('#usex').text(response.citizen.gender);
+                $('#upro').text(response.citizen.profession);
+                $('#showUsers').foundation('open');
+            } else {
+                var alertBox = '<div id="alert" data-alert="" class="notice-container callout-slide" data-closable="">' +
+                    '    <div class="callout notice alert">' +
+                    '      <button class="close-button" aria-label="Cerrar" type="button" data-close="">' +
+                    '        <span aria-hidden="true">×</span>' +
+                    '      </button>' +
+                    '      <div class="notice-text">' +
+                    '        Información del usuario no disponible.' +
+                    '      </div>' +
+                    '    </div>' +
+                    '  </div>';
+                $(".admin-content").append(alertBox).foundation();
+            }
+        }
+    });
+}

@@ -1,0 +1,52 @@
+<% if @users.any? %>
+  <h3 class="margin"><%= page_entries_info @users %></h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th scope="col"><%= t("admin.users.columns.name") %></th>
+        <th scope="col"><%= t("admin.users.columns.roles") %></th>
+        <th scope="col"><%= t("admin.users.columns.verification_level") %></th>
+        <th scope="col"><%= t("admin.users.columns.action") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= display_user_roles(user) %></td>
+          <td><%= user.user_type %></td>
+          <td>
+            <%= link_to t("admin.users.columns.show"), '#', :onclick => "showUser(#{user.id});", class: "button success expanded" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @users %>
+
+<% else %>
+  <div class="callout primary">
+    <%= t("admin.users.index.no_users") %>
+  </div>
+<% end %>
+
+<div class="reveal" id="showUsers" data-reveal>
+  <h1><%= t("admin.users.information.info") %></h1>
+  <p class="lead"><%= t("admin.users.information.name") %> <span id="uname"></span></p>
+  <p><%= t("admin.users.information.document") %> <span id="udoc"></span></p>
+  <p><%= t("admin.users.information.email") %> <span id="uema"></span></p>
+  <p><%= t("admin.users.information.district") %> <span id="udist"></span></p>
+  <p><%= t("admin.users.information.age") %> <span id="uyea"></span></p>
+  <p><%= t("admin.users.information.sex") %> <span id="usex"></span></p>
+  <p><%= t("admin.users.information.education") %> <span id="upro"></span></p>
+  <hr>
+  <p style="color: red"><%= t("admin.users.information.warning") %></p>
+
+  <%= link_to t("admin.users.columns.close"), '#', :onclick => "$(showUsers).foundation('close');", class: "button" %>
+
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

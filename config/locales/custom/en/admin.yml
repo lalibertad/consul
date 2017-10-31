@@ -1,0 +1,18 @@
+---
+en:
+  admin:
+    users:
+      columns:
+        action: Action
+        show: Show
+        close: Close
+      information:
+        info: User information
+        name: "Name:"
+        document: "DNI:"
+        email: "Email:"
+        district: "District:"
+        age: "Age:"
+        sex: "Sex:"
+        education: "Education:"
+        warning: "WARNING: This information is confidential, if violated will take legal action against you."
