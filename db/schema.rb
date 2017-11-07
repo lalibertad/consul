@@ -820,6 +820,8 @@ ActiveRecord::Schema.define(version: 20171030193706) do
 
   create_table "proposals", force: :cascade do |t|
     t.string   "title",               limit: 80
+    t.string   "tipe"
+    t.string   "level"
     t.text     "description"
     t.string   "question"
     t.string   "external_url"

@@ -36,7 +36,7 @@
       </th>
     </tr>
     <% @debates.each do |debate| %>
-      <tr id="debate_<%= debate.id %>" <% if debate.cached_votes_up - debate.cached_votes_down >= 900 %> style="background-color: #81C784;" <% end %>>
+      <tr id="debate_<%= debate.id %>" <% if debate.cached_votes_up - debate.cached_votes_down >= 100 %> style="background-color: #81C784;" <% end %>>
         <td>
           <%= link_to debate.title, debate, target: "_blank" %>
           <br>

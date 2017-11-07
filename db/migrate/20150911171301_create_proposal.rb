@@ -2,6 +2,8 @@ class CreateProposal < ActiveRecord::Migration
   def change
     create_table :proposals do |t|
       t.string   "title", limit: 80
+      t.string   "tipe"
+      t.string   "level"
       t.text     "description"
       t.string   "question"
       t.string   "external_url"

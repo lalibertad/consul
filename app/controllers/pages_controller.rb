@@ -26,4 +26,22 @@ class PagesController < ApplicationController
     end
     render :json => @response
   end
+
+  def download
+    if params[:da] == "outline"
+      send_file(
+        "#{Rails.root}/public/docs/directrices_ejercicio_propuesta.pdf",
+        filename: "directrices_ejercicio_propuesta.pdf",
+        type: "application/pdf"
+      )
+    else
+      send_file(
+        "#{Rails.root}/public/docs/formulario_propuestas_ciudadanas.pdf",
+        filename: "formulario_propuestas_ciudadanas.pdf",
+        type: "application/pdf"
+      )
+    end
+
+  end
+
 end
