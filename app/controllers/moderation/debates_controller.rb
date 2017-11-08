@@ -1,6 +1,9 @@
 class Moderation::DebatesController < Moderation::BaseController
   include ModerateActions
   include FeatureFlags
+  include CommentableActions
+
+  before_action :parse_tag_filter, only: :index
 
   has_filters %w{pending_flag_review all with_ignored_flag}, only: :index
   has_orders %w{trend flags created_at}, only: :index
