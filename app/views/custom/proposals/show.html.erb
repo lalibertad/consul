@@ -56,12 +56,12 @@
           <strong><%= @proposal.code %></strong>
         </p>
         <p>
-          Tipo de Propuesta:
+          <%= t("proposals.form.proposal_type") %>:
           <strong><%= @proposal.tipe %></strong>
         </p>
         <% if @proposal.level.present? %>
           <p>
-            Nivel de Estudio del Proyecto:
+            <%= t("proposals.form.proposal_level") %>:
             <strong><%= @proposal.level %></strong>
           </p>
         <% end %>

@@ -14,6 +14,9 @@ en:
       copyright: DECIDE LA LIBERTAD, %{year}
       open_data_text: All the details of the Regional Government are yours.
   proposals:
+    form:
+      proposal_type: Type of proposal
+      proposal_level: Project study level
     index:
       section_header:
         description: Make a citizen proposal. If you get enough support and vote, you can get all the inhabitants to decide how they want our region to be.

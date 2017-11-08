@@ -3,13 +3,13 @@
 
   <div class="row">
     <div class="small-12 column">
-      <%= f.label :tipe, "Tipo" %>
+      <%= f.label :tipe, t("proposals.form.proposal_type") %>
       <%= f.radio_button :tipe, "Proyecto", checked: true, class: "project", 'data-tooltip': "Se refiere a ..."%>&nbsp;&nbsp;&nbsp;
       <%= f.radio_button :tipe, "Actividad", class: "activity", 'data-tooltip': "Se refiere a ..." %>
     </div>
 
     <div class="small-12 column" id="level_of_study">
-      <%= f.label :level, "Nivel de Estudio" %>
+      <%= f.label :level, t("proposals.form.proposal_level") %>
       <%= f.radio_button :level, "Idea", checked: true, 'data-tooltip': "Se refiere a ..." %>&nbsp;&nbsp;&nbsp;
       <%= f.radio_button :level, "Perfil", 'data-tooltip': "Se refiere a ..." %>&nbsp;&nbsp;&nbsp;
       <%= f.radio_button :level, "Expediente Técnico", 'data-tooltip': "Se refiere a ..." %>
