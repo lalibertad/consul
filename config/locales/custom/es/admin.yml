@@ -1,6 +1,8 @@
 ---
 es:
   admin:
+    menu:
+      geozones: Gestionar provincias o distritos
     users:
       columns:
         action: Acción

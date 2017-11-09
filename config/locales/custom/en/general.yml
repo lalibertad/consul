@@ -14,6 +14,9 @@ en:
     footer:
       copyright: DECIDE LA LIBERTAD, %{year}
       open_data_text: All the details of the Regional Government are yours.
+  map:
+    title: "Provinces"
+    proposal_for_district: "Start a proposal for your province or district"
   proposals:
     form:
       proposal_type: Type of proposal
