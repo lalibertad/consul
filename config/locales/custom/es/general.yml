@@ -6,6 +6,7 @@ es:
   layouts:
     header:
       logo: GOBIERNO REGIONAL LA LIBERTAD
+      collaborative_legislation: Legislación colaborativa
       external_link_opendata: Datos abiertos
       external_link_opendata_url: http://datosabiertos.regionlalibertad.gob.pe/
       external_link_transparency: Transparencia
