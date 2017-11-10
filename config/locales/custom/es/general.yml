@@ -11,6 +11,8 @@ es:
       external_link_opendata_url: http://datosabiertos.regionlalibertad.gob.pe/
       external_link_transparency: Transparencia
       external_link_transparency_url: http://www.regionlalibertad.gob.pe/transparencia
+      open_city_slogan_html: El Gobierno Regional La Libertad <strong>quiere contar contigo</strong> para construir una región más abierta, transparente y colaborativa. <strong>Entra</strong>, <strong>participa</strong> y <strong>decide<strong>.
+      open_city_title: PARTICIPA Y CONSTRUYE LA LIBERTAD QUE QUIERES
     footer:
       copyright: DECIDE LA LIBERTAD, %{year}
       open_data_text: Todos los datos del Gobierno Regional son tuyos.

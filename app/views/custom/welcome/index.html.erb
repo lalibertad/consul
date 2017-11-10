@@ -8,8 +8,9 @@
       <div class="mbr-box mbr-box--stretched">
         <div class="mbr-box__magnet mbr-box__magnet--center-left">
           <div class="mbr-hero animated fadeInUp">
-            <h1 style="padding-top: 10%"><%= t("layouts.header.open_city_title") %></h1>
-            <p class="mbr-hero__subtext" style="padding-top: 5%"><%= t("layouts.header.open_city_slogan_html") %></p>
+            <h1 style="padding-top:10%;letter-spacing:0;font-size:40px;"><%= t("layouts.header.open_city_title") %></h1>
+            <p style="font-size: 20px;">PORTAL DE PARTICIPACIÓN Y DECISIÓN CIUDADANA</p>
+            <p class="mbr-hero__subtext" style="padding-top:5%;font-size:25px;"><%= t("layouts.header.open_city_slogan_html") %></p>
           </div>
           <div class="mbr-buttons btn-inverse mbr-buttons--left">
             <% if feature?(:debates) %>
@@ -50,7 +51,7 @@
                                         accesskey: "4",
                                         title: t("shared.go_to_page") + t("layouts.header.budgets"), class: "mbr-buttons__btn btn btn-lg btn-default animated fadeInUp delay" %>
             <% end %>
-            <%= link_to t("layouts.header.more_info"), more_info_path, class: "mbr-buttons__btn btn btn-lg btn-default animated fadeInUp delay" %>
+
           </div>
         </div>
       </div>
