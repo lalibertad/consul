@@ -32,7 +32,7 @@ es:
         help_text_2: "Para crear una propuesta hay que registrarse en %{org}. Las propuestas que consigan el apoyo del 1% de la gente en la web, pasan a votación. Para apoyar propuestas es necesario tener una cuenta verificada."
         help_text_3: "Se convoca una votación ciudadana cuando las propuestas consiguen los apoyos necesarios. Una vez celebrada, si hay más gente a favor que en contra, el Gobierno Regional asume la propuesta y la lleva a cabo."
     new:
-      download_file: "Si su propuesta tiene un Nivel de Estudio de %{outline} o %{expedient} descargue los archivos, complételos y anexelos en Documentos."
+      download_file: "Si su propuesta tiene un Nivel de Estudio de %{outline} o %{expedient} descargue los archivos, complételos y anéxelos en Documentos."
   polls:
     index:
       section_header:

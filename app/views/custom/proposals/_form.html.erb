@@ -4,15 +4,15 @@
   <div class="row">
     <div class="small-12 column">
       <%= f.label :tipe, t("proposals.form.proposal_type") %>
-      <%= f.radio_button :tipe, "Proyecto", checked: true, class: "project", 'data-tooltip': "Se refiere a ..."%>&nbsp;&nbsp;&nbsp;
-      <%= f.radio_button :tipe, "Actividad", class: "activity", 'data-tooltip': "Se refiere a ..." %>
+      <%= f.radio_button :tipe, "Proyecto", checked: true, class: "project", 'data-tooltip': "Representa la creación, ampliación, mejora, modernización y/o recuperación de la capacidad de producción de bienes y servicios, implicando la variación sustancial o el cambio de procesos y/o tecnología utilizada por la entidad pública"%>&nbsp;&nbsp;&nbsp;
+      <%= f.radio_button :tipe, "Actividad", class: "activity", 'data-tooltip': "Acciones que concurren en la operatividad y mantenimiento de los servicios públicos o administrativos existentes" %>
     </div>
 
     <div class="small-12 column" id="level_of_study">
       <%= f.label :level, t("proposals.form.proposal_level") %>
-      <%= f.radio_button :level, "Idea", checked: true, 'data-tooltip': "Se refiere a ..." %>&nbsp;&nbsp;&nbsp;
-      <%= f.radio_button :level, "Perfil", 'data-tooltip': "Se refiere a ..." %>&nbsp;&nbsp;&nbsp;
-      <%= f.radio_button :level, "Expediente Técnico", 'data-tooltip': "Se refiere a ..." %>
+      <%= f.radio_button :level, "Idea", checked: true, 'data-tooltip': "Son iniciativas de inversión pública, que no cuentan con estudios ni con la viabilidad requerida, y que responde a los criterios de priorización de Proyectos del Presupuesto Participativo" %>&nbsp;&nbsp;&nbsp;
+      <%= f.radio_button :level, "Perfil", 'data-tooltip': "Proyectos que cuentan con estudios incompletos, en el marco del Sistema nacional de Programación Multianual y Gestión de Inversiones - Invierte Perú" %>&nbsp;&nbsp;&nbsp;
+      <%= f.radio_button :level, "Expediente Técnico", 'data-tooltip': "Proyectos que cuentan con estudios aprobados, en el marco del Sistema nacional de Programación Multianual y Gestión de Inversiones - Invierte Perú" %>
     </div>
 
     <div class="small-12 column">
