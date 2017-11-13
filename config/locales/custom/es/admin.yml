@@ -14,6 +14,7 @@ es:
         document: "DNI:"
         email: "Email:"
         district: "Distrito:"
+        hamlet: "Caserío o urbanización:"
         age: "Edad:"
         sex: "Sexo:"
         education: "Educación:"
