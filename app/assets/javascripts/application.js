@@ -157,10 +157,10 @@ function showUser(id) {
 }
 
 function showDistrict(id) {
+    $('#residence_postal_code').find('option').remove();
     $.ajax({
         url: '/districts/' + id,
         success: function (response) {
-            $('#residence_postal_code').find('option').remove();
             if (response.length > 0){
                 $.each(response, function (i, item) {
                     $('#residence_postal_code').append($('<option>',{
