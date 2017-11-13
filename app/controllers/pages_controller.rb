@@ -41,7 +41,10 @@ class PagesController < ApplicationController
         type: "application/pdf"
       )
     end
+  end
 
+  def district
+    render :json => Geozone.all.order("LOWER(name)").where("geozone_id" => params[:id])
   end
 
 end
