@@ -31,6 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.string    :profession
+      t.string    :hamlet_or_urbanization
 
       t.timestamps null: false
     end

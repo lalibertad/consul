@@ -9,9 +9,11 @@ class Admin::GeozonesController < Admin::BaseController
   end
 
   def new
+    @geozones = Geozone.all.order("LOWER(name)").where("geozone_id" => nil)
   end
 
   def edit
+    @geozones = Geozone.all.order("LOWER(name)").where("geozone_id" => nil)
   end
 
   def create
@@ -20,6 +22,7 @@ class Admin::GeozonesController < Admin::BaseController
     if @geozone.save
       redirect_to admin_geozones_path
     else
+      @geozones = Geozone.all.order("LOWER(name)").where("geozone_id" => nil)
       render :new
     end
   end
@@ -28,6 +31,7 @@ class Admin::GeozonesController < Admin::BaseController
     if @geozone.update(geozone_params)
       redirect_to admin_geozones_path
     else
+      @geozones = Geozone.all.order("LOWER(name)").where("geozone_id" => nil)
       render :edit
     end
   end
@@ -44,6 +48,6 @@ class Admin::GeozonesController < Admin::BaseController
   private
 
     def geozone_params
-      params.require(:geozone).permit(:name, :external_code, :census_code, :html_map_coordinates)
+      params.require(:geozone).permit(:name, :external_code, :census_code, :html_map_coordinates, :geozone_id)
     end
 end

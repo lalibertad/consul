@@ -18,3 +18,11 @@ es:
         sex: "Sexo:"
         education: "Educación:"
         warning: "ADVERTENCIA: Esta información es confidencial, de ser vulnerada se tomará acciones legales en su contra."
+    geozones:
+      index:
+        title: Distritos o Provincias
+        create: Crear un distrito o provincia
+      edit:
+        editing: Editando distrito o provincia
+      new:
+        creating: Crear distrito o provincia

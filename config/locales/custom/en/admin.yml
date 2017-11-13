@@ -16,3 +16,6 @@ en:
         sex: "Sex:"
         education: "Education:"
         warning: "WARNING: This information is confidential, if violated will take legal action against you."
+    geozones:
+      new:
+        creating: Create district or province
