@@ -3,7 +3,7 @@ class Verification::Residence
   include ActiveModel::Dates
   include ActiveModel::Validations::Callbacks
 
-  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service, :profession
+  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service, :profession, :hamlet_or_urbanization
 
   before_validation :retrieve_census_data
 
@@ -44,10 +44,11 @@ class Verification::Residence
         errors.add(:postal_code, I18n.t('verification.residence.new.error_not_allowed_postal_code'))
         return false
       end
-      user.update(geozone:               geozone,
+      user.update(geozone: geozone,
                   profession: profession,
-                confirmed_phone: Faker::PhoneNumber.phone_number,
-                residence_verified_at: Time.current)
+                  hamlet_or_urbanization: hamlet_or_urbanization,
+                  confirmed_phone: Faker::PhoneNumber.phone_number,
+                  residence_verified_at: Time.current)
     rescue => e
       errors.add(:terms_of_service, e)
       return false
@@ -74,7 +75,7 @@ class Verification::Residence
   end
 
   def geozone
-    Geozone.where(census_code: postal_code).first
+    Geozone.where(id: postal_code).first
   end
 
   def district_code

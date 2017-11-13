@@ -34,19 +34,28 @@
       <%= render "errors" %>
 
         <div class="small-12 medium-5 clear">
+          <div class="fork medium-6">
+            <%= f.select :postal_code, options_for_select(@geozones.map{ |c| [c.name, c.id]})%>
+          </div>
+        </div>
+        <script>
+            $('.fork label').text('Distrito');
+        </script>
+
+        <div class="small-12 medium-5 clear">
+          <%= f.label t("verification.residence.new.hamlet_or_urba") %>
+          <p class="help-text" id="postal-code-help-text"><%= t("verification.residence.new.postal_code_note") %></p>
+          <div class="fork medium-6">
+            <%= f.text_field :hamlet_or_urbanization, label: false, aria: {describedby: "postal-code-help-text"}, maxlength: "30", minlength: "3", required: "required" %>
+          </div>
+        </div>
+
+        <div class="small-12 medium-5 clear">
           <%= f.label t("verification.residence.new.profession") %>
           <div class="medium-6">
             <%= f.text_field :profession, label: false, required: "required" %>
           </div>
         </div>
-
-      <div class="small-12 medium-5 clear">
-        <%= f.label t("verification.residence.new.postal_code") %>
-        <p class="help-text" id="postal-code-help-text"><%= t("verification.residence.new.postal_code_note") %></p>
-        <div class="medium-6">
-          <%= f.text_field :postal_code, label: false, aria: {describedby: "postal-code-help-text"}, oninput: "this.value=this.value.replace(/[^0-9]/g,'');", maxlength: "5", minlength: "5", required: "required" %>
-        </div>
-      </div>
 
       <div class="small-12">
         <%= f.label :terms_of_service do %>
