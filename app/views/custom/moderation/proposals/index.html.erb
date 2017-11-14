@@ -1,5 +1,7 @@
 <h2><%= t("moderation.proposals.index.title") %></h2>
 
+<%= render "shared/advance_search", search_path: moderation_proposals_path(page: 1) %>
+
 <%= render 'shared/filter_subnav', i18n_namespace: "moderation.proposals.index" %>
 
 <div class="row">

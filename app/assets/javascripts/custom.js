@@ -5,7 +5,6 @@
 //
 //
 $(document).ready(function(){
-    showDistrict($('#province').val());
     $(".activity").click(function(){
         $("#level_of_study").hide();
     });
