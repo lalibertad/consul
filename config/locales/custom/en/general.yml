@@ -33,12 +33,19 @@ en:
         help_text_3: "A citizen vote is called when the proposals get the necessary support. Once celebrated, if there are more people in favor than against, the Regional Government assumes the proposal and carries it out."
     new:
       download_file: "If your proposal has a Level of Study of %{outline} or %{expedient} download the files, complete them and add them in Documents."
+  geozones:
+    none: All region
+    none_province: All province
   polls:
     index:
       section_header:
         description: Register to be able to vote on citizen proposals and the questions that ask their neighbors the Regional Government. Make regional decisions directly.
       section_footer:
         help_text_1: "Voting is convened when a citizen proposal reaches 1% of census supports with voting rights. Voting can also include issues that the Regional Government submits to the direct decision of the citizens."
+  shared:
+    tags_cloud:
+      districts: "Provinces"
+      districts_list: "Provinces list"
   welcome:
     do:
       description: If the proposal is accepted mainly, the Regional Government assumes it as its own and is done.

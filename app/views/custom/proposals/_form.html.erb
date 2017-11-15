@@ -69,7 +69,12 @@
 
     <div class="small-12 medium-6 column">
       <%= f.label :geozone_id,  t("proposals.form.geozone") %>
-      <%= f.select :geozone_id, geozone_select_options, {include_blank: t("geozones.none"), label: false} %>
+      <%= f.select :geozone_id, geozone_select_options, {include_blank: t("geozones.none"), label: false}, class: "geozone_province" %>
+    </div>
+
+    <div class="small-12 medium-6 column">
+      <br>
+      <%= f.select :geozone_id, geozone_select_district, {include_blank: t("geozones.none_province"), label: false}, class: "geozone_district", display: "none" %>
     </div>
 
     <% if feature?(:map) %>

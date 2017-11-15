@@ -5,7 +5,11 @@ module GeozonesHelper
   end
 
   def geozone_select_options
-    Geozone.all.order(name: :asc).collect { |g| [ g.name, g.id ] }
+    Geozone.all.order(name: :asc).where(geozone_id: nil).collect { |g| [ g.name, g.id ] }
+  end
+
+  def geozone_select_district
+    Geozone.all.order(name: :asc).where.not(geozone_id: nil).collect { |g| [ g.name, g.id, :data => g.geozone_id ] }
   end
 
   def geozone_name_from_id(g_id)

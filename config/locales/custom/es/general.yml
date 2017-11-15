@@ -33,12 +33,19 @@ es:
         help_text_3: "Se convoca una votación ciudadana cuando las propuestas consiguen los apoyos necesarios. Una vez celebrada, si hay más gente a favor que en contra, el Gobierno Regional asume la propuesta y la lleva a cabo."
     new:
       download_file: "Si su propuesta tiene un Nivel de Estudio de %{outline} o %{expedient} descargue los archivos, complételos y anéxelos en Documentos."
+  geozones:
+    none: Toda la región
+    none_province: Toda la provincia
   polls:
     index:
       section_header:
         description: Regístrate para poder votar propuestas ciudadanas y las cuestiones que pregunta a sus vecinos el Gobierno Regional. Toma decisiones regionales de forma directa.
       section_footer:
         help_text_1: "Las votaciones se convocan cuando una propuesta ciudadana alcanza el 1% de apoyos del censo con derecho a voto. En las votaciones también se pueden incluir cuestiones que el Gobierno Regional somete a decisión directa de la ciudadanía."
+  shared:
+    tags_cloud:
+      districts: "Provincias"
+      districts_list: "Listado de provincias"
   welcome:
     do:
       description: Si la propuesta es aceptada mayoritariamente, el Gobierno Regional la asume como propia y se hace.
