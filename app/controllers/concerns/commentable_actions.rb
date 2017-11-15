@@ -88,7 +88,7 @@ module CommentableActions
     end
 
     def load_geozones
-      @geozones = Geozone.all.order(name: :asc)
+      @geozones = Geozone.all.order(name: :asc).where(geozone_id: nil)
     end
 
     def set_geozone
