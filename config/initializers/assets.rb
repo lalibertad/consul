@@ -16,6 +16,7 @@ Rails.application.config.assets.precompile += %w( print.css )
 Rails.application.config.assets.precompile += %w( ie.css )
 Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( home.js )
+Rails.application.config.assets.precompile += %w( geozone.js )
 
 # Loads app/assets/images/custom before app/assets/images
 images_path = Rails.application.config.assets.paths
