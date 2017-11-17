@@ -1,8 +1,8 @@
 jQuery ->
   $(".activity").click ->
-    $("#level_of_study").hide();
+    $("#level_of_study").hide()
   $(".project").click ->
-    $("#level_of_study").show();
+    $("#level_of_study").show()
   $('.geozone_district').parent().hide()
   districts = $('.geozone_district').html()
   $('.geozone_district').prop('disabled','disabled')
