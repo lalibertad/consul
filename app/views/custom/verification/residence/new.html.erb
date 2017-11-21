@@ -34,32 +34,31 @@
       <%= render "errors" %>
 
         <div class="small-12 medium-5 clear">
-          <%= f.label "Provincia" %>
           <p class="help-text" id="postal-code-help-text"><%= t("verification.residence.new.postal_code_note") %></p>
+          <%= f.label t("verification.residence.new.province") %>
           <div class="medium-6">
-            <%= select_tag "province", options_for_select(@geozones.map{ |c| [c.name, c.id]}), :onchange => 'showDistrict($(this).val())'%>
+            <%= f.select :postal_code, geozone_select_options, {label: false}, class: "geozone_province" %>
           </div>
         </div>
 
         <div class="small-12 medium-5 clear">
+          <%= f.label :portal_code, t("verification.residence.new.district") %>
           <div class="fork medium-6">
-            <%= f.select :postal_code, label: false %>
+            <%= f.select :postal_code, geozone_select_district, {label: false}, class: "geozone_district" %>
           </div>
         </div>
-        <script>
-            $('.fork label').text('Distrito');
-            showDistrict($('#province').val());
-        </script>
+
+        <%= javascript_include_tag "geozone"%>
 
         <div class="small-12 medium-5 clear">
-          <%= f.label t("verification.residence.new.hamlet_or_urba") %>
+          <%= f.label :hamlet_or_urbanization, t("verification.residence.new.hamlet_or_urba") %>
           <div class="fork medium-6">
             <%= f.text_field :hamlet_or_urbanization, label: false, aria: {describedby: "postal-code-help-text"}, maxlength: "30", minlength: "3", required: "required" %>
           </div>
         </div>
 
         <div class="small-12 medium-5 clear">
-          <%= f.label t("verification.residence.new.profession") %>
+          <%= f.label :profession, t("verification.residence.new.profession") %>
           <div class="medium-6">
             <%= f.text_field :profession, label: false, required: "required" %>
           </div>

@@ -5,3 +5,5 @@ en:
       new:
         profession: Level of Education
         hamlet_or_urba: Hamlet or urbanization
+        province: Province
+        district: District

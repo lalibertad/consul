@@ -6,7 +6,6 @@ class Verification::ResidenceController < ApplicationController
 
   def new
     @residence = Verification::Residence.new
-    @geozones = Geozone.all.order("LOWER(name)").where("geozone_id" => nil)
   end
 
   def create
@@ -14,7 +13,6 @@ class Verification::ResidenceController < ApplicationController
     if @residence.save
       redirect_to_next_path#, notice: t('verification.residence.create.flash.success')
     else
-      @geozones = Geozone.all.order("LOWER(name)").where("geozone_id" => nil)
       render :new
     end
   end
