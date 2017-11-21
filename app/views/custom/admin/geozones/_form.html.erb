@@ -22,13 +22,11 @@
   </div>
 
     <div class="row">
-      <div class="forx column">
-        <%= f.select :geozone_id, options_for_select(@geozones.map{ |c| [c.name, c.id]}, selected_key = f.object.geozone_id), {:include_blank => 'Es provincia'}%>
+      <div class="column">
+        <%= f.label :geozone_id, t("verification.residence.new.province") %>
+        <%= f.select :geozone_id, geozone_select_options, {:include_blank => 'Es provincia', label: false}%>
       </div>
     </div>
-    <script>
-      $('.forx label').text('Provincia');
-    </script>
 
   <div class="row">
     <div class="actions small-12 large-3 medium-3 column">

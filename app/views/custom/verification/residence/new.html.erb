@@ -43,7 +43,7 @@
 
         <div class="small-12 medium-5 clear">
           <%= f.label :portal_code, t("verification.residence.new.district") %>
-          <div class="fork medium-6">
+          <div class="medium-6">
             <%= f.select :postal_code, geozone_select_district, {label: false}, class: "geozone_district" %>
           </div>
         </div>
@@ -52,7 +52,7 @@
 
         <div class="small-12 medium-5 clear">
           <%= f.label :hamlet_or_urbanization, t("verification.residence.new.hamlet_or_urba") %>
-          <div class="fork medium-6">
+          <div class="medium-6">
             <%= f.text_field :hamlet_or_urbanization, label: false, aria: {describedby: "postal-code-help-text"}, maxlength: "30", minlength: "3", required: "required" %>
           </div>
         </div>
