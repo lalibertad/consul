@@ -25,23 +25,22 @@ es:
       proposal_type: Tipo de propuesta
       proposal_level: Nivel de estudio del proyecto
     index:
-      section_header:
-        description: Haz una propuesta ciudadana. Si obtiene los apoyos suficientes y pasa a votación, puedes conseguir que todos los habitantes decidan cómo quieren que sea nuestra región.
       section_footer:
+        description: Haz una propuesta ciudadana. Si obtiene los apoyos suficientes y pasa a votación, puedes conseguir que todos los habitantes decidan cómo quieren que sea nuestra región.
         help_text_1: "Las propuestas ciudadanas son una oportunidad para que los vecinos y colectivos decidan directamente cómo quieren que sea la región La Libertad. Cualquier persona puede hacer una propuesta sobre un tema que le interese o preocupe para que el Gobierno Regional la lleve a cabo, después de conseguir los apoyos suficientes y de someterse a votación ciudadana."
         help_text_2: "Para crear una propuesta hay que registrarse en %{org}. Las propuestas que consigan el apoyo del 1% de la gente en la web, pasan a votación. Para apoyar propuestas es necesario tener una cuenta verificada."
         help_text_3: "Se convoca una votación ciudadana cuando las propuestas consiguen los apoyos necesarios. Una vez celebrada, si hay más gente a favor que en contra, el Gobierno Regional asume la propuesta y la lleva a cabo."
     new:
-      download_file: "Si su propuesta tiene un Nivel de Estudio de %{outline} o %{expedient} descargue los archivos, complételos y anéxelos en Documentos."
+      download_file: "Si tu propuesta tiene un Nivel de Estudio de %{outline} o %{expedient} descarga los archivos, complétalos y anéxalos en Documentos."
   geozones:
     none: Toda la región
     none_province: Toda la provincia
   polls:
     index:
-      section_header:
-        description: Regístrate para poder votar propuestas ciudadanas y las cuestiones que pregunta a sus vecinos el Gobierno Regional. Toma decisiones regionales de forma directa.
       section_footer:
+        description: Regístrate para poder votar propuestas ciudadanas y las cuestiones que pregunta a sus vecinos el Gobierno Regional. Toma decisiones regionales de forma directa.
         help_text_1: "Las votaciones se convocan cuando una propuesta ciudadana alcanza el 1% de apoyos del censo con derecho a voto. En las votaciones también se pueden incluir cuestiones que el Gobierno Regional somete a decisión directa de la ciudadanía."
+        help_text_2: "Para participar en la próxima votación tienes que registrarte en %{org} y verificar tu cuenta. Pueden votar todas las personas empadronadas en la ciudad mayores de 18 años. Los resultados de todas las votaciones serán vinculantes para el gobierno."
   shared:
     tags_cloud:
       districts: "Provincias"
