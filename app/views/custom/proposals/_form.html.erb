@@ -77,7 +77,7 @@
       <%= f.select :geozone_id, geozone_select_district, {include_blank: t("geozones.none_province"), label: false}, class: "geozone_district", display: "none" %>
     </div>
 
-    <%= javascript_include_tag "geozone"%>
+    <%= javascript_include_tag "geozone" %>
 
     <% if feature?(:map) %>
       <div class="small-12 column">
