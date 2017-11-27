@@ -82,7 +82,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           end
           #if (Time.now.strftime("%Y%m%d") - datos["FENAC"]) < (User.minimum_required_age * 10000)
           #end
-          params[:user][:username] = "#{datos["NOMBRES"].strip!}" + " " + "#{datos["APPAT"].strip!}" + " " + "#{datos["APMAT"].strip!}"
+          params[:user][:username] = "#{datos["NOMBRES"]}" + " " + "#{datos["APPAT"]}" + " " + "#{datos["APMAT"]}"
         end
       rescue
         $message = t("devise_views.users.registrations.new.service_is_not_available")

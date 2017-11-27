@@ -53,9 +53,9 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
               params[:user][:gender] = "Female"
             end
           end
-          nombres = datos["NOMBRES"].strip!
-          appat = datos["APPAT"].strip!
-          apmat = datos["APMAT"].strip!
+          nombres = datos["NOMBRES"]
+          appat = datos["APPAT"]
+          apmat = datos["APMAT"]
           params[:user][:username] = "#{nombres}" + " " + "#{appat}" + " " + "#{apmat}"
           params[:user][:organization_attributes][:responsible_name] = "#{nombres}" + " " + "#{appat}" + " " + "#{apmat}"
         end
