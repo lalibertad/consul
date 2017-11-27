@@ -2,6 +2,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :finish_signup, :do_finish_signup]
 
   invisible_captcha only: [:create], honeypot: :family_name, scope: :user
+  $message = ''
 
   def new
     super do |user|
@@ -14,6 +15,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.valid?
       super
     else
+      if $message != ''
+        flash.now[:alert] = $message
+      end
       render :new
     end
   end
@@ -61,9 +65,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user].delete(:redeemable_code) if params[:user].present? && params[:user][:redeemable_code].blank?
       begin
         params[:user][:document_type] = "1"
-        response = HTTParty.get("#{Rails.application.secrets.api_reniec}?numDni=#{params[:user][:document_number]}")
-        if response.body != "null"
-          datos = JSON.parse(response.body)
+        response = HTTParty.get("#{Rails.application.secrets.api_reniec}/consultadni/#{params[:user][:document_number]}")
+        datos = JSON.parse(response.body)["resultado"]
+        if datos.nil? || datos.empty?
+          $message = 'DNI incorrecto, inválido en RENIEC'
+        else
           if datos["FENAC"] != {}
             params[:user][:date_of_birth] = DateTime.strptime(datos["FENAC"] + "120000", "%Y%m%d%H%M%S")
           end
@@ -76,15 +82,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
           end
           #if (Time.now.strftime("%Y%m%d") - datos["FENAC"]) < (User.minimum_required_age * 10000)
           #end
-          nombres = datos["NOMBRES"]
-          nombres.strip!
-          appat = datos["APPAT"]
-          appat.strip!
-          apmat = datos["APMAT"]
-          apmat.strip!
-          params[:user][:username] = "#{nombres}" + " " + "#{appat}" + " " + "#{apmat}"
+          params[:user][:username] = "#{datos["NOMBRES"].strip!}" + " " + "#{datos["APPAT"].strip!}" + " " + "#{datos["APMAT"].strip!}"
         end
       rescue
+        $message = 'Servicio RENIEC no disponible, vuelva a intentarlo más tarde'
       end
       params.require(:user).permit(:document_number, :document_type, :username, :email, :password,
                                    :password_confirmation, :terms_of_service, :locale,
