@@ -34,9 +34,9 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
     def sign_up_params
       begin
         params[:user][:document_type] = "1"
-        response = HTTParty.get("#{Rails.application.secrets.api_reniec}/consultadni/#{params[:user][:document_number]}")
+        response = HTTParty.get("#{Rails.application.secrets.api_reniec}?numDni=#{params[:user][:document_number]}")
         if response.body != "null"
-          datos = JSON.parse(response.body)["resultado"]
+          datos = JSON.parse(response.body)
           if datos["FENAC"] != {}
             params[:user][:date_of_birth] = DateTime.strptime(datos["FENAC"] + "120000", "%Y%m%d%H%M%S")
           end
