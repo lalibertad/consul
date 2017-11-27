@@ -11,8 +11,8 @@ es:
           username_is_not_available: "Usuario ya existente"
           username_label: DNI de usuario
           username_note: Su DNI será validado con la base de datos de RENIEC
-          username_is_not_valid: "DNI no válido"
-          service_is_not_available: "Servicio de RENIEC no disponible"
+          username_is_not_valid: "DNI incorrecto, inválido en RENIEC"
+          service_is_not_available: "RENIEC service not available, try again later"
           document_number: Número de documento
     organizations:
       registrations:

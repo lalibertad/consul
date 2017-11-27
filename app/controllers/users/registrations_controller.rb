@@ -68,7 +68,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         response = HTTParty.get("#{Rails.application.secrets.api_reniec}/consultadni/#{params[:user][:document_number]}")
         datos = JSON.parse(response.body)["resultado"]
         if datos.nil? || datos.empty?
-          $message = 'DNI incorrecto, inválido en RENIEC'
+          $message = t("devise_views.users.registrations.new.username_is_not_valid")
         else
           if datos["FENAC"] != {}
             params[:user][:date_of_birth] = DateTime.strptime(datos["FENAC"] + "120000", "%Y%m%d%H%M%S")
@@ -85,7 +85,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           params[:user][:username] = "#{datos["NOMBRES"].strip!}" + " " + "#{datos["APPAT"].strip!}" + " " + "#{datos["APMAT"].strip!}"
         end
       rescue
-        $message = 'Servicio RENIEC no disponible, vuelva a intentarlo más tarde'
+        $message = t("devise_views.users.registrations.new.service_is_not_available")
       end
       params.require(:user).permit(:document_number, :document_type, :username, :email, :password,
                                    :password_confirmation, :terms_of_service, :locale,
