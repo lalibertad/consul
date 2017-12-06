@@ -17,8 +17,7 @@
     <h2><%= t("proposals.new.recommendations_title") %></h2>
     <ul class="recommendations">
       <li>
-        <%= t("proposals.new.download_file", outline: link_to('Perfil', '/download/outline', target: "_blank", rel: "nofollow", class: ''),
-                expedient: link_to('Expediente Técnico','/download/expedient', target: "_blank", rel: "nofollow", class: '')).html_safe %>
+        <%= t("proposals.new.download_file", expedient: link_to('Ficha Técnica','/download', target: "_blank", rel: "nofollow", class: '')).html_safe %>
       </li>
       <li><%= t("proposals.new.recommendation_one") %></li>
       <li><%= t("proposals.new.recommendation_two") %></li>

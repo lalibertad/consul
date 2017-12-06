@@ -28,19 +28,11 @@ class PagesController < ApplicationController
   end
 
   def download
-    if params[:da] == "outline"
-      send_file(
-        "#{Rails.root}/public/docs/directrices_ejercicio_propuesta.pdf",
-        filename: "directrices_ejercicio_propuesta.pdf",
-        type: "application/pdf"
-      )
-    else
-      send_file(
-        "#{Rails.root}/public/docs/formulario_propuestas_ciudadanas.pdf",
-        filename: "formulario_propuestas_ciudadanas.pdf",
-        type: "application/pdf"
-      )
-    end
+    send_file(
+      "#{Rails.root}/public/docs/formato_ficha_tecnica.pdf",
+      filename: "formato_ficha_tecnica.pdf",
+      type: "application/pdf"
+    )
   end
 
 end

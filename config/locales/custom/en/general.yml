@@ -31,7 +31,7 @@ en:
         help_text_2: "To create a proposal, you must register in %{org}. Proposals that get the support of 1% of the people on the web, are put to a vote. To support proposals it is necessary to have a verified account."
         help_text_3: "A citizen vote is called when the proposals get the necessary support. Once celebrated, if there are more people in favor than against, the Regional Government assumes the proposal and carries it out."
     new:
-      download_file: "If your proposal has a Level of Study of %{outline} or %{expedient} download the files, complete them and add them in Documents."
+      download_file: "Tell us the level of study that your proposal has, download the %{expedient}, complete it and annotate it in Documents."
   geozones:
     none: All region
     none_province: All province

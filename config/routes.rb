@@ -476,7 +476,7 @@ Rails.application.routes.draw do
   get 'more-information/how-to-use',          to: 'pages#show', id: 'more_info/how_to_use/index',     as: 'how_to_use'
   get 'more-information/faq',                 to: 'pages#show', id: 'more_info/faq/index',            as: 'faq'
   get 'more-show/:id',                        to: 'pages#more'
-  get 'download/:da',                         to: 'pages#download'
+  get 'download',                             to: 'pages#download'
 
   # static pages
   get '/blog' => redirect("http://blog.consul/")
