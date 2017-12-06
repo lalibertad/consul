@@ -15,36 +15,36 @@ end
 
 section "Creating Settings" do
   Setting.create(key: 'official_level_1_name', value: 'Empleados públicos')
-  Setting.create(key: 'official_level_2_name', value: 'Gerente Regional')
-  Setting.create(key: 'official_level_3_name', value: 'Gerente General')
-  Setting.create(key: 'official_level_4_name', value: 'Consejeros Regionales')
-  Setting.create(key: 'official_level_5_name', value: 'Gobernador')
+  Setting.create(key: 'official_level_2_name', value: 'Organización Municipal')
+  Setting.create(key: 'official_level_3_name', value: 'Directores generales')
+  Setting.create(key: 'official_level_4_name', value: 'Concejales')
+  Setting.create(key: 'official_level_5_name', value: 'Alcaldesa')
   Setting.create(key: 'max_ratio_anon_votes_on_debates', value: '50')
   Setting.create(key: 'max_votes_for_debate_edit', value: '1000')
   Setting.create(key: 'max_votes_for_proposal_edit', value: '1000')
-  Setting.create(key: 'proposal_code_prefix', value: 'LIB')
+  Setting.create(key: 'proposal_code_prefix', value: 'MAD')
   Setting.create(key: 'votes_for_proposal_success', value: '100')
   Setting.create(key: 'months_to_archive_proposals', value: '12')
   Setting.create(key: 'comments_body_max_length', value: '1000')
 
-  Setting.create(key: 'twitter_handle', value: '@GRLaLibertad')
-  Setting.create(key: 'twitter_hashtag', value: '#DecideLaLibertad')
-  Setting.create(key: 'facebook_handle', value: 'GRLaLibertad')
-  Setting.create(key: 'youtube_handle', value: 'channel/UC0IcCo7kPbktO-rply0HtJQ')
-  Setting.create(key: 'telegram_handle', value: '')
-  Setting.create(key: 'instagram_handle', value: 'grlalibertad')
+  Setting.create(key: 'twitter_handle', value: '@consul_dev')
+  Setting.create(key: 'twitter_hashtag', value: '#consul_dev')
+  Setting.create(key: 'facebook_handle', value: 'CONSUL')
+  Setting.create(key: 'youtube_handle', value: 'CONSUL')
+  Setting.create(key: 'telegram_handle', value: 'CONSUL')
+  Setting.create(key: 'instagram_handle', value: 'CONSUL')
   Setting.create(key: 'blog_url', value: '/blog')
-  Setting.create(key: 'url', value: 'http://decidelalibertad.pe/')
-  Setting.create(key: 'org_name', value: 'Decide La Libertad')
-  Setting.create(key: 'place_name', value: 'Trujillo')
+  Setting.create(key: 'url', value: 'http://localhost:3000')
+  Setting.create(key: 'org_name', value: 'CONSUL')
+  Setting.create(key: 'place_name', value: 'City')
   Setting.create(key: 'feature.debates', value: "true")
   Setting.create(key: 'feature.polls', value: "true")
   Setting.create(key: 'feature.spending_proposals', value: nil)
   Setting.create(key: 'feature.spending_proposal_features.voting_allowed', value: nil)
   Setting.create(key: 'feature.budgets', value: "true")
-  Setting.create(key: 'feature.twitter_login', value: "false")
-  Setting.create(key: 'feature.facebook_login', value: "false")
-  Setting.create(key: 'feature.google_login', value: "false")
+  Setting.create(key: 'feature.twitter_login', value: "true")
+  Setting.create(key: 'feature.facebook_login', value: "true")
+  Setting.create(key: 'feature.google_login', value: "true")
   Setting.create(key: 'feature.signature_sheets', value: "true")
   Setting.create(key: 'feature.legislation', value: "true")
   Setting.create(key: 'feature.user.recommendations', value: "true")
@@ -54,22 +54,23 @@ section "Creating Settings" do
   Setting.create(key: 'per_page_code_head', value: "")
   Setting.create(key: 'per_page_code_body', value: "")
   Setting.create(key: 'comments_body_max_length', value: '1000')
-  Setting.create(key: 'mailer_from_name', value: 'Decide La Libertad')
-  Setting.create(key: 'mailer_from_address', value: 'decide@regionlalibertad.gob.pe')
+  Setting.create(key: 'mailer_from_name', value: 'CONSUL')
+  Setting.create(key: 'mailer_from_address', value: 'noreply@consul.dev')
+  Setting.create(key: 'meta_title', value: 'CONSUL')
   Setting.create(key: 'meta_description', value: 'Citizen Participation and Open Government Application')
   Setting.create(key: 'meta_keywords', value: 'citizen participation, open government')
   Setting.create(key: 'verification_offices_url', value: 'http://oficinas-atencion-ciudadano.url/')
-  Setting.create(key: 'min_age_to_participate', value: '18')
+  Setting.create(key: 'min_age_to_participate', value: '16')
   Setting.create(key: 'proposal_improvement_path', value: nil)
-  Setting.create(key: 'map_latitude', value: -8.112595421768354)
-  Setting.create(key: 'map_longitude', value: -79.02875661849977)
-  Setting.create(key: 'map_zoom', value: 12)
+  Setting.create(key: 'map_latitude', value: 51.48)
+  Setting.create(key: 'map_longitude', value: 0.0)
+  Setting.create(key: 'map_zoom', value: 10)
 end
 
 section "Creating Geozones" do
-  Geozone.create(name: "Trujillo")
-  #Geozone.create(name: "Existent District", census_code: "01")
-  #('A'..'Z').each { |i| Geozone.create(name: "District #{i}", external_code: i.ord, census_code: i.ord) }
+  Geozone.create(name: "city")
+  Geozone.create(name: "Existent District", census_code: "01")
+  ('A'..'Z').each { |i| Geozone.create(name: "District #{i}", external_code: i.ord, census_code: i.ord) }
 end
 
 section "Creating Users" do
@@ -98,7 +99,7 @@ section "Creating Users" do
   admin.create_administrator
   admin.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1",
                verified_at: Time.current, document_number: unique_document_number)
-=begin
+
   moderator = create_user('mod@consul.dev', 'mod')
   moderator.create_moderator
 
@@ -160,7 +161,6 @@ section "Creating Users" do
       user.update(verified_at: Time.current, document_number: unique_document_number)
     end
   end
-=end
 end
 
 section "Creating Tags Categories" do
@@ -180,7 +180,7 @@ section "Creating Tags Categories" do
   ActsAsTaggableOn::Tag.category.create!(name: "Seguridad y Emergencias")
   ActsAsTaggableOn::Tag.category.create!(name: "Medio Ambiente")
 end
-=begin
+
 section "Creating Debates" do
   tags = Faker::Lorem.words(25)
   30.times do
@@ -363,27 +363,27 @@ section "Flagging Debates & Comments" do
 end
 
 section "Creating Spending Proposals" do
-  tags = Faker::Lorem.words(10)
-  60.times do
-    geozone = Geozone.all.sample
-    author = User.all.sample
-    description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
-    feasible_explanation = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
-    valuation_finished = [true, false].sample
-    feasible = [true, false].sample
-    spending_proposal = SpendingProposal.create!(author: author,
-                                                 title: Faker::Lorem.sentence(3).truncate(60),
-                                                 external_url: Faker::Internet.url,
-                                                 description: description,
-                                                 created_at: rand((Time.current - 1.week)..Time.current),
-                                                 geozone: [geozone, nil].sample,
-                                                 feasible: feasible,
-                                                 feasible_explanation: feasible_explanation,
-                                                 valuation_finished: valuation_finished,
-                                                 tag_list: tags.sample(3).join(','),
-                                                 price: rand(1000000),
-                                                 terms_of_service: "1")
-  end
+tags = Faker::Lorem.words(10)
+60.times do
+  geozone = Geozone.all.sample
+  author = User.all.sample
+  description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+  feasible_explanation = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+  valuation_finished = [true, false].sample
+  feasible = [true, false].sample
+  spending_proposal = SpendingProposal.create!(author: author,
+                                               title: Faker::Lorem.sentence(3).truncate(60),
+                                               external_url: Faker::Internet.url,
+                                               description: description,
+                                               created_at: rand((Time.current - 1.week)..Time.current),
+                                               geozone: [geozone, nil].sample,
+                                               feasible: feasible,
+                                               feasible_explanation: feasible_explanation,
+                                               valuation_finished: valuation_finished,
+                                               tag_list: tags.sample(3).join(','),
+                                               price: rand(1000000),
+                                               terms_of_service: "1")
+end
 end
 
 section "Creating Valuation Assignments" do
@@ -753,5 +753,5 @@ section "Creating legislation processes" do
     end
   end
 end
-=end
+
 log "All dev seeds created successfuly 👍"

@@ -883,4 +883,7 @@ LOREM_IPSUM
     end
   end
 
+  factory :related_content do
+  end
+
 end
