@@ -6,7 +6,7 @@ es:
   layouts:
     header:
       logo: GOBIERNO REGIONAL LA LIBERTAD
-      collaborative_legislation: Legislación colaborativa
+      collaborative_legislation: Legislación Participativa
       external_link_opendata: Datos abiertos
       external_link_opendata_url: http://datosabiertos.regionlalibertad.gob.pe/
       external_link_transparency: Transparencia
@@ -14,6 +14,8 @@ es:
       open_city_slogan_html: El Gobierno Regional La Libertad <strong>quiere contar contigo</strong> para construir una región más abierta, transparente y colaborativa. <strong>Entra</strong>, <strong>participa</strong> y <strong>decide<strong>.
       open_city_title: PARTICIPA Y CONSTRUYE LA LIBERTAD QUE QUIERES
       open_city_page: PORTAL DE PARTICIPACIÓN Y DECISIÓN CIUDADANA
+      poll_questions: Consultas Participativas
+      budgets: Presupuestos Participativos
     footer:
       copyright: DECIDE LA LIBERTAD, %{year}
       open_data_text: Todos los datos del Gobierno Regional son tuyos.
