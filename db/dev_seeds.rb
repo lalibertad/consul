@@ -38,6 +38,7 @@ section "Creating Settings" do
   Setting.create(key: 'org_name', value: 'Decide La Libertad')
   Setting.create(key: 'place_name', value: 'Trujillo')
   Setting.create(key: 'feature.debates', value: "true")
+  Setting.create(key: 'feature.proposals', value: "true")
   Setting.create(key: 'feature.polls', value: "true")
   Setting.create(key: 'feature.spending_proposals', value: nil)
   Setting.create(key: 'feature.spending_proposal_features.voting_allowed', value: nil)
