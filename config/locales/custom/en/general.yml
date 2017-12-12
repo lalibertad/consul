@@ -26,6 +26,8 @@ en:
     form:
       proposal_type: Type of proposal
       proposal_level: Project study level
+      tags_instructions: "Tag this proposal. This order is considered for the prioritization of projects"
+      tags_label: Topics or Components
     index:
       section_footer:
         description: Make a citizen proposal. If you get enough support and vote, you can get all the inhabitants to decide how they want our region to be.

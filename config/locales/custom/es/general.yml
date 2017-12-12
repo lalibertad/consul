@@ -26,6 +26,8 @@ es:
     form:
       proposal_type: Tipo de propuesta
       proposal_level: Nivel de estudio del proyecto
+      tags_instructions: "Etiqueta esta propuesta. Este orden está considerado para la priorización de proyectos"
+      tags_label: Temas o Componentes
     index:
       section_footer:
         description: Haz una propuesta ciudadana. Si obtiene los apoyos suficientes y pasa a votación, puedes conseguir que todos los habitantes decidan cómo quieren que sea nuestra región.
