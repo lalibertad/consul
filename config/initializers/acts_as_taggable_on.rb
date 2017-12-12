@@ -29,6 +29,7 @@ module ActsAsTaggableOn
 
   Tag.class_eval do
 
+    default_scope -> { order(order: :asc) }
     scope :category, -> { where(kind: "category") }
 
     def category?

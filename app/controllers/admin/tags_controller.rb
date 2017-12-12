@@ -1,11 +1,11 @@
 class Admin::TagsController < Admin::BaseController
-  before_action :find_tag, only: [:update, :destroy]
+  before_action :find_tag, :all_tags, only: [:update, :destroy]
 
   respond_to :html, :js
 
   def index
-    @tags = ActsAsTaggableOn::Tag.category.page(params[:page])
-    @tag  = ActsAsTaggableOn::Tag.category.new
+    all_tags
+    @tag = ActsAsTaggableOn::Tag.category.new
   end
 
   def create
@@ -18,6 +18,22 @@ class Admin::TagsController < Admin::BaseController
     redirect_to admin_tags_path
   end
 
+  def order
+    @tags = all_tags
+    i = 1
+    params[:order].each do |k|
+      @tags.each do |tag|
+        if tag.id == k.to_f
+          tag.order = i
+          tag.save
+          i += 1
+          break
+        end
+      end
+    end
+    render :json => 1
+  end
+
   private
 
     def tag_params
@@ -26,6 +42,10 @@ class Admin::TagsController < Admin::BaseController
 
     def find_tag
       @tag = ActsAsTaggableOn::Tag.category.find(params[:id])
+    end
+
+    def all_tags
+      @tags = ActsAsTaggableOn::Tag.category.all
     end
 
 end

@@ -75,9 +75,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
           end
           if datos["SEXO"] != {}
             if datos["SEXO"] == "M"
-              params[:user][:gender] = "Male"
+              params[:user][:gender] = "Masculino"
             else
-              params[:user][:gender] = "Female"
+              params[:user][:gender] = "Femenino"
             end
           end
           #if (Time.now.strftime("%Y%m%d") - datos["FENAC"]) < (User.minimum_required_age * 10000)

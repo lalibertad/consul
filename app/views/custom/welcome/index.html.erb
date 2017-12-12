@@ -20,11 +20,13 @@
                                         accesskey: "1",
                                         title: t("shared.go_to_page") + t("layouts.header.debates"), class: "mbr-buttons__btn btn btn-lg btn-default animated fadeInUp delay" %>
             <% end %>
+            <% if feature?(:proposals) %>
             <%= layout_menu_link_to t("layouts.header.proposals"),
                                     proposals_path,
                                     controller_name == 'proposals',
                                     accesskey: "2",
                                     title: t("shared.go_to_page") + t("layouts.header.proposals"), class: "mbr-buttons__btn btn btn-lg btn-default animated fadeInUp delay" %>
+            <% end %>
             <% if feature?(:budgets) %>
               <%= layout_menu_link_to t("layouts.header.budgets"),
                                       budgets_path,

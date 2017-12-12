@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127230716) do
+ActiveRecord::Schema.define(version: 20171211152932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1080,6 +1080,7 @@ ActiveRecord::Schema.define(version: 20171127230716) do
     t.integer "budget/investments_count",               default: 0
     t.integer "legislation/proposals_count",            default: 0
     t.integer "legislation/processes_count",            default: 0
+    t.integer "order"
   end
 
   add_index "tags", ["debates_count"], name: "index_tags_on_debates_count", using: :btree

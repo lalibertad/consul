@@ -264,6 +264,7 @@ Rails.application.routes.draw do
     end
 
     resources :tags, only: [:index, :create, :update, :destroy]
+    post 'order', to: 'tags#order'
     resources :officials, only: [:index, :edit, :update, :destroy] do
       get :search, on: :collection
     end
