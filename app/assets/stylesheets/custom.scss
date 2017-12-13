@@ -22,19 +22,6 @@
   background-size: 100%;
 }
 
-.socialx {
-  width: 0;
-  position: fixed;
-  bottom: 0;
-}
-.socialx ul {
-  -webkit-transform: translate(-270px, 0);
-  -moz-transform: translate(-270px, 0);
-  -ms-transform: translate(-270px, 0);
-  -o-transform: translate(-270px, 0);
-  transform: translate(-270px, 0);
-}
-
 @import "social";
 
 [data-tooltip] {

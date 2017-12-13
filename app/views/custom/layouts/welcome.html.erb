@@ -12,6 +12,7 @@
   <!--[if lt IE 9]>
       <%= stylesheet_link_tag "home" %>
     <![endif]-->
+  <%= javascript_include_tag "home", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag "favicon.ico" %>
   <%= favicon_link_tag image_path_for("apple-touch-icon-200.png"),
@@ -25,143 +26,28 @@
 <body data-no-turbolink>
 <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--transparent mbr-navbar--sticky mbr-navbar--auto-collapse" id="menu-0">
   <div class="mbr-navbar__section mbr-section">
-    <div class="mbr-section__container container">
-      <div class="mbr-navbar__container">
-        <div class="mbr-navbar__column mbr-navbar__column--s mbr-navbar__brand">
-          <%= link_to root_path, accesskey: "0", class: "mbr-navbar__brand-link mbr-brand mbr-brand--inline text-white" do %>
-              <%= image_tag(image_path_for('logo_header.png'), class: 'br-navbar__brand-img mbr-brand__img', size: '80x80', alt: t("layouts.header.logo")) %>
+    <div class="row">
+      <div class="top-bar">
+        <%= link_to setting['org_name'], root_path, class: "logo show-for-small-only" %>
+        <span data-responsive-toggle="responsive_menu" data-hide-for="medium" class="float-right" id="menu_respon">
+            <span class="menu-icon dark" data-toggle></span>
+          <%= t("application.menu")%>
+        </span>
+        <div id="responsive_menu">
+          <div class="top-bar-title">
+            <%= link_to root_path, class: "hide-for-small-only", accesskey: "0" do %>
+              <%= image_tag(image_path_for('logo_header.png'), class: 'hide-for-small-only float-left', size: '80x80', alt: t("layouts.header.logo")) %>
               <%= setting['org_name'] %>
-          <% end %>
-        </div>
-        <div class="mbr-navbar__hamburger mbr-hamburger text-white">
-          <a href="#" onclick="menu_res()">
-            <span class="mbr-hamburger__line" style="color: #FFF">
-            </span>
-          </a>
-        </div>
-        <div class="mbr-navbar__column mbr-navbar__menu">
-          <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
-            <% if show_admin_menu? %>
-                <div class="mbr-navbar__column">
-                  <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
-                    <li class="mbr-navbar__item" id="despldrop">
-                      <%= link_to t("layouts.header.administration_menu"), href: "#", rel: "nofollow", class: "mbr-buttons__link btn text-white" do %>
-                        <%= t("layouts.header.administration_menu") %> <i class="fa fa-caret-down"></i>
-                      <% end %>
-                      <ul class="dropdown-menu">
-                        <% if current_user.administrator? %>
-                            <li>
-                              <%= link_to t("layouts.header.administration"), admin_root_path, class: "mbr-buttons__link" %>
-                            </li>
-                        <% end %>
-                        <% if current_user.administrator? || current_user.moderator? %>
-                            <li>
-                              <%= link_to t("layouts.header.moderation"), moderation_root_path, class: "mbr-buttons__link" %>
-                            </li>
-                        <% end %>
-                        <% if (feature?(:spending_proposals) || feature?(:budgets)) &&
-                            (current_user.administrator? || current_user.valuator?) %>
-                            <li>
-                              <%= link_to t("layouts.header.valuation"), valuation_root_path, class: "mbr-buttons__link" %>
-                            </li>
-                        <% end %>
-                        <% if current_user.administrator? || current_user.manager? %>
-                            <li>
-                              <%= link_to t("layouts.header.management"), management_sign_in_path, class: "mbr-buttons__link" %>
-                            </li>
-                        <% end %>
-                        <% if current_user.administrator? || current_user.poll_officer? %>
-                            <li>
-                              <%= link_to t("layouts.header.officing"), officing_root_path, class: "mbr-buttons__link" %>
-                            </li>
-                        <% end %>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
             <% end %>
-            <% if user_signed_in? %>
-                <div class="mbr-navbar__column">
-                  <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
-                    <li class="mbr-navbar__item">
-                      <%= link_to notifications_path, rel: "nofollow", style: "color: #fff" do %>
-                          <span class="mbr-google-map__marker"><%= t("layouts.header.notifications") %></span>
-                          <% if current_user.notifications_count > 0 %>
-                              <span class="fa fa-circle" aria-hidden="true" style="color: #ecf00b;font-size: 1rem;position: absolute;right: -10px;"></span>
-                              <span class="fa fa-bell fa-2x" aria-hidden="true" title="<%= t('layouts.header.new_notifications', count: current_user.notifications_count).html_safe %>"></span>
-                          <% else %>
-                              <span class="fa fa-bell-o fa-2x" aria-hidden="true" title="<%= t('layouts.header.no_notifications') %>"></span>
-                          <% end %>
-                      <% end %>
-                    </li>
-                    <li class="mbr-navbar__item">
-                      <%= layout_menu_link_to t("layouts.header.my_activity_link"),
-                                              user_path(current_user),
-                                              controller_name == 'users',
-                                              rel: "nofollow",
-                                              title: t("shared.go_to_page") +
-                                                  t("layouts.header.my_activity_link"), class: "mbr-buttons__link btn text-white" %>
-                    </li>
-                    <li class="mbr-navbar__item">
-                      <%= layout_menu_link_to t("layouts.header.my_account_link"),
-                                              account_path,
-                                              controller_name == 'account',
-                                              rel: "nofollow",
-                                              title: t("shared.go_to_page") +
-                                                  t("layouts.header.my_account_link"), class: "mbr-buttons__link btn text-white" %>
-                    </li>
-                    <li class="mbr-navbar__item">
-                      <%= link_to t("devise_views.menu.login_items.logout"),
-                                  destroy_user_session_path, rel: "nofollow", method: :delete, class: "mbr-buttons__link btn text-white" %>
-                    </li>
-                  </ul>
-                </div>
-            <% else %>
-                <div class="mbr-navbar__column">
-                  <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active">
-                    <li class="mbr-navbar__item">
-                      <%= link_to t("devise_views.menu.login_items.login"),
-                                  new_user_session_path, rel: "nofollow", class: "mbr-buttons__link btn text-white" %>
-                    </li>
-                  </ul>
-                </div>
-                <div class="mbr-navbar__column">
-                  <ul class="mbr-navbar__items mbr-navbar__items--right mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-inverse mbr-buttons--active">
-                    <li class="mbr-navbar__item">
-                      <%= link_to t("devise_views.menu.login_items.signup"),
-                                  new_user_registration_path, rel: "nofollow", class: "mbr-buttons__btn btn btn-default" %>
-                    </li>
-                  </ul>
-                </div>
-            <% end %>
-          </nav>
+          </div>
+          <div class="top-bar-right">
+            <ul class="menu" data-responsive-menu="medium-dropdown">
+              <%= render "shared/admin_login_items" %>
+              <%= render "devise/menu/login_items" %>
+            </ul>
+          </div>
         </div>
       </div>
-      <ul style="font-size: large; padding-left: 0; display: none" id="menu_respon">
-        <% if user_signed_in? %>
-            <li style="list-style-type: none; padding-bottom: 5px;">
-              <%= layout_menu_link_to t("layouts.header.my_activity_link"),
-                                      user_path(current_user),
-                                      controller_name == 'users',
-                                      rel: "nofollow",
-                                      title: t("shared.go_to_page") +
-                                          t("layouts.header.my_activity_link"), style: "color: #FFF; text-decoration: none;" %>
-            </li>
-            <li style="list-style-type: none; padding-bottom: 5px;">
-              <%= link_to t("devise_views.menu.login_items.logout"),
-                          destroy_user_session_path, rel: "nofollow", method: :delete, style: "color: #FFF; text-decoration: none;" %>
-            </li>
-        <% else %>
-            <li style="list-style-type: none; padding-bottom: 5px;">
-              <%= link_to t("devise_views.menu.login_items.login"),
-                          new_user_session_path, rel: "nofollow", style: "color: #FFF; text-decoration: none;" %>
-            </li>
-            <li style="list-style-type: none; padding-bottom: 5px;">
-              <%= link_to t("devise_views.menu.login_items.signup"),
-                          new_user_registration_path, rel: "nofollow", style: "color: #FFF; text-decoration: none;" %>
-            </li>
-        <% end %>
-      </ul>
     </div>
   </div>
 </section>
@@ -226,7 +112,7 @@
         </div>
       </div>
       <div class="col-sm-4">
-        <h3><%= link_to t("layouts.header.open_gov", open: "#{t('layouts.header.open')}").html_safe %></h3>
+        <h4><%= link_to t("layouts.header.open_gov", open: "#{t('layouts.header.open')}").html_safe %></h4>
         <p class="mbr-contacts__text">
           <%= t("layouts.footer.description",
                 open_source: link_to(t("layouts.footer.open_source"), t("layouts.footer.open_source_url"), target: "blank", rel: "nofollow"),
@@ -255,7 +141,6 @@
   </div>
 </section>
 </body>
-<%= javascript_include_tag "home" %>
 <!--[if lt IE 9]>
     <%= javascript_include_tag "home" %>
   <![endif]-->

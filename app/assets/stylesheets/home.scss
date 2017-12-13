@@ -1,5 +1,9 @@
 @import "font-awesome.min";
 @import "animated";
+@import 'foundation_and_overrides';
+@import 'mixins';
+@import 'admin';
+@import 'layout';
 
 video {
   position: fixed;
@@ -23,20 +27,6 @@ video {
   height: 6px;
   background-image: linear-gradient(to right, #D50000 34%,#FFF 34%, #FFF 66%, #D50000 66%);
   background-size: 100%;
-}
-
-.socialx {
-  width: 0;
-  position: fixed;
-  bottom: 0;
-}
-.socialx ul {
-  padding: 20px;
-  -webkit-transform: translate(-270px, 0);
-  -moz-transform: translate(-270px, 0);
-  -ms-transform: translate(-270px, 0);
-  -o-transform: translate(-270px, 0);
-  transform: translate(-270px, 0);
 }
 
 @import "social";
