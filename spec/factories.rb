@@ -51,6 +51,7 @@ FactoryGirl.define do
     end
 
     trait :verified do
+      residence_verified_at Time.current
       verified_at Time.current
     end
 
@@ -709,7 +710,7 @@ FactoryGirl.define do
     start_date Date.current - 5.days
     end_date Date.current + 5.days
     debate_start_date Date.current - 5.days
-    debate_end_date Date.current - 2.days
+    debate_end_date Date.current + 2.days
     draft_publication_date Date.current - 1.day
     allegations_start_date Date.current
     allegations_end_date Date.current + 3.days
@@ -815,6 +816,14 @@ LOREM_IPSUM
     question factory: :legislation_question
     question_option factory: :legislation_question_option
     user
+  end
+
+  factory :legislation_proposal, class: 'Legislation::Proposal' do
+    title "Example proposal for a legislation"
+    summary "This law should include..."
+    terms_of_service '1'
+    process factory: :legislation_process
+    author factory: :user
   end
 
   factory :site_customization_page, class: 'SiteCustomization::Page' do
