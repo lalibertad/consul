@@ -36,6 +36,7 @@ module Budgets
     end
 
     def new
+      @proposals = load_proposals_all
     end
 
     def show
@@ -47,15 +48,11 @@ module Budgets
     end
 
     def create
-      @investment.author = current_user
-
-      if @investment.save
-        Mailer.budget_investment_created(@investment).deliver_later
-        redirect_to budget_investment_path(@budget, @investment),
-                    notice: t('flash.actions.create.budget_investment')
-      else
-        render :new
+      if valid_head.to_i > 0
+        save_resource @budget.headings.find(valid_head)
       end
+      @proposals = load_proposals_all
+      render :new
     end
 
     def destroy
@@ -80,6 +77,47 @@ module Budgets
 
     private
 
+      def load_proposals_all
+        @proposals = Proposal.successful.order(cached_votes_up: :desc).where(status: false)
+      end
+
+      def valid_head
+        params[:budget_investment][:heading_id].present? ? params[:budget_investment][:heading_id] : 0
+      end
+
+      def save_resource(heading)
+        if params[:proposal_ids].present?
+          params[:proposal_ids].each do |id|
+            @proposal = Proposal.find(id)
+            ActiveRecord::Base.transaction do
+              @investment = Budget::Investment.new
+              @investment.terms_of_service = "1"
+              @investment.author_id = @proposal.author_id
+              @investment.administrator_id = current_user.id
+              @investment.title = @proposal.title
+              @investment.description = @proposal.description
+              @investment.external_url = @proposal.external_url
+              @investment.cached_votes_up = @proposal.cached_votes_up
+              @investment.comments_count = @proposal.comments_count
+              @investment.confidence_score = @proposal.confidence_score
+              @investment.created_at = @proposal.created_at
+              @investment.heading_id = heading.id
+              @investment.responsible_name = @proposal.responsible_name
+              @investment.budget_id = @budget.id
+              @investment.group_id = heading.group_id
+              @investment.geozone_id = @proposal.geozone_id
+              @investment.location = @proposal.geozone.present? ? @proposal.geozone.name : ""
+              @investment.community_id = @proposal.community_id
+              @proposal.status = true
+              if @investment.save
+                @proposal.save
+                Mailer.budget_investment_created(@investment).deliver_later
+              end
+            end
+          end
+        end
+      end
+
       def resource_model
         Budget::Investment
       end
@@ -102,12 +140,7 @@ module Budgets
       end
 
       def investment_params
-        params.require(:budget_investment)
-              .permit(:title, :description, :external_url, :heading_id, :tag_list,
-                      :organization_name, :location, :terms_of_service,
-                      image_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
-                      documents_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
-                      map_location_attributes: [:latitude, :longitude, :zoom])
+        params.require(:budget_investment).permit(:heading_id)
       end
 
       def load_ballot
@@ -118,7 +151,7 @@ module Budgets
       def load_heading
         if params[:heading_id].present?
           @heading = @budget.headings.find(params[:heading_id])
-          @assigned_heading = @ballot.try(:heading_for_group, @heading.try(:group))
+          #@assigned_heading = @ballot.try(:heading_for_group, @heading.try(:group))
         end
       end
 
