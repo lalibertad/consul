@@ -38,6 +38,7 @@ class ProposalsController < ApplicationController
   end
 
   def index_customization
+    @resources = @resources.where(status: false)
     discard_archived
     load_retired
     load_successful_proposals

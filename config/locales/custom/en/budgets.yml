@@ -10,7 +10,7 @@ en:
     investments:
       form:
         tab_code: Code
-        tab_title: Títle
+        tab_title: Title
         tab_type: Type
         tab_level: Level of Study
         tab_support: Supports

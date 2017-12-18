@@ -143,7 +143,7 @@ module Budgets
         end
       end
 
-      def save_map(p,i)
+      def save_map(p, i)
         @maps = MapLocation.where(proposal_id: p)
         if @maps.present?
           @maps.each do |map|
