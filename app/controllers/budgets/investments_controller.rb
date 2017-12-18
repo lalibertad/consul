@@ -111,9 +111,44 @@ module Budgets
               @proposal.status = true
               if @investment.save
                 @proposal.save
+                save_image @proposal.id, @investment.id
+                save_document @proposal.id, @investment.id
+                save_map @proposal.id, @investment.id
                 Mailer.budget_investment_created(@investment).deliver_later
               end
             end
+          end
+        end
+      end
+
+      def save_image(p, i)
+        @images = Image.where(imageable_id: p)
+        if @images.present?
+          @images.each do |image|
+            image.imageable_id = i
+            image.imageable_type = "Budget::Investment"
+            image.save
+          end
+        end
+      end
+
+      def save_document(p, i)
+        @documents = Document.where(documentable_id: p)
+        if @documents.present?
+          @documents.each do |document|
+            document.documentable_id = i
+            document.documentable_type = "Budget::Investment"
+            document.save
+          end
+        end
+      end
+
+      def save_map(p,i)
+        @maps = MapLocation.where(proposal_id: p)
+        if @maps.present?
+          @maps.each do |map|
+            map.investment_id = i
+            map.save
           end
         end
       end
