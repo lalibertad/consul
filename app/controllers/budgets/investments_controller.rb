@@ -114,6 +114,8 @@ module Budgets
                 save_image @proposal.id, @investment.id
                 save_document @proposal.id, @investment.id
                 save_map @proposal.id, @investment.id
+                save_tag @proposal.id, @investment.id
+                save_comments @proposal.id, @investment.id
                 Mailer.budget_investment_created(@investment).deliver_later
               end
             end
@@ -122,7 +124,7 @@ module Budgets
       end
 
       def save_image(p, i)
-        @images = Image.where(imageable_id: p)
+        @images = Image.where(imageable_id: p).where(imageable_type: "Proposal")
         if @images.present?
           @images.each do |image|
             image.imageable_id = i
@@ -133,7 +135,7 @@ module Budgets
       end
 
       def save_document(p, i)
-        @documents = Document.where(documentable_id: p)
+        @documents = Document.where(documentable_id: p).where(documentable_type: "Proposal")
         if @documents.present?
           @documents.each do |document|
             document.documentable_id = i
@@ -149,6 +151,28 @@ module Budgets
           @maps.each do |map|
             map.investment_id = i
             map.save
+          end
+        end
+      end
+
+      def save_tag(p, i)
+        @tags = ActsAsTaggableOn::Tagging.where(taggable_id: p).where(taggable_type: "Proposal")
+        if @tags.present?
+          @tags.each do |tag|
+            tag.taggable_id = i
+            tag.taggable_type = "Budget::Investment"
+            tag.save
+          end
+        end
+      end
+
+      def save_comments(p, i)
+        @comments = Comment.where(commentable_id: p).where(commentable_type: "Proposal")
+        if @comments.present?
+          @comments.each do |comment|
+            comment.commentable_id = i
+            comment.commentable_type = "Budget::Investment"
+            comment.save
           end
         end
       end
