@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212193323) do
+ActiveRecord::Schema.define(version: 20171215152244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
   enable_extension "pg_trgm"
+  enable_extension "unaccent"
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(version: 20171212193323) do
     t.boolean  "winner",                                default: false
     t.boolean  "incompatible",                          default: false
     t.integer  "community_id"
+    t.integer  "geozone_id"
   end
 
   add_index "budget_investments", ["administrator_id"], name: "index_budget_investments_on_administrator_id", using: :btree
@@ -366,6 +367,7 @@ ActiveRecord::Schema.define(version: 20171212193323) do
     t.string   "name"
     t.string   "html_map_coordinates"
     t.string   "external_code"
+    t.integer  "geozone_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "census_code"
@@ -579,6 +581,13 @@ ActiveRecord::Schema.define(version: 20171212193323) do
   end
 
   add_index "locks", ["user_id"], name: "index_locks_on_user_id", using: :btree
+
+  create_table "logs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "citizen_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "managers", force: :cascade do |t|
     t.integer "user_id"
@@ -816,6 +825,8 @@ ActiveRecord::Schema.define(version: 20171212193323) do
 
   create_table "proposals", force: :cascade do |t|
     t.string   "title",               limit: 80
+    t.string   "tipe"
+    t.string   "level"
     t.text     "description"
     t.string   "question"
     t.string   "external_url"
@@ -828,8 +839,8 @@ ActiveRecord::Schema.define(version: 20171212193323) do
     t.datetime "confirmed_hide_at"
     t.integer  "hot_score",           limit: 8,  default: 0
     t.integer  "confidence_score",               default: 0
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.string   "responsible_name",    limit: 60
     t.text     "summary"
     t.string   "video_url"
@@ -839,6 +850,7 @@ ActiveRecord::Schema.define(version: 20171212193323) do
     t.string   "retired_reason"
     t.text     "retired_explanation"
     t.integer  "community_id"
+    t.boolean  "status",                         default: false
   end
 
   add_index "proposals", ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree
@@ -862,7 +874,7 @@ ActiveRecord::Schema.define(version: 20171212193323) do
     t.integer  "related_content_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "times_reported",           default: 0
+    t.integer  "flags_count",              default: 0
   end
 
   add_index "related_contents", ["child_relationable_type", "child_relationable_id"], name: "index_related_contents_on_child_relationable", using: :btree
@@ -985,6 +997,7 @@ ActiveRecord::Schema.define(version: 20171212193323) do
     t.integer "budget/investments_count",               default: 0
     t.integer "legislation/proposals_count",            default: 0
     t.integer "legislation/processes_count",            default: 0
+    t.integer "order"
   end
 
   add_index "tags", ["debates_count"], name: "index_tags_on_debates_count", using: :btree
@@ -1019,6 +1032,8 @@ ActiveRecord::Schema.define(version: 20171212193323) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "profession"
+    t.string   "hamlet_or_urbanization"
     t.datetime "created_at",                                                                null: false
     t.datetime "updated_at",                                                                null: false
     t.string   "confirmation_token"
