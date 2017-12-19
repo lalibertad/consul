@@ -12,6 +12,10 @@ class Moderation::ProposalsController < Moderation::BaseController
 
   load_and_authorize_resource
 
+  def index_customization
+    @resources = @resources.where(status: false)
+  end
+
   private
 
     def resource_model
