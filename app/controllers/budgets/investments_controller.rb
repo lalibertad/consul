@@ -95,7 +95,11 @@ module Budgets
               @investment.author_id = @proposal.author_id
               @investment.administrator_id = current_user.id
               @investment.title = @proposal.title
-              @investment.description = @proposal.description
+              txt = "<p>Tipo de propuesta: <strong>" + @proposal.tipe + "</strong></p>"
+              if @proposal.level.present?
+                txt += "<p>Nivel de estudio del proyecto: <strong>" + @proposal.level + "</strong></p>"
+              end
+              @investment.description = txt + @proposal.description
               @investment.external_url = @proposal.external_url
               @investment.cached_votes_up = @proposal.cached_votes_up
               @investment.comments_count = @proposal.comments_count
@@ -108,6 +112,7 @@ module Budgets
               @investment.geozone_id = @proposal.geozone_id
               @investment.location = @proposal.geozone.present? ? @proposal.geozone.name : ""
               @investment.community_id = @proposal.community_id
+              @investment.skip_map = "1"
               @proposal.status = true
               if @investment.save
                 @proposal.save

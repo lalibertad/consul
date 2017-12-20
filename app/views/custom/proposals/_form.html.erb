@@ -99,7 +99,7 @@
 
       <div id="category_tags" class="tags">
         <% @categories.each do |tag| %>
-          <a class="js-add-tag-link"><%= tag.order.to_s + '. ' + tag.name %></a>
+          <a class="js-add-tag-link"><%= tag.name %></a>
         <% end %>
       </div>
 
