@@ -66,7 +66,7 @@ section "Creating Settings" do
   Setting.create(key: 'map_latitude', value: -8.112595421768354)
   Setting.create(key: 'map_longitude', value: -79.02875661849977)
   Setting.create(key: 'map_zoom', value: 12)
-  Setting.create(key: 'related_contents_report_threshold', value: 2)
+  Setting.create(key: 'related_contents_report_threshold', value: -0.3)
 end
 
 section "Creating Geozones" do
