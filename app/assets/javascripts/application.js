@@ -123,6 +123,23 @@ $(function(){
   $(document).ready(initialize_modules);
   $(document).on('page:load', initialize_modules);
   $(document).on('ajax:complete', initialize_modules);
+
+  $('#tshake').sortable({
+    update: function(ev, ui) {
+      var orders = [];
+      var children = $('#tshake').sortable('refreshPositions').children();
+      $.each(children, function() {
+        orders.push($(this).closest('tr').children('td:first').text().trim());
+      });
+      $.ajax({
+        type: 'POST',
+        url: '/admin/order',
+        data: JSON.stringify({'order' : orders}),
+        dataType: 'json',
+        contentType: 'application/json'
+      });
+    }
+  });
 });
 
 function showUser(id) {
