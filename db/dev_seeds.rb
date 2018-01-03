@@ -217,6 +217,7 @@ section "Creating Users" do
   level_2.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number,
                  document_number: unique_document_number, document_type: "1")
   verified = create_user('verified@consul.dev', 'verified')
+
   verified.update(residence_verified_at: Time.current, confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1",
                   verified_at: Time.current, document_number: unique_document_number)
   (1..10).each do |i|
