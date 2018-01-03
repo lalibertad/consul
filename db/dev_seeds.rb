@@ -60,7 +60,7 @@ section "Creating Settings" do
   Setting.create(key: 'mailer_from_address', value: 'decide@regionlalibertad.gob.pe')
   Setting.create(key: 'meta_description', value: 'Citizen Participation and Open Government Application')
   Setting.create(key: 'meta_keywords', value: 'citizen participation, open government')
-  Setting.create(key: 'verification_offices_url', value: 'http://oficinas-atencion-ciudadano.url/')
+  Setting.create(key: 'verification_offices_url', value: 'http://www.regionlalibertad.gob.pe/contacto')
   Setting.create(key: 'min_age_to_participate', value: '18')
   Setting.create(key: 'proposal_improvement_path', value: nil)
   Setting.create(key: 'map_latitude', value: -8.112595421768354)
