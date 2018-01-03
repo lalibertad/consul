@@ -8,7 +8,6 @@
 * Alberto García Cabeza [github](https://github.com/decabeza)
 * Alberto Calderón [github](https://github.com/bertocq) | [twitter](https://twitter.com/bertocq)
 * Maria Checa [github](https://github.com/MariaCheca)
-* Linder Reyna Esquivel [github](https://github.com/LinderReyna)
 
 ## Código de conducta
 
