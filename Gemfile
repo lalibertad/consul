@@ -6,7 +6,7 @@ gem 'acts-as-taggable-on', '~> 4.0.0'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'ahoy_matey', '~> 1.6.0'
 gem 'ancestry', '~> 2.2.2'
-gem 'browser', '~> 2.3.0'
+gem 'browser', '~> 2.5.2'
 gem 'cancancan', '~> 1.16.0'
 gem 'ckeditor', '~> 4.2.3'
 gem 'cocoon', '~> 1.2.9'
@@ -73,16 +73,16 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '~> 2.14.0'
+  gem 'capybara', '~> 2.17.0'
   gem 'coveralls', '~> 0.8.21', require: false
   gem 'database_cleaner', '~> 1.6.1'
   gem 'email_spec', '~> 2.1.0'
-  gem 'poltergeist', '~> 1.15.0'
+  gem 'poltergeist', '~> 1.17.0'
   gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do
-  gem 'capistrano', '~> 3.8.1', require: false
+  gem 'capistrano', '~> 3.10.1', require: false
   gem 'capistrano-bundler', '~> 1.2', require: false
   gem 'capistrano-rails', '~> 1.2.3', require: false
   gem 'capistrano3-delayed-job', '~> 1.7.3'
