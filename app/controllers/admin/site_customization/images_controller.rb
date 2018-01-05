@@ -3,6 +3,7 @@ class Admin::SiteCustomization::ImagesController < Admin::SiteCustomization::Bas
 
   def index
     @images = SiteCustomization::Image.all_images
+    @video = SiteCustomization::Video.one_video
   end
 
   def update
@@ -17,6 +18,7 @@ class Admin::SiteCustomization::ImagesController < Admin::SiteCustomization::Bas
       flash.now[:error] = t('admin.site_customization.images.update.error')
 
       @images = SiteCustomization::Image.all_images
+      @video = SiteCustomization::Video.one_video
       idx = @images.index {|e| e.name == @image.name }
       @images[idx] = @image
 
