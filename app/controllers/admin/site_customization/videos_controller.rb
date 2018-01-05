@@ -5,7 +5,7 @@ class Admin::SiteCustomization::VideosController < Admin::SiteCustomization::Bas
       redirect_to admin_site_customization_images_path
       return
     end
-
+    @video = SiteCustomization::Video.find(params[:id])
     if @video.update(video_params)
       redirect_to admin_site_customization_images_path, notice: t('admin.site_customization.images.update.notice')
     else
