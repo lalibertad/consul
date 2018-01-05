@@ -51,6 +51,10 @@ module ApplicationHelper
 
   def image_path_for(filename)
     SiteCustomization::Image.image_path_for(filename) || filename
+    end
+
+  def video_path_for(filename)
+    SiteCustomization::Video.video_path_for(filename) || filename
   end
 
   def content_block(name, locale)

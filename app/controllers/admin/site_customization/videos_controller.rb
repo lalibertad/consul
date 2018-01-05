@@ -7,9 +7,9 @@ class Admin::SiteCustomization::VideosController < Admin::SiteCustomization::Bas
     end
     @video = SiteCustomization::Video.find(params[:id])
     if @video.update(video_params)
-      redirect_to admin_site_customization_images_path, notice: t('admin.site_customization.images.update.notice')
+      redirect_to admin_site_customization_images_path, notice: t('admin.site_customization.videos.update.notice')
     else
-      flash.now[:error] = t('admin.site_customization.images.update.error')
+      flash.now[:error] = t('admin.site_customization.videos.update.error')
       redirect_to admin_site_customization_images_path
     end
   end
@@ -17,9 +17,9 @@ class Admin::SiteCustomization::VideosController < Admin::SiteCustomization::Bas
   def destroy
     @video.video = nil
     if @video.save
-      redirect_to admin_site_customization_images_path, notice: t('admin.site_customization.images.destroy.notice')
+      redirect_to admin_site_customization_images_path, notice: t('admin.site_customization.videos.destroy.notice')
     else
-      redirect_to admin_site_customization_images_path, notice: t('admin.site_customization.images.destroy.error')
+      redirect_to admin_site_customization_images_path, notice: t('admin.site_customization.videos.destroy.error')
     end
   end
 

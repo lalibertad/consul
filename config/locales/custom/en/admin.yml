@@ -20,3 +20,11 @@ en:
     geozones:
       new:
         creating: Create district or province
+    site_customization:
+      videos:
+        update:
+          notice: Video updated successfully
+          error: Video couldn't be updated
+        destroy:
+          notice: Image deleted successfully
+          error: Image couldn't be deleted

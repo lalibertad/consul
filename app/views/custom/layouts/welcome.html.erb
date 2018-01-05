@@ -51,9 +51,7 @@
     </div>
   </div>
 </section>
-<video poster="/assets/portada.png" id="video" playsinline autoplay muted loop>
-  <source src="/assets/portada.mp4" type='video/mp4'/>
-</video>
+<%= video_tag(video_path_for('welcome_video.mp4'), poster: image_path_for('welcome-image.png'), id: 'video', playsinline: :playsinline, autoplay: :autoplay, muted: :muted, loop: :loop, type: 'video/mp4')%>
 <%= yield %>
 <nav class="socialx">
   <ul>

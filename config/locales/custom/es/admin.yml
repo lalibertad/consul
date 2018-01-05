@@ -27,3 +27,11 @@ es:
         editing: Editando distrito o provincia
       new:
         creating: Crear distrito o provincia
+    site_customization:
+      videos:
+        update:
+          notice: Video actualizado correctamente
+          error: No se ha podido actualizar el video
+        destroy:
+          notice: Video borrado correctamente
+          error: No se ha podido borrar el video
