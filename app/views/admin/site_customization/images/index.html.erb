@@ -33,11 +33,11 @@
       </td>
       <td class="small-12 medium-8">
         <%= form_for([:admin, @video], html: { id: "edit_#{dom_id(@video)}"}) do |f| %>
-          <div class="small-12 medium-6 large-6 column">
-            <%= video_tag @video.video.url if @video.video.exists? %>
+          <div>
+            <%= video_tag(@video.video.url, controls: :controls) if @video.video.exists? %>
             <%= f.file_field :video, label: false %>
           </div>
-          <div class="small-12 medium-6 large-6 column">
+          <div>
             <%= f.submit(t('admin.site_customization.images.index.update'), class: "button hollow") %>
             <%= link_to t('admin.site_customization.images.index.delete'), admin_site_customization_video_path(@video), method: :delete, class: "button hollow alert" if @video.video.exists? %>
           </div>
