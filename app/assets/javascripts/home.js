@@ -6,6 +6,7 @@
 
 $(function(){
   App.Dropdown.initialize();
+  $('.notice-container').css('z-index','10000');
   $('#menu_respon').click(function () {
     if ($('#responsive_menu').is(':visible')){
       $('.mbr-navbar__section').css('background','#004a83');
