@@ -35,7 +35,7 @@
         <%= form_for([:admin, @video], html: { id: "edit_#{dom_id(@video)}"}) do |f| %>
           <div>
             <%= video_tag(@video.video.url, controls: :controls) if @video.video.exists? %>
-            <%= f.file_field :video, label: false %>
+            <%= f.file_field :video, label: false, accept: "video/mp4" %>
           </div>
           <div>
             <%= f.submit(t('admin.site_customization.images.index.update'), class: "button hollow") %>
