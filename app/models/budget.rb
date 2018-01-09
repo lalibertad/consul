@@ -3,9 +3,8 @@ class Budget < ActiveRecord::Base
   include Measurable
   include Sluggable
 
-  PHASES = %w(drafting accepting reviewing selecting valuating balloting
-              reviewing_ballots finished).freeze
-  CURRENCY_SYMBOLS = %w(€ $ £ ¥).freeze
+  PHASES = %w(accepting valuating balloting reviewing_ballots finished).freeze
+  CURRENCY_SYMBOLS = %w(S/ $).freeze
 
   validates :name, presence: true, uniqueness: true
   validates :phase, inclusion: { in: PHASES }

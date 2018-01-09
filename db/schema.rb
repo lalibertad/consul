@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(version: 20180108182839) do
     t.boolean  "winner",                                default: false
     t.boolean  "incompatible",                          default: false
     t.integer  "community_id"
+    t.integer  "geozone_id"
   end
 
   add_index "budget_investments", ["administrator_id"], name: "index_budget_investments_on_administrator_id", using: :btree
@@ -367,6 +368,7 @@ ActiveRecord::Schema.define(version: 20180108182839) do
     t.string   "name"
     t.string   "html_map_coordinates"
     t.string   "external_code"
+    t.integer  "geozone_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "census_code"
@@ -580,6 +582,13 @@ ActiveRecord::Schema.define(version: 20180108182839) do
   end
 
   add_index "locks", ["user_id"], name: "index_locks_on_user_id", using: :btree
+
+  create_table "logs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "citizen_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "managers", force: :cascade do |t|
     t.integer "user_id"
@@ -817,6 +826,8 @@ ActiveRecord::Schema.define(version: 20180108182839) do
 
   create_table "proposals", force: :cascade do |t|
     t.string   "title",               limit: 80
+    t.string   "tipe"
+    t.string   "level"
     t.text     "description"
     t.string   "question"
     t.string   "external_url"
@@ -829,8 +840,8 @@ ActiveRecord::Schema.define(version: 20180108182839) do
     t.datetime "confirmed_hide_at"
     t.integer  "hot_score",           limit: 8,  default: 0
     t.integer  "confidence_score",               default: 0
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.string   "responsible_name",    limit: 60
     t.text     "summary"
     t.string   "video_url"
@@ -840,6 +851,7 @@ ActiveRecord::Schema.define(version: 20180108182839) do
     t.string   "retired_reason"
     t.text     "retired_explanation"
     t.integer  "community_id"
+    t.boolean  "status",                         default: false
   end
 
   add_index "proposals", ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree
@@ -945,6 +957,18 @@ ActiveRecord::Schema.define(version: 20180108182839) do
     t.string   "locale"
   end
 
+  create_table "site_customization_videos", force: :cascade do |t|
+    t.string   "name",               null: false
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "site_customization_videos", ["name"], name: "index_site_customization_videos_on_name", unique: true, using: :btree
+
   create_table "spending_proposals", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -999,6 +1023,7 @@ ActiveRecord::Schema.define(version: 20180108182839) do
     t.integer "budget/investments_count",               default: 0
     t.integer "legislation/proposals_count",            default: 0
     t.integer "legislation/processes_count",            default: 0
+    t.integer "order"
   end
 
   add_index "tags", ["debates_count"], name: "index_tags_on_debates_count", using: :btree
@@ -1033,6 +1058,8 @@ ActiveRecord::Schema.define(version: 20180108182839) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "profession"
+    t.string   "hamlet_or_urbanization"
     t.datetime "created_at",                                                                null: false
     t.datetime "updated_at",                                                                null: false
     t.string   "confirmation_token"
