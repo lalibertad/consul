@@ -67,6 +67,7 @@ namespace :admin do
   end
 
   resources :tags, only: [:index, :create, :update, :destroy]
+  post 'order', to: 'tags#order'
   resources :officials, only: [:index, :edit, :update, :destroy] do
     get :search, on: :collection
   end
@@ -167,6 +168,7 @@ namespace :admin do
   namespace :site_customization do
     resources :pages, except: [:show]
     resources :images, only: [:index, :update, :destroy]
+    resources :videos, only: [:index, :update, :destroy]
     resources :content_blocks, except: [:show]
   end
 end
