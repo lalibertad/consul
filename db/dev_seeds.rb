@@ -66,7 +66,7 @@ section "Creating Settings" do
   Setting.create(key: 'map_latitude', value: -8.112595421768354)
   Setting.create(key: 'map_longitude', value: -79.02875661849977)
   Setting.create(key: 'map_zoom', value: 12)
-  Setting.create(key: 'related_contents_report_threshold', value: -0.3)
+  Setting.create(key: 'related_content_score_threshold', value: -0.3)
 end
 
 section "Creating Geozones" do
@@ -511,6 +511,18 @@ section "Creating Investments" do
     )
   end
 end
+
+section "Geolocating Investments" do
+  Budget.all.each do |budget|
+    budget.investments.each do |investment|
+      MapLocation.create(latitude: 40.4167278 + rand(-10..10)/100.to_f,
+                         longitude: -3.7055274 + rand(-10..10)/100.to_f,
+                         zoom: 10,
+                         investment_id: investment.id)
+    end
+  end
+end
+
 section "Balloting Investments" do
   Budget.balloting.last.investments.each do |investment|
     investment.update(selected: true, feasibility: "feasible")
