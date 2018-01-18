@@ -9,15 +9,13 @@
 
         <h1><%= @budget.name %></h1>
 
-        <%= safe_html_with_links @budget.description %>
+        <%= safe_html_with_links(@budget.description) %>
         <%= link_to t("budgets.index.section_header.help"), "#section_help" %>
       </div>
       <div class="small-12 medium-3 column info padding" data-equalizer-watch>
         <p>
-          <% published_phases = @budget.phases.published %>
-          <% current_phase_number = published_phases.index(@budget.current_phase).to_i + 1 || 0 %>
-          <% phases_progress_numbers = "(#{current_phase_number}/#{published_phases.count})" %>
-          <strong><%= t('budgets.show.phase') %> <%= phases_progress_numbers %></strong>
+          <% steps_progress = "(#{current_phase.step_number}/#{@budget.published_phases.count})" %>
+          <strong><%= t('budgets.show.phase') %> <%= steps_progress %></strong>
         </p>
         <h2><%= t("budgets.phase.#{@budget.phase}") %></h2>
 
