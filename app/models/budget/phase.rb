@@ -2,6 +2,7 @@ class Budget
   class Phase < ActiveRecord::Base
     PHASE_KINDS = %w(accepting valuating balloting reviewing_ballots finished).freeze
     PUBLISHED_PRICES_PHASES = %w(publishing_prices balloting reviewing_ballots finished).freeze
+    SUMMARY_MAX_LENGTH = 1000
     DESCRIPTION_MAX_LENGTH = 2000
 
     belongs_to :budget
@@ -10,6 +11,7 @@ class Budget
 
     validates :budget, presence: true
     validates :kind, presence: true, uniqueness: { scope: :budget }, inclusion: { in: PHASE_KINDS }
+    validates :summary, length: { maximum: SUMMARY_MAX_LENGTH }
     validates :description, length: { maximum: DESCRIPTION_MAX_LENGTH }
     validate :invalid_dates_range?
     validate :prev_phase_dates_valid?

@@ -21,7 +21,7 @@ feature 'Budgets' do
       expect(page).to have_content(last_budget.description)
       expect(page).to have_content("Actual phase")
       expect(page).to have_content("Accepting projects")
-      expect(page).to have_link 'Help about participatory budgets'
+      expect(page).to have_link 'Help with participatory budgets'
       expect(page).to have_link 'See all phases'
     end
 
@@ -227,8 +227,8 @@ feature 'Budgets' do
         login_as(level_two_user)
 
         visit budget_path(budget)
-
         expect(page).to have_link "Create a budget investment"
+
       end
 
       scenario "Unverified user" do
