@@ -29,14 +29,6 @@
     </div>
   <% end %>
 
-  <div class="row margin-top">
-    <div class="small-12 medium-9 column">
-      <%= f.select :phase, budget_phases_select_options %>
-    </div>
-    <div class="small-12 medium-3 column">
-      <%= f.select :currency_symbol, budget_currency_symbol_select_options %>
-    </div>
-  </div>
   <div class="margin-top">
     <%= f.submit nil, class: "button success" %>
     <% if @budget.balloting_process? %>
