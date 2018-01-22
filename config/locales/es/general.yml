@@ -175,7 +175,7 @@ es:
     policy: Política de privacidad
     proposal: la propuesta
     proposal_notification: "la notificación"
-    spending_proposal: la propuesta de gasto
+    spending_proposal: la propuesta de inversión
     budget/investment: la propuesta de inversión
     budget/heading: la partida presupuestaria
     poll/shift: el turno
@@ -640,7 +640,7 @@ es:
       submit_buttons:
         create: Crear
         new: Crear
-      title: Título de la propuesta de gasto
+      title: Título de la propuesta de inversión
     index:
       title: Presupuestos participativos
       unfeasible: Propuestas de inversión no viables
@@ -662,8 +662,8 @@ es:
       recommendation_one: Es fundamental que haga referencia a una actuación presupuestable.
       recommendation_three: Intenta detallar lo máximo posible la propuesta para que el equipo de gobierno encargado de estudiarla tenga las menor dudas posibles.
       recommendation_two: Cualquier propuesta o comentario que implique acciones ilegales será eliminada.
-      recommendations_title: Cómo crear una propuesta de gasto
-      start_new: Crear una propuesta de gasto
+      recommendations_title: Cómo crear una propuesta de inversión
+      start_new: Crear una propuesta de inversión
     show:
       author_deleted: Usuario eliminado
       code: 'Código de la propuesta:'

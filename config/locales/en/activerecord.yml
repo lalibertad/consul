@@ -53,8 +53,8 @@ en:
         one: "Citizen proposal"
         other: "Citizen proposals"
       spending_proposal:
-        one: "Spending proposal"
-        other: "Spending proposals"
+        one: "Investment proposal"
+        other: "Investment proposals"
       site_customization/page:
         one: Custom page
         other: Custom pages

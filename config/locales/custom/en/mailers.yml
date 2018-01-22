@@ -1,0 +1,21 @@
+en:
+  mailers:
+    email_verification:
+      instructions_html: To complete the verification of your user account in the Decide La Libertad Portal, you must click %{verification_link}.
+    unfeasible_spending_proposal:
+      reconsider_html: "If you believe that the rejected proposal meets the requirements to be an investment proposal, you can communicate this, within 48 hours, responding to the email address decide@regionlalibertad.gob.pe. Including the code %{code} in the subject of the email."
+      signatory: "DEPARTMENT OF PLANNING AND PUBLIC PARTICIPATION"
+      unfeasible_html: "From the Regional Government we want to thank you for your participation in the <strong>participatory budgets</strong>. We regret to inform you that your proposal <strong>'%{title}'</strong> will be excluded from this participatory process for the following reason:"
+    budget_investment_unfeasible:
+      reconsider_html: "If you believe that the rejected proposal meets the requirements to be an investment proposal, you can communicate this, within 48 hours, responding to the email address decide@regionlalibertad.gob.pe. Including the code %{code} in the subject of the email."
+      signatory: "DEPARTMENT OF PLANNING AND PUBLIC PARTICIPATION"
+      unfeasible_html: "From the Regional Government we want to thank you for your participation in the <strong>participatory budgets</strong>. We regret to inform you that your proposal <strong>'%{title}'</strong> will be excluded from this participatory process for the following reason:"
+    budget_investment_created:
+      signatory: "DEPARTMENT OF PLANNING AND PUBLIC PARTICIPATION"
+    budget_investment_selected:
+      selected_html: "From the Regional Government of La Libertad we want to thank you for your participation in the <strong>participatory budgets</strong>. We would like to inform you that your investment project <strong>'%{title}'</strong> has been selected for the final voting phase."
+      signatory: "DEPARTMENT OF PLANNING AND PUBLIC PARTICIPATION"
+    budget_investment_unselected:
+      unselected_html: "From the Regional Government of La Libertad we want to thank you for your participation in the <strong>participatory budgets</strong>. We regret to inform you that your investment project <strong>'%{title}'</strong> has not been selected for the final voting phase."
+      participate_html: "You can continue participating in the final voting phase voting for investments projects."
+      signatory: "DEPARTMENT OF PLANNING AND PUBLIC PARTICIPATION"

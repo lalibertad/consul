@@ -95,7 +95,7 @@ es:
           zero: Todavía no has votado ninguna propuesta de inversión en este ámbito del presupuesto.
           verified_only: "Para crear una nueva propuesta de inversión %{verify}."
           verify_account: "verifica tu cuenta"
-          create: "Crear proyecto de gasto"
+          create: "Crear proyectos de inversión"
           not_logged_in: "Para crear una nueva propuesta de inversión debes %{sign_in} o %{sign_up}."
           sign_in: "iniciar sesión"
           sign_up: "registrarte"
@@ -110,7 +110,7 @@ es:
         author_deleted: Usuario eliminado
         price_explanation: Informe de coste
         unfeasibility_explanation: Informe de inviabilidad
-        code_html: 'Código propuesta de gasto: <strong>%{code}</strong>'
+        code_html: 'Código propuesta de inversión: <strong>%{code}</strong>'
         location_html: 'Ubicación: <strong>%{location}</strong>'
         organization_name_html: 'Propuesto en nombre de: <strong>%{name}</strong>'
         share: Compartir

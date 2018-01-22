@@ -47,9 +47,9 @@ en:
       create_proposal: Create proposal
       print_proposals: Print proposals
       support_proposals: Support proposals
-      create_spending_proposal: Create spending proposal
-      print_spending_proposals: Print spending proposals
-      support_spending_proposals: Support spending proposals
+      create_spending_proposal: Create investment proposal
+      print_spending_proposals: Print investment proposals
+      support_spending_proposals: Support investment proposals
       create_budget_investment: Create budget investment
       print_budget_investments: Print Budget Investments
       support_budget_investments: Support Budget Investments
@@ -95,7 +95,7 @@ en:
     spending_proposals:
       alert:
         unverified_user: User is not verified
-      create: Create spending proposal
+      create: Create investment proposal
       filters:
         unfeasible: Unfeasible investment projects
         by_geozone: "Investment projects with scope: %{geozone}"

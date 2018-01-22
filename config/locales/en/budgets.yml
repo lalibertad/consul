@@ -163,8 +163,8 @@ en:
       show_all_link: Show all
       price: Price
       amount_available: Available budget
-      accepted: "Accepted spending proposal: "
-      discarded: "Discarded spending proposal: "
+      accepted: "Accepted investment proposal: "
+      discarded: "Discarded investment proposal: "
       incompatibles: Incompatibles
     phases:
       errors:

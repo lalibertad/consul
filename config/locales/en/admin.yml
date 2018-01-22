@@ -443,7 +443,7 @@ en:
       officials: Officials
       organizations: Organisations
       settings: Configuration settings
-      spending_proposals: Spending proposals
+      spending_proposals: Investment proposals
       stats: Statistics
       signature_sheets: Signature Sheets
       site_customization:
@@ -827,7 +827,7 @@ en:
         placeholder: Search proposals by title, code, description or question
       spending_proposal_search:
         button: Search
-        placeholder: Search spending proposals by title or description
+        placeholder: Search investment proposals by title or description
       user_search:
         button: Search
         placeholder: Search user by name or email
@@ -956,7 +956,7 @@ en:
           proposals: Proposals
           budgets: Open budgets
           budget_investments: Investment projects
-          spending_proposals: Spending Proposals
+          spending_proposals: Investment Proposals
           unverified_users: Unverified users
           user_level_three: Level three users
           user_level_two: Level two users
@@ -965,7 +965,7 @@ en:
           verified_users_who_didnt_vote_proposals: Verified users who didn't votes proposals
           visits: Visits
           votes: Total votes
-        spending_proposals_title: Spending Proposals
+        spending_proposals_title: Investment Proposals
         budgets_title: Participatory budgeting
         visits_title: Visits
         direct_messages: Direct messages
