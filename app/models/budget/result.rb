@@ -17,7 +17,9 @@ class Budget
     end
 
     def investments
-      heading.investments.selected.sort_by_ballots
+      if heading.present?
+        heading.investments.selected.sort_by_ballots
+      end
     end
 
     def inside_budget?
