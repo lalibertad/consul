@@ -17,3 +17,5 @@ es:
         tab_level: Nivel de Estudio
         tab_support: Apoyos
         tab_action: Selección
+      index:
+        unfeasible_text: "Las propuestas presentadas deben cumplir una serie de criterios (legalidad, concreción, ser competencia del Gobierno Regional, no superar el tope del presupuesto; %{definitions}) para ser declaradas viables y llegar hasta la fase de votación final. Todas las propuestas que no cumplen estos criterios son marcadas como inviables y publicadas en la siguiente lista, junto con su informe de inviabilidad."
