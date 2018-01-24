@@ -58,8 +58,9 @@ section "Creating Settings" do
   Setting.create(key: 'comments_body_max_length', value: '1000')
   Setting.create(key: 'mailer_from_name', value: 'Decide La Libertad')
   Setting.create(key: 'mailer_from_address', value: 'decide@regionlalibertad.gob.pe')
-  Setting.create(key: 'meta_description', value: 'Citizen Participation and Open Government Application')
-  Setting.create(key: 'meta_keywords', value: 'citizen participation, open government')
+  Setting.create(key: 'meta_title', value: 'Decide La Libertad')
+  Setting.create(key: 'meta_description', value: 'Aplicación de Participación y Decisión Ciudadana')
+  Setting.create(key: 'meta_keywords', value: 'participación ciudadana, gobierno abierto')
   Setting.create(key: 'verification_offices_url', value: 'http://www.regionlalibertad.gob.pe/contacto')
   Setting.create(key: 'min_age_to_participate', value: '18')
   Setting.create(key: 'proposal_improvement_path', value: nil)
@@ -466,27 +467,36 @@ section "Creating Valuation Assignments" do
   end
 end
 section "Creating Budgets" do
-  Budget::Phase::PHASE_KINDS.each_with_index do |phase, i|
-    descriptions = Hash[Budget::Phase::PHASE_KINDS.map do |p|
-      ["description_#{p}",
-       "<p>#{Faker::Lorem.paragraphs(2).join('</p><p>')}</p>"]
-    end]
-    budget = Budget.create!(
-      descriptions.merge(
-        name: (Date.current - 10 + i).to_s,
-        currency_symbol: "€",
-        phase: phase
-      )
-    )
-    (1..([1, 2, 3].sample)).each do |k|
-      group = budget.groups.create!(name: "#{Faker::StarWars.planet} #{k}")
-      geozones = Geozone.reorder("RANDOM()").limit([2, 5, 6, 7].sample)
-      geozones.each do |geozone|
-        group.headings << group.headings.create!(name: "#{geozone.name} #{k}",
-                                                 price: rand(1..100) * 100000,
-                                                 population: rand(1..50) * 10000)
-      end
-    end
+  Budget.create(
+    name: "Budget #{Date.current.year - 1}",
+    currency_symbol: "€",
+    phase: 'finished'
+  )
+  Budget.create(
+    name: "Budget #{Date.current.year}",
+    currency_symbol: "€",
+    phase: 'accepting'
+  )
+
+  Budget.all.each do |budget|
+    city_group = budget.groups.create!(name: "All City")
+    city_group.headings.create!(name: 'All City',
+                                price: 1000000,
+                                population: 1000000)
+
+    districts_group = budget.groups.create!(name: "Districts")
+    districts_group.headings.create!(name: "North District",
+                                     price: rand(5..10) * 100000,
+                                     population: 350000)
+    districts_group.headings.create!(name: "West District",
+                                     price: rand(5..10) * 100000,
+                                     population: 300000)
+    districts_group.headings.create!(name: "East District",
+                                     price: rand(5..10) * 100000,
+                                     population: 200000)
+    districts_group.headings.create!(name: "Central District",
+                                     price: rand(5..10) * 100000,
+                                     population: 150000)
   end
 end
 section "Creating Investments" do
