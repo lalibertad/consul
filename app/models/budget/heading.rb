@@ -8,7 +8,7 @@ class Budget
 
     validates :group_id, presence: true
     validates :name, presence: true, uniqueness: { if: :name_exists_in_budget_headings }
-    validates :price, presence: true
+    validates :price, presence: true, numericality: true
     validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
     validates :population, numericality: { greater_than: 0 }, allow_nil: true
 
@@ -21,7 +21,7 @@ class Budget
     end
 
     def name_exists_in_budget_headings
-      group.budget.headings.where(name: name).where.not(id: id).any?
+      group.budget.headings.where(group_id: group_id).where(name: name).where.not(id: id).any?
     end
 
     def can_be_deleted?
