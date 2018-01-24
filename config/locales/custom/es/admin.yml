@@ -1,6 +1,12 @@
 ---
 es:
   admin:
+    budgets:
+      form:
+        amount: Monto presupuestal
+        population: "Beneficiados (opcional)"
+        table_amount: Monto
+        table_population: Beneficiados
     menu:
       geozones: Gestionar provincias o distritos
     users:

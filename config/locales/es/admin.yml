@@ -69,6 +69,7 @@ es:
         filter: Filtro
         filters:
           current: Abiertos
+          open: Abiertos
           finished: Terminados
         budget_investments: Ver proyectos de inversión
         table_name: Nombre
