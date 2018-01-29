@@ -281,6 +281,23 @@ feature 'Admin budget investments' do
       expect(page).to have_select("tag_name", options: ["All tags", "Hospitals", "Teachers"])
     end
 
+    scenario "Filtering by tag, display only valuation tags of the current budget" do
+      new_budget = create(:budget)
+      investment1 = create(:budget_investment, budget: @budget, tag_list: 'Roads')
+      investment2 = create(:budget_investment, budget: new_budget, tag_list: 'Accessibility')
+
+      investment1.set_tag_list_on(:valuation, 'Roads')
+      investment2.set_tag_list_on(:valuation, 'Accessibility')
+
+      investment1.save
+      investment2.save
+
+      visit admin_budget_budget_investments_path(budget_id: @budget.id)
+
+      expect(page).to have_select("tag_name", options: ["All tags", "Roads"])
+      expect(page).not_to have_select("tag_name", options: ["All tags", "Accessibility"])
+    end
+
     scenario "Limiting by max number of investments per heading", :js do
       group_1 = create(:budget_group, budget: @budget)
       group_2 = create(:budget_group, budget: @budget)
@@ -336,6 +353,57 @@ feature 'Admin budget investments' do
       end
     end
 
+  end
+
+  context 'Search' do
+    background do
+      @budget = create(:budget)
+      @investment_1 = create(:budget_investment, title: "Some investment", budget: @budget)
+      @investment_2 = create(:budget_investment, title: "Some other investment", budget: @budget)
+    end
+
+    scenario "Search investments by title" do
+      visit admin_budget_budget_investments_path(@budget)
+
+      expect(page).to have_content(@investment_1.title)
+      expect(page).to have_content(@investment_2.title)
+
+      fill_in 'project_title', with: 'Some investment'
+      click_button 'Search'
+
+      expect(page).to have_content(@investment_1.title)
+      expect(page).to_not have_content(@investment_2.title)
+    end
+  end
+
+  context 'Sorting' do
+    background do
+      @budget = create(:budget)
+      @investment_1 = create(:budget_investment, title: "BBBB", cached_votes_up: 50, budget: @budget)
+      @investment_2 = create(:budget_investment, title: "AAAA", cached_votes_up: 25, budget: @budget)
+      @investment_3 = create(:budget_investment, title: "CCCC", cached_votes_up: 10, budget: @budget)
+    end
+
+    scenario 'Sort by ID' do
+      visit admin_budget_budget_investments_path(@budget, sort_by: 'id')
+
+      expect(@investment_1.title).to appear_before(@investment_2.title)
+      expect(@investment_2.title).to appear_before(@investment_3.title)
+    end
+
+    scenario 'Sort by title' do
+      visit admin_budget_budget_investments_path(@budget, sort_by: 'title')
+
+      expect(@investment_2.title).to appear_before(@investment_1.title)
+      expect(@investment_1.title).to appear_before(@investment_3.title)
+    end
+
+    scenario 'Sort by supports' do
+      visit admin_budget_budget_investments_path(@budget, sort_by: 'supports')
+
+      expect(@investment_3.title).to appear_before(@investment_2.title)
+      expect(@investment_2.title).to appear_before(@investment_1.title)
+    end
   end
 
   context 'Show' do
