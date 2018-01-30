@@ -8,6 +8,13 @@
     <%= render "layouts/meta_tags" %>
     <title><%= content_for?(:title) ? yield(:title) : setting['org_name'] %></title>
     <%= content_for :canonical %>
+    <script type="application/javascript">
+      var uagent = navigator.userAgent.toLowerCase();
+      if(/safari/.test(uagent) && !/chrome/.test(uagent))
+      {
+        window.location.href = "/debates"
+      }
+    </script>
     <%= stylesheet_link_tag    "home" %>
     <!--[if lt IE 9]>
       <%= stylesheet_link_tag "home" %>
