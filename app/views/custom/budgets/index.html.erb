@@ -25,7 +25,7 @@
         <%= link_to t("budgets.index.section_header.all_phases"), "#all_phases" %>
 
         <% if current_budget.accepting? %>
-          <% if current_user %>
+          <% if current_user && current_user.administrator? %>
             <% if current_user.level_two_or_three_verified? %>
               <%= link_to t("budgets.investments.index.sidebar.create"),
                           new_budget_investment_guide,
