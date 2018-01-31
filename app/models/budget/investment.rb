@@ -34,7 +34,10 @@ class Budget
 
     has_many :valuator_assignments, dependent: :destroy
     has_many :valuators, through: :valuator_assignments
-    has_many :comments, as: :commentable
+
+    has_many :comments, -> {where(valuation: false)}, as: :commentable, class_name: 'Comment'
+    has_many :valuations, -> {where(valuation: true)}, as: :commentable, class_name: 'Comment'
+
     has_many :milestones
 
     validates :title, presence: true
@@ -86,6 +89,10 @@ class Budget
     before_validation :set_responsible_name
     before_validation :set_denormalized_ids
 
+    def comments_count
+      comments.count
+    end
+
     def url
       budget_investment_path(budget, self)
     end
@@ -95,7 +102,7 @@ class Budget
     end
 
     def self.scoped_filter(params, current_filter)
-      budget  = Budget.find_by(slug: params[:budget_id]) || Budget.find_by(id: params[:budget_id])
+      budget  = Budget.find_by(id: params[:budget_id]) || Budget.find_by(slug: params[:budget_id])
       results = Investment.where(budget_id: budget.id)
 
       results = limit_results(budget, params, results)              if params[:max_per_heading].present?
@@ -104,15 +111,19 @@ class Budget
       results = results.by_heading(params[:heading_id])             if params[:heading_id].present?
       results = results.by_valuator(params[:valuator_id])           if params[:valuator_id].present?
       results = results.by_admin(params[:administrator_id])         if params[:administrator_id].present?
-
-      # Advanced filters
-      results = results.valuation_finished_feasible                 if params[:second_filter] == 'feasible'
-      results = results.where(selected: true)                       if params[:second_filter] == 'selected'
-      results = results.undecided                                   if params[:second_filter] == 'undecided'
-      results = results.unfeasible                                  if params[:second_filter] == 'unfeasible'
+      results = advanced_filters(params, results)                   if params[:advanced_filters].present?
 
       results = results.send(current_filter)                        if current_filter.present?
       results.includes(:heading, :group, :budget, administrator: :user, valuators: :user)
+    end
+
+    def self.advanced_filters(params, results)
+      ids = []
+      ids += results.valuation_finished_feasible.pluck(:id) if params[:advanced_filters].include?('feasible')
+      ids += results.where(selected: true).pluck(:id)       if params[:advanced_filters].include?('selected')
+      ids += results.undecided.pluck(:id)                   if params[:advanced_filters].include?('undecided')
+      ids += results.unfeasible.pluck(:id)                  if params[:advanced_filters].include?('unfeasible')
+      results.where("budget_investments.id IN (?)", ids)
     end
 
     def self.limit_results(budget, params, results)
@@ -125,6 +136,13 @@ class Budget
       end
 
       results.where("budget_investments.id IN (?)", ids)
+    end
+
+    def self.search_by_title_or_id(params)
+      results = Investment.where(budget_id: params[:budget_id])
+
+      return results.where(id: params[:title_or_id]) if params[:title_or_id] =~ /\A[0-9]+\z/
+      results.where("title ILIKE ?", "%#{params[:title_or_id].strip}%")
     end
 
     def searchable_values
