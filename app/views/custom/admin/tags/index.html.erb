@@ -14,8 +14,10 @@
 
 <table>
   <thead>
-    <th scope="col" class="small-9"><%= t("admin.tags.index.topic") %></th>
-    <th scope="col"><%= t("admin.actions.actions") %></th>
+    <tr>
+      <th scope="col" class="small-9"><%= t("admin.tags.index.topic") %></th>
+      <th scope="col"><%= t("admin.actions.actions") %></th>
+    </tr>
   </thead>
   <tbody id="tshake">
   <% @tags.each do |tag| %>
