@@ -2,13 +2,19 @@
 en:
   pages:
     census_terms: To confirm the account, you must be 18 or older and be registered, having provided the information requested previously, will verify. By accepting the verification process, you also consent to the verification of this information, as well as the contact methods featuring in said files. The data provided will be acquired and processed in a file mentioned previously in the terms and conditions of use for the Portal.
-    more_info:
+    help:
+      debates:
+        description: "In the %{link} section you can present and share your opinion with other people on issues of concern to you related to the city. It is also a place to generate ideas that through the other sections of %{org} lead to concrete actions by the Regional Government."
       proposals:
-        description: "Propose what the Regional Government wants to do and support the proposals of other people."
-        feature_2_html: "The proposals that get the support of 0.1% of the people (over 18 years, 1,800 supports) are being evaluated."
-        feature_3_html: "If there are more people in favor than against, <strong>the Regional Government will publish their plan to accomplish</strong> the proposal and you can track its progress."
+        description: "In the %{link} section you can make proposals for the Regional government to carry them out. The proposals require support, and if they reach sufficient support, they are put to a public vote. The proposals approved in these citizens' votes are accepted by the Regional government and carried out."
+        feature_html: "To create a proposal you must register in %{org}. The proposals that get the support on the website of 1% of people with the right to vote (%{supports} supports of people over 18 years old registered) go to vote. To support proposals it is necessary to verify your account."
       budgets:
-        feature_3_html: "Then there is a <strong>support phase</strong> to prioritize the most interesting, the most supported are evaluated by the Regional Government to see if they are viable and how much they are worth."
+        description: "The %{link} section helps people make a direct decision on what part of the regional budget is spent on."
+        phase_1_html: "Throughout the year, people registered in %{org} can <strong>present proposals</strong> for the next participatory budget."
+        phase_2_html: "Between January and March, the Regional Government evaluates the proposals that have more support, in the form of <strong>preselection</strong>."
+        phase_3_html: "Between April and the beginning of May, the experts from the <strong>Regional Government rate</strong> projects on an order of more or less supported and check that they are viable."
+        phase_5_html: "From the approval of the budgets the following year the Regional Government begins to carry out the winning projects."
       polls:
-        description: "Citizen proposals that reach 0.1% of support will be evaluated."
-        feature_2: "All verified users over 18 years old can vote."
+        description: "The %{link} section is activated when the Regional Government proposes an issue for people to decide on."
+        feature_2: "All registered voters over the age of 18 can vote."
+        feature_3: "The results of all votes are binding on the Regional Government."
