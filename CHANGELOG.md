@@ -49,6 +49,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Improved Admin list of budget headings https://github.com/consul/consul/pull/2370
 - Improve texts of help page https://github.com/consul/consul/pull/2405
 - Remove usage of Investment's internal_comments https://github.com/consul/consul/pull/2404
+- Show error message when relating content to itself https://github.com/consul/consul/pull/2416
 
 ### Deprecated
 - Budget's `description_*` columns will be erased from database in next release. Please run rake task `budgets:phases:generate_missing` to migrate them. Details at Warning section of https://github.com/consul/consul/pull/2323
@@ -61,6 +62,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fixed deprecation warning in specs https://github.com/consul/consul/pull/2293
 - Fix social images meta tags https://github.com/consul/consul/pull/1124
 - Non translated strings & typos https://github.com/consul/consul/pull/2279
+- Fix Budget Investment's milestones order https://github.com/consul/consul/pull/2431
+- Only change budget slugs if its on draft phase https://github.com/consul/consul/pull/2434
 
 ### Security
 - Upgraded Paperclip version up to 5.2.1 to fix security problem https://github.com/consul/consul/pull/2393
