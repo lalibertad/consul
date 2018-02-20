@@ -908,5 +908,7 @@ section "Creating legislation processes" do
     end
   end
 end
+
+require_relative 'dev_seeds/newsletters'
 =end
 log "All dev seeds created successfuly 👍"
