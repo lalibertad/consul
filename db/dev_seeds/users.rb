@@ -8,7 +8,7 @@ section "Creating Users" do
       password_confirmation:  password,
       confirmed_at:           Time.current,
       terms_of_service:       "1",
-      gender:                 ['Male', 'Female'].sample,
+      gender:                 ['Masculino', 'Femenino'].sample,
       date_of_birth:          rand((Time.current - 80.years)..(Time.current - 16.years)),
       public_activity:        (rand(1..100) > 30)
     )
@@ -20,8 +20,9 @@ section "Creating Users" do
     "#{@document_number}#{[*'A'..'Z'].sample}"
   end
 
-  admin = create_user('admin@consul.dev', 'admin')
+  admin = create_user('decide@regionlalibertad.gob.pe', 'admin')
   admin.create_administrator
+=begin
   admin.update(residence_verified_at: Time.current,
                confirmed_phone: Faker::PhoneNumber.phone_number, document_type: "1",
                verified_at: Time.current, document_number: unique_document_number)
@@ -97,4 +98,5 @@ section "Creating Users" do
       user.update(verified_at: Time.current, document_number: unique_document_number)
     end
   end
+=end
 end
