@@ -27,19 +27,19 @@
                                     accesskey: "2",
                                     title: t("shared.go_to_page") + t("layouts.header.proposals"), class: "mbr-buttons__btn btn btn-lg btn-default animated fadeInUp delay" %>
             <% end %>
+            <% if feature?(:polls) %>
+              <%= layout_menu_link_to t("layouts.header.poll_questions"),
+                                      polls_path,
+                                      controller_name == "polls" || (controller_name == "questions" && controller.class.parent == Polls),
+                                      accesskey: "3",
+                                      title: t("shared.go_to_page") + t("layouts.header.poll_questions"), class: "mbr-buttons__btn btn btn-lg btn-default animated fadeInUp delay" %>
+            <% end %>
             <% if feature?(:budgets) %>
               <%= layout_menu_link_to t("layouts.header.budgets"),
                                       budgets_path,
                                       controller_name == "budgets" || controller_name == "investments",
                                       accesskey: "4",
                                       title: t("shared.go_to_page") + t("layouts.header.budgets"), class: "mbr-buttons__btn btn btn-lg btn-default animated fadeInUp delay" %>
-            <% end %>
-            <% if feature?(:polls) %>
-                <%= layout_menu_link_to t("layouts.header.poll_questions"),
-                                        polls_path,
-                                        controller_name == "polls" || (controller_name == "questions" && controller.class.parent == Polls),
-                                        accesskey: "3",
-                                        title: t("shared.go_to_page") + t("layouts.header.poll_questions"), class: "mbr-buttons__btn btn btn-lg btn-default animated fadeInUp delay" %>
             <% end %>
             <% if feature?(:legislation) %>
                 <%= layout_menu_link_to t("layouts.header.collaborative_legislation"),
