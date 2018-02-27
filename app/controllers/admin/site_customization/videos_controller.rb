@@ -15,6 +15,7 @@ class Admin::SiteCustomization::VideosController < Admin::SiteCustomization::Bas
   end
 
   def destroy
+    @video = SiteCustomization::Video.find(params[:id])
     @video.video = nil
     if @video.save
       redirect_to admin_site_customization_images_path, notice: t('admin.site_customization.videos.destroy.notice')
