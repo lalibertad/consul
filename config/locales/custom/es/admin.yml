@@ -22,7 +22,7 @@ es:
         district: "Distrito:"
         hamlet: "Caserío o urbanización:"
         age: "Edad:"
-        sex: "Sexo:"
+        gender: "Genero"
         education: "Educación:"
         warning: "ADVERTENCIA: Esta información es confidencial, de ser vulnerada se tomará acciones legales en su contra."
     geozones:
