@@ -114,6 +114,10 @@
           </div>
         <% end %>
 
+        <%= render 'documents/documents',
+                   documents: @proposal.documents,
+                   max_documents_allowed: Proposal.max_documents_allowed %>
+
         <%= render 'shared/tags', taggable: @proposal %>
 
         <%= render 'shared/geozone', geozonable: @proposal %>
