@@ -29,9 +29,9 @@ class PagesController < ApplicationController
 
   def download
     send_file(
-      "#{Rails.root}/public/docs/formato_ficha_tecnica.pdf",
-      filename: "formato_ficha_tecnica.pdf",
-      type: "application/pdf"
+      "#{Rails.root}/public/docs/formato_ficha_tecnica.docx",
+      filename: "formato_ficha_tecnica.docx",
+      type: "application/doc"
     )
   end
 
