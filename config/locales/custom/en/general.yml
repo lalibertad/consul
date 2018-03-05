@@ -29,6 +29,7 @@ en:
     proposal_for_district: "Start a proposal for your province or district"
   proposals:
     form:
+      proposal_title: Proposal name
       proposal_type: Type of proposal
       proposal_level: Project study level
       tags_instructions: "Tag this proposal. This order is considered for the prioritization of projects"

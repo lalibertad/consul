@@ -29,6 +29,7 @@ es:
     proposal_for_district: "Crea una propuesta para tu provincia o distrito"
   proposals:
     form:
+      proposal_title: Nombre de la propuesta
       proposal_type: Tipo de propuesta
       proposal_level: Nivel de estudio del proyecto
       tags_instructions: "Etiqueta esta propuesta. Este orden está considerado para la priorización de proyectos"
