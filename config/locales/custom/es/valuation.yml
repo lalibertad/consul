@@ -1,0 +1,7 @@
+es:
+  valuation:
+    budget_investments:
+      show:
+        price: Costo
+        price_first_year: Costo en el primer año
+        currency: "S/"
