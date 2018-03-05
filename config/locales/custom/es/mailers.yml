@@ -19,3 +19,13 @@ es:
       unselected_html: "Desde el Gobierno Regional de La Libertad agradecemos que hayas participado con tu idea en los <strong>Presupuestos Participativos</strong>. Lamentamos informarte de que tu proyecto <strong>'%{title}'</strong> no ha sido seleccionado para la fase de votación final."
       participate_html: "Puedes continuar participando en la votación final votando proyectos para toda la ciudad y el distrito que elijas."
       signatory: "DIRECCIÓN DE PLANEAMIENTO Y PARTICIPACIÓN CIUDADANA"
+    proposal_unfeasible:
+      hi: "Estimado usuario,"
+      new_html: 'Por todo ello, te invitamos a que elabores una <strong>nueva propuesta</strong> que se ajuste a las condiciones de este proceso. Esto lo puedes hacer en este enlace: %{url}.'
+      new_href: "nueva propuesta"
+      reconsider_html: "Si consideras que la propuesta rechazada cumple los requisitos para mantenerlo, podrás comunicarlo, en el plazo de 48 horas, al correo decide@regionlalibertad.gob.pe, indicando necesariamente para su tramitación el código %{code} como asunto del correo, correspondiente a tu propuesta."
+      sincerely: "Atentamente"
+      signatory: "DIRECCIÓN DE PLANEAMIENTO Y PARTICIPACIÓN CIUDADANA"
+      sorry: "Sentimos las molestias ocasionadas y volvemos a darte las gracias por tu inestimable participación."
+      subject: "Tu propuesta '%{code}' ha sido marcada como inviable"
+      unfeasible_html: "Desde el Gobierno Regional queremos agradecer tu participación. Lamentamos informarte de que tu propuesta <strong>'%{title}'</strong> quedará excluido por el siguiente motivo:"

@@ -106,6 +106,16 @@ class Mailer < ApplicationMailer
     end
   end
 
+  def proposal_unfeasible(proposal)
+    @proposal = proposal
+    @author = proposal.author
+    @email_to = @author.email
+
+    with_user(@author) do
+      mail(to: @email_to, subject: t('mailers.proposal_unfeasible.subject', code: @proposal.code))
+    end
+  end
+
   def budget_investment_selected(investment)
     @investment = investment
     @author = investment.author

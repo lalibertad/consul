@@ -12,5 +12,6 @@ es:
       index:
         headers:
           score: Apoyos
+          reject: Rechazar
         orders:
           confidence_score: Más apoyadas

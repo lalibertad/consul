@@ -16,9 +16,27 @@ class Moderation::ProposalsController < Moderation::BaseController
     @resources = @resources.where(status: false)
   end
 
+  def show
+  end
+
+  def update
+    if @proposal.update(proposal_params)
+      @proposal.send_unfeasible_email
+      redirect_to moderation_proposals_path
+    else
+      render :show
+    end
+  end
+
   private
 
     def resource_model
       Proposal
     end
+
+    def proposal_params
+      params[:proposal][:status] = true
+      params.require(:proposal).permit(:rejection_description, :status)
+    end
+
 end

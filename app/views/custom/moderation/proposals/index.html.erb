@@ -31,6 +31,9 @@
       <th>
        <%= t("moderation.proposals.index.headers.moderate") %>
       </th>
+      <th>
+        <%= t("moderation.proposals.index.headers.reject") %>
+      </th>
     </tr>
     <% @proposals.each do |proposal| %>
       <tr id="proposal_<%= proposal.id %>" <% if proposal.successful? %> style="background-color: #81C784;" <% end %>>
@@ -52,6 +55,11 @@
         </td>
         <td class="text-center">
           <%= check_box_tag "proposal_ids[]", proposal.id, nil, id: "#{dom_id(proposal)}_check" %>
+        </td>
+        <td class="text-center">
+          <%= link_to moderation_proposal_path(proposal) do %>
+            <i class="fa fa-eraser" style="font-size: 20px; color: #fd7e14"></i>
+          <% end %>
         </td>
       </tr>
     <% end %>

@@ -12,5 +12,6 @@ en:
       index:
         headers:
           score: Score
+          reject: Reject
         orders:
           confidence_score: Highest rated

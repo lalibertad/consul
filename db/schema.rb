@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220211105) do
+ActiveRecord::Schema.define(version: 20180302155811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -855,7 +855,7 @@ ActiveRecord::Schema.define(version: 20180220211105) do
   end
 
   create_table "proposals", force: :cascade do |t|
-    t.string   "title",               limit: 80
+    t.string   "title",                 limit: 80
     t.string   "tipe"
     t.string   "level"
     t.text     "description"
@@ -863,16 +863,16 @@ ActiveRecord::Schema.define(version: 20180220211105) do
     t.string   "external_url"
     t.integer  "author_id"
     t.datetime "hidden_at"
-    t.integer  "flags_count",                    default: 0
+    t.integer  "flags_count",                      default: 0
     t.datetime "ignored_flag_at"
-    t.integer  "cached_votes_up",                default: 0
-    t.integer  "comments_count",                 default: 0
+    t.integer  "cached_votes_up",                  default: 0
+    t.integer  "comments_count",                   default: 0
     t.datetime "confirmed_hide_at"
-    t.integer  "hot_score",           limit: 8,  default: 0
-    t.integer  "confidence_score",               default: 0
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "responsible_name",    limit: 60
+    t.integer  "hot_score",             limit: 8,  default: 0
+    t.integer  "confidence_score",                 default: 0
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.string   "responsible_name",      limit: 60
     t.text     "summary"
     t.string   "video_url"
     t.tsvector "tsv"
@@ -881,7 +881,8 @@ ActiveRecord::Schema.define(version: 20180220211105) do
     t.string   "retired_reason"
     t.text     "retired_explanation"
     t.integer  "community_id"
-    t.boolean  "status",                         default: false
+    t.boolean  "status",                           default: false
+    t.text     "rejection_description"
   end
 
   add_index "proposals", ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree

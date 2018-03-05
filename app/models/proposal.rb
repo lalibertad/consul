@@ -214,6 +214,10 @@ class Proposal < ActiveRecord::Base
     orders
   end
 
+  def send_unfeasible_email
+    Mailer.proposal_unfeasible(self).deliver_later
+  end
+
   protected
 
     def set_responsible_name

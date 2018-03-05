@@ -13,7 +13,7 @@ namespace :moderation do
     put :moderate, on: :collection
   end
 
-  resources :proposals, only: :index do
+  resources :proposals, only: [:index, :show, :update] do
     put :hide, on: :member
     put :moderate, on: :collection
   end
