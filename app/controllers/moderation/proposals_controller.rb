@@ -11,6 +11,7 @@ class Moderation::ProposalsController < Moderation::BaseController
   before_action :load_resources, only: [:index, :moderate]
 
   load_and_authorize_resource
+  skip_authorize_resource :only => [:update]
 
   def index_customization
     @resources = @resources.where(status: false)
@@ -35,8 +36,8 @@ class Moderation::ProposalsController < Moderation::BaseController
     end
 
     def proposal_params
-      params[:proposal][:status] = true
-      params.require(:proposal).permit(:rejection_description, :status)
+      params[:proposal][:hidden_at] = Time.current
+      params.require(:proposal).permit(:rejection_description, :hidden_at)
     end
 
 end
