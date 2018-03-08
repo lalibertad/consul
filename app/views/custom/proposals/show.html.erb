@@ -13,7 +13,7 @@
 <% end %>
 
 <% cache [locale_and_user_status(@proposal), @proposal, @proposal.author, Flag.flagged?(current_user, @proposal), @proposal_votes] do %>
-  <div class="proposal-show" xmlns="http://www.w3.org/1999/html">
+  <div class="proposal-show">
     <div id="<%= dom_id(@proposal) %>" class="row">
       <div class="small-12 medium-9 column">
         <%= back_link_to %>
@@ -264,7 +264,8 @@
         <%= render partial: 'shared/social_share', locals: {
           share_title: t("proposals.show.share"),
           title: @proposal.title,
-          url: proposal_url(@proposal)
+          url: proposal_url(@proposal),
+          description: @proposal.summary
         } %>
 
         <% if current_user %>
