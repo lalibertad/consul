@@ -34,6 +34,25 @@ es:
       proposal_level: Nivel de estudio del proyecto
       tags_instructions: "Etiqueta esta propuesta. Este orden está considerado para la priorización de proyectos"
       tags_label: Temas o Componentes
+      snip: SNIP
+      gap_contributes: Brecha a la que contribuye
+      strategic_objective: "Objetivo estratégico del PDRG-LL 2016-2021 al que contribuye"
+      strategic_objective1: "Reducir la pobreza y la desigualdad, a través del ejercicio de derechos y reducción de brechas sociales con enfoque de género"
+      strategic_objective2: "Mejorar la calidad de los servicios de educación y salud, en condiciones de equidad, sin ningún tipo de discriminación"
+      strategic_objective3: "Desarrollar y consolidar institucionalidad pública"
+      strategic_objective4: "Desarrollar competitividad regional y diversificación productiva, con empleo adecuado y productivo"
+      strategic_objective5: "Desarrollar un ecosistema de innovación que potencie la estructura económica hacia actividades intensivas en ciencia, tecnología e innovación"
+      strategic_objective6: "Desarrollar un territorio integrado en lo físico, social e institucional"
+      strategic_objective7: "Desarrollar un sistema integrado de ciudades sostenibles articulado con las zonas rurales"
+      strategic_objective8: "Conservar y aprovechar de manera sostenible los recursos naturales y la diversidad biológica"
+      strategic_objective9: "Reducir la vulnerabilidad de la población y sus medios de vida ante el riesgo de desastres e impactos del cambio climático"
+      specific_objective: Objetivos específicos
+      problem_solve: Problema específico que contribuye a solucionar
+      potentiality_solve: Potencialidad que aprovecha para desarrollar
+      population: Población beneficiada
+      price: Monto total de la iniciativa de inversión S/
+      executor: Unidad ejecutora
+      responsable: Entidad responsable del mantenimiento
     index:
       section_footer:
         description: Haz una propuesta ciudadana. Si obtiene los apoyos suficientes y pasa a votación, puedes conseguir que todos los habitantes decidan cómo quieren que sea nuestra región.

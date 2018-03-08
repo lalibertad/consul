@@ -34,6 +34,25 @@ en:
       proposal_level: Project study level
       tags_instructions: "Tag this proposal. This order is considered for the prioritization of projects"
       tags_label: Topics or Components
+      snip: SNIP
+      gap_contributes: Gap to which contributes
+      strategic_objective: "Strategic objective of the PDRG-LL 2016-2021 to which it contributes"
+      strategic_objective1: "Reduce poverty and inequality, through the exercise of rights and reduction of social gaps with a gender focus"
+      strategic_objective2: "Improve the quality of education and health services, in conditions of equity, without any type of discrimination"
+      strategic_objective3: "Develop and consolidate public institutions"
+      strategic_objective4: "Develop regional competitiveness and productive diversification, with adequate and productive employment"
+      strategic_objective5: "To develop an innovation ecosystem that enhances the economic structure towards intensive activities in science, technology and innovation"
+      strategic_objective6: "Develop an integrated territory in the physical, social and institutional"
+      strategic_objective7: "Develop an integrated system of sustainable cities articulated with rural areas"
+      strategic_objective8: "Conserve and make sustainable use of natural resources and biological diversity"
+      strategic_objective9: "Reduce the vulnerability of the population and their livelihoods to the risk of disasters and the impacts of climate change"
+      specific_objective: Specific objectives
+      problem_solve: Specific problem that helps to solve
+      potentiality_solve: Potential that takes advantage to develop
+      population: Benefited population
+      price: Total amount of the investment initiative S/
+      executor: Executing unit
+      responsable: Entity responsible for maintenance
     index:
       section_footer:
         description: Make a citizen proposal. If you get enough support and vote, you can get all the inhabitants to decide how they want our region to be.

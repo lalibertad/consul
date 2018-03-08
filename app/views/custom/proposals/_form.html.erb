@@ -10,9 +10,9 @@
 
     <div class="small-12 column" id="level_of_study">
       <%= f.label :level, t("proposals.form.proposal_level") %>
-      <%= f.radio_button :level, "Idea", checked: true, 'data-tooltip': "Son iniciativas de inversión pública, que no cuentan con estudios ni con la viabilidad requerida, y que responde a los criterios de priorización de Proyectos del Presupuesto Participativo" %>&nbsp;&nbsp;&nbsp;
-      <%= f.radio_button :level, "Perfil", 'data-tooltip': "Proyectos que cuentan con estudios incompletos, en el marco del Sistema nacional de Programación Multianual y Gestión de Inversiones - Invierte Perú" %>&nbsp;&nbsp;&nbsp;
-      <%= f.radio_button :level, "Expediente Técnico", 'data-tooltip': "Proyectos que cuentan con estudios aprobados, en el marco del Sistema nacional de Programación Multianual y Gestión de Inversiones - Invierte Perú" %>
+      <%= f.radio_button :level, "Idea", checked: true, class: "idea", 'data-tooltip': "Son iniciativas de inversión pública, que no cuentan con estudios ni con la viabilidad requerida, y que responde a los criterios de priorización de Proyectos del Presupuesto Participativo" %>&nbsp;&nbsp;&nbsp;
+      <%= f.radio_button :level, "Perfil", class: "perfil",'data-tooltip': "Proyectos que cuentan con estudios incompletos, en el marco del Sistema nacional de Programación Multianual y Gestión de Inversiones - Invierte Perú" %>&nbsp;&nbsp;&nbsp;
+      <%= f.radio_button :level, "Expediente Técnico", class: "expediente",'data-tooltip': "Proyectos que cuentan con estudios aprobados, en el marco del Sistema nacional de Programación Multianual y Gestión de Inversiones - Invierte Perú" %>
     </div>
 
     <div class="small-12 column">
@@ -23,15 +23,9 @@
 
     <%= f.invisible_captcha :subtitle %>
 
-    <div class="small-12 column">
-      <%= f.label :question, t("proposals.form.proposal_question") %>
-      <p class="help-text" id="question-help-text">
-        <%= t("proposals.form.proposal_question_example_html") %>
-      </p>
-      <%= f.text_field :question, maxlength: Proposal.question_max_length,
-                                  placeholder: t("proposals.form.proposal_question"),
-                                  label: false,
-                                  aria: {describedby: "question-help-text"} %>
+    <div class="small-12 column" id="proposal_snip" style="display: none">
+      <%= f.label :snip, t("proposals.form.snip") %>
+      <%= f.text_field :snip, maxlength: 8, placeholder: t("proposals.form.snip"), label: false %>
     </div>
 
     <div class="small-12 column">
@@ -40,6 +34,60 @@
       <%= f.text_area :summary, rows: 4, maxlength: 200, label: false,
                       placeholder: t('proposals.form.proposal_summary'),
                       aria: {describedby: "summary-help-text"} %>
+    </div>
+
+    <div class="small-12 column">
+      <%= f.label :gap_contributes, t("proposals.form.gap_contributes") %>
+      <%= f.text_field :gap_contributes, placeholder: t("proposals.form.gap_contributes"), label: false %>
+    </div>
+
+    <div class="small-12 column">
+      <%= f.label :strategic_objective, t("proposals.form.strategic_objective") %>
+      <%= f.select :strategic_objective, options_for_select(
+        [t("proposals.form.strategic_objective1"),
+         t("proposals.form.strategic_objective2"),
+         t("proposals.form.strategic_objective3"),
+         t("proposals.form.strategic_objective4"),
+         t("proposals.form.strategic_objective5"),
+         t("proposals.form.strategic_objective6"),
+         t("proposals.form.strategic_objective7"),
+         t("proposals.form.strategic_objective8"),
+         t("proposals.form.strategic_objective9")]), label: false %>
+    </div>
+
+    <div class="small-12 column">
+      <%= f.label :specific_objective, t("proposals.form.specific_objective") %>
+      <%= f.text_field :specific_objective, placeholder: t("proposals.form.specific_objective"), label: false %>
+    </div>
+
+    <div class="small-12 column">
+      <%= f.label :problem_solve, t("proposals.form.problem_solve") %>
+      <%= f.text_field :problem_solve, placeholder: t("proposals.form.problem_solve"), label: false %>
+    </div>
+
+    <div class="small-12 column">
+      <%= f.label :potentiality_solve, t("proposals.form.potentiality_solve") %>
+      <%= f.text_field :potentiality_solve, placeholder: t("proposals.form.potentiality_solve"), label: false %>
+    </div>
+
+    <div class="small-12 column">
+      <%= f.label :population, t("proposals.form.population") %>
+      <%= f.number_field :population, placeholder: t("proposals.form.population"), label: false %>
+    </div>
+
+    <div class="small-12 column" id="proposal_price" style="display: none">
+      <%= f.label :price, t("proposals.form.price") %>
+      <%= f.number_field :price, placeholder: t("proposals.form.price"), label: false %>
+    </div>
+
+    <div class="small-12 column" id="proposal_executor" style="display: none">
+      <%= f.label :executor, t("proposals.form.executor") %>
+      <%= f.text_field :executor, placeholder: t("proposals.form.executor"), label: false %>
+    </div>
+
+    <div class="small-12 column" id="proposal_responsable" style="display: none">
+      <%= f.label :responsable, t("proposals.form.responsable") %>
+      <%= f.text_field :responsable, placeholder: t("proposals.form.responsable"), label: false %>
     </div>
 
     <div class="ckeditor small-12 column">

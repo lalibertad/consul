@@ -84,7 +84,9 @@ class ProposalsController < ApplicationController
       if params[:proposal][:tipe] == "Actividad"
         params[:proposal][:level] = ""
       end
-      params.require(:proposal).permit(:title, :tipe, :level, :question, :summary, :description, :external_url, :video_url,
+      params.require(:proposal).permit(:title, :tipe, :level, :snip, :summary, :gap_contributes, :strategic_objective,
+                                       :specific_objective, :problem_solve, :potentiality_solve, :population, :price,
+                                       :executor, :responsable, :description, :external_url, :video_url,
                                        :responsible_name, :tag_list, :terms_of_service, :geozone_id, :skip_map,
                                        image_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
                                        documents_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],

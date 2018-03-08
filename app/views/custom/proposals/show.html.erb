@@ -13,7 +13,7 @@
 <% end %>
 
 <% cache [locale_and_user_status(@proposal), @proposal, @proposal.author, Flag.flagged?(current_user, @proposal), @proposal_votes] do %>
-  <div class="proposal-show">
+  <div class="proposal-show" xmlns="http://www.w3.org/1999/html">
     <div id="<%= dom_id(@proposal) %>" class="row">
       <div class="small-12 medium-9 column">
         <%= back_link_to %>
@@ -57,14 +57,11 @@
           <%= t("proposals.show.code") %>
           <strong><%= @proposal.code %></strong>
         </p>
-        <p>
-          <%= t("proposals.form.proposal_type") %>:
-          <strong><%= @proposal.tipe %></strong>
-        </p>
-        <% if @proposal.level.present? %>
+
+        <% if @proposal.snip.present? %>
           <p>
-            <%= t("proposals.form.proposal_level") %>:
-            <strong><%= @proposal.level %></strong>
+            <%= t("proposals.form.snip") %>:
+            <strong><%= @proposal.snip %></strong>
           </p>
         <% end %>
 
@@ -76,6 +73,81 @@
               <div id="js-embedded-video" data-video-code="<%= embedded_video_code %>"></div>
             </div>
           </div>
+        <% end %>
+
+        <p>
+          <strong><%= t("proposals.form.proposal_type") %>:</strong>
+          <%= @proposal.tipe %>
+        </p>
+
+        <% if @proposal.level.present? %>
+          <p>
+            <strong><%= t("proposals.form.proposal_level") %>:</strong>
+            <%= @proposal.level %>
+          </p>
+        <% end %>
+
+        <% if @proposal.gap_contributes.present? %>
+          <p>
+            <strong><%= t("proposals.form.gap_contributes") %>:</strong>
+            <%= @proposal.gap_contributes %>
+          </p>
+        <% end %>
+
+        <% if @proposal.strategic_objective.present? %>
+          <p>
+            <strong><%= t("proposals.form.strategic_objective") %>:</strong>
+            <%= @proposal.strategic_objective %>
+          </p>
+        <% end %>
+
+        <% if @proposal.specific_objective.present? %>
+          <p>
+            <strong><%= t("proposals.form.specific_objective") %>:</strong>
+            <%= @proposal.specific_objective %>
+          </p>
+        <% end %>
+
+        <% if @proposal.problem_solve.present? %>
+          <p>
+            <strong><%= t("proposals.form.problem_solve") %>:</strong>
+            <%= @proposal.problem_solve %>
+          </p>
+        <% end %>
+
+        <% if @proposal.potentiality_solve.present? %>
+          <p>
+            <strong><%= t("proposals.form.potentiality_solve") %>:</strong>
+            <%= @proposal.potentiality_solve %>
+          </p>
+        <% end %>
+
+        <% if @proposal.population.present? %>
+          <p>
+            <strong><%= t("proposals.form.population") %>:</strong>
+            <%= @proposal.population %>
+          </p>
+        <% end %>
+
+        <% if @proposal.price.present? %>
+          <p>
+            <strong><%= t("proposals.form.price") %>:</strong>
+            <%= @proposal.price %>
+          </p>
+        <% end %>
+
+        <% if @proposal.executor.present? %>
+          <p>
+            <strong><%= t("proposals.form.executor") %>:</strong>
+            <%= @proposal.executor %>
+          </p>
+        <% end %>
+
+        <% if @proposal.responsable.present? %>
+          <p>
+            <strong><%= t("proposals.form.responsable") %>:</strong>
+            <%= @proposal.responsable %>
+          </p>
         <% end %>
 
         <%= safe_html_with_links @proposal.description %>
@@ -104,8 +176,6 @@
           </div>
 
         <% end %>
-
-        <h4><%= @proposal.question %></h4>
 
         <% if @proposal.retired? %>
           <div id="retired_explanation" class="callout">
