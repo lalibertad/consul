@@ -11,10 +11,11 @@ jQuery ->
     hideFields()
   else
     $('#proposal_tipe_proyecto').prop("checked", true)
-  if $('input:radio[name="proposal[level]"]:checked').val() == "Idea"
-    hideFields()
-  else
-    $('#proposal_level_perfil').prop("checked", true)
+    if $('input:radio[name="proposal[level]"]:checked').val() == "Idea"
+      hideFields()
+    else
+      if $('input:radio[name="proposal[level]"]:checked').val() != "Expediente Técnico"
+        $('#proposal_level_perfil').prop("checked", true)
   $("#proposal_tipe_actividad").click ->
     $("#level_of_study").hide()
     hideFields()
