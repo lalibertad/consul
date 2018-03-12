@@ -7,17 +7,13 @@ jQuery ->
     $("#proposal_responsable").hide()
   $(".project").click ->
     $("#level_of_study").show()
+    $(".idea").prop("checked", true)
   $(".idea").click ->
     $("#proposal_snip").hide()
     $("#proposal_price").hide()
     $("#proposal_executor").hide()
     $("#proposal_responsable").hide()
   $(".perfil").click ->
-    $("#proposal_snip").hide()
-    $("#proposal_price").show()
-    $("#proposal_executor").show()
-    $("#proposal_responsable").show()
-  $(".expediente").click ->
     $("#proposal_snip").show()
     $("#proposal_price").show()
     $("#proposal_executor").show()
