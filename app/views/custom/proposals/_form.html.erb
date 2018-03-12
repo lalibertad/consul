@@ -90,6 +90,16 @@
       <%= f.text_field :responsable, placeholder: t("proposals.form.responsable"), label: false %>
     </div>
 
+    <div class="small-12 column" id="proposal_duration" style="display: none">
+      <%= f.label :duration, t("proposals.form.duration") %>
+      <%= f.text_field :duration, placeholder: t("proposals.form.duration"), label: false %>
+    </div>
+
+    <div class="small-12 column" id="proposal_price_first_year" style="display: none">
+      <%= f.label :price_first_year, t("proposals.form.price_first_year") %>
+      <%= f.number_field :price_first_year, placeholder: t("proposals.form.price_first_year"), label: false %>
+    </div>
+
     <div class="ckeditor small-12 column">
       <%= f.label :description, t("proposals.form.proposal_text") %>
       <%= f.cktext_area :description, maxlength: Proposal.description_max_length, ckeditor: { language: I18n.locale }, label: false %>

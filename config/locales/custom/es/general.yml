@@ -53,6 +53,8 @@ es:
       price: Monto total de la iniciativa de inversión S/
       executor: Unidad ejecutora
       responsable: Entidad responsable del mantenimiento
+      duration: Duración de la ejecución
+      price_first_year: Costo del primer año
     index:
       section_footer:
         description: Haz una propuesta ciudadana. Si obtiene los apoyos suficientes y pasa a votación, puedes conseguir que todos los habitantes decidan cómo quieren que sea nuestra región.

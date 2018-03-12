@@ -5,6 +5,8 @@ jQuery ->
     $("#proposal_price").hide()
     $("#proposal_executor").hide()
     $("#proposal_responsable").hide()
+    $("#proposal_duration").hide()
+    $("#proposal_price_first_year").hide()
   $(".project").click ->
     $("#level_of_study").show()
     $(".idea").prop("checked", true)
@@ -13,11 +15,15 @@ jQuery ->
     $("#proposal_price").hide()
     $("#proposal_executor").hide()
     $("#proposal_responsable").hide()
+    $("#proposal_duration").hide()
+    $("#proposal_price_first_year").hide()
   $(".perfil").click ->
     $("#proposal_snip").show()
     $("#proposal_price").show()
     $("#proposal_executor").show()
     $("#proposal_responsable").show()
+    $("#proposal_duration").show()
+    $("#proposal_price_first_year").show()
 
   districts = $('.geozone_district').html()
   changer =(districts) ->

@@ -53,6 +53,8 @@ en:
       price: Total amount of the investment initiative S/
       executor: Executing unit
       responsable: Entity responsible for maintenance
+      duration: Duration of the execution
+      price_first_year: Cost of the first year
     index:
       section_footer:
         description: Make a citizen proposal. If you get enough support and vote, you can get all the inhabitants to decide how they want our region to be.

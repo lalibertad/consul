@@ -86,8 +86,8 @@ class ProposalsController < ApplicationController
       end
       params.require(:proposal).permit(:title, :tipe, :level, :snip, :summary, :gap_contributes, :strategic_objective,
                                        :specific_objective, :problem_solve, :potentiality_solve, :population, :price,
-                                       :executor, :responsable, :description, :external_url, :video_url,
-                                       :responsible_name, :tag_list, :terms_of_service, :geozone_id, :skip_map,
+                                       :executor, :responsable, :duration, :price_first_year, :description, :external_url,
+                                       :video_url, :responsible_name, :tag_list, :terms_of_service, :geozone_id, :skip_map,
                                        image_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
                                        documents_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
                                        map_location_attributes: [:latitude, :longitude, :zoom])
