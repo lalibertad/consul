@@ -150,6 +150,20 @@
           </p>
         <% end %>
 
+        <% if @proposal.duration.present? %>
+          <p>
+            <strong><%= t("proposals.form.duration") %>:</strong>
+            <%= @proposal.duration %>
+          </p>
+        <% end %>
+
+        <% if @proposal.price_first_year.present? %>
+          <p>
+            <strong><%= t("proposals.form.price_first_year") %>:</strong>
+            <%= @proposal.price_first_year %>
+          </p>
+        <% end %>
+
         <%= safe_html_with_links @proposal.description %>
 
         <% if feature?(:map) && map_location_available?(@proposal.map_location) %>

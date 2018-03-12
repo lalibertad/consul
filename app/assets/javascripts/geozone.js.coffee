@@ -1,22 +1,28 @@
 jQuery ->
-  $(".activity").click ->
+  hideFields = ->
+    $("#proposal_snip").hide()
+    $("#proposal_price").hide()
+    $("#proposal_executor").hide()
+    $("#proposal_responsable").hide()
+    $("#proposal_duration").hide()
+    $("#proposal_price_first_year").hide()
+  if $('input:radio[name="proposal[tipe]"]:checked').val() == "Actividad"
     $("#level_of_study").hide()
-    $("#proposal_snip").hide()
-    $("#proposal_price").hide()
-    $("#proposal_executor").hide()
-    $("#proposal_responsable").hide()
-    $("#proposal_duration").hide()
-    $("#proposal_price_first_year").hide()
-  $(".project").click ->
+    hideFields()
+  else
+    $('#proposal_tipe_proyecto').prop("checked", true)
+  if $('input:radio[name="proposal[level]"]:checked').val() == "Idea"
+    hideFields()
+  else
+    $('#proposal_level_perfil').prop("checked", true)
+  $("#proposal_tipe_actividad").click ->
+    $("#level_of_study").hide()
+    hideFields()
+  $("#proposal_tipe_proyecto").click ->
     $("#level_of_study").show()
-    $(".idea").prop("checked", true)
-  $(".idea").click ->
-    $("#proposal_snip").hide()
-    $("#proposal_price").hide()
-    $("#proposal_executor").hide()
-    $("#proposal_responsable").hide()
-    $("#proposal_duration").hide()
-    $("#proposal_price_first_year").hide()
+    $("#proposal_level_idea").prop("checked", true)
+  $("#proposal_level_idea").click ->
+    hideFields()
   $(".perfil").click ->
     $("#proposal_snip").show()
     $("#proposal_price").show()

@@ -4,13 +4,13 @@
   <div class="row">
     <div class="small-12 column">
       <%= f.label :tipe, t("proposals.form.proposal_type") %>
-      <%= f.radio_button :tipe, "Proyecto", checked: true, class: "project", 'data-tooltip': "Representa la creación, ampliación, mejora, modernización y/o recuperación de la capacidad de producción de bienes y servicios, implicando la variación sustancial o el cambio de procesos y/o tecnología utilizada por la entidad pública"%>&nbsp;&nbsp;&nbsp;
+      <%= f.radio_button :tipe, "Proyecto", class: "project", 'data-tooltip': "Representa la creación, ampliación, mejora, modernización y/o recuperación de la capacidad de producción de bienes y servicios, implicando la variación sustancial o el cambio de procesos y/o tecnología utilizada por la entidad pública"%>&nbsp;&nbsp;&nbsp;
       <%= f.radio_button :tipe, "Actividad", class: "activity", 'data-tooltip': "Acciones que concurren en la operatividad y mantenimiento de los servicios públicos o administrativos existentes" %>
     </div>
 
     <div class="small-12 column" id="level_of_study">
       <%= f.label :level, t("proposals.form.proposal_level") %>
-      <%= f.radio_button :level, "Idea", checked: true, class: "idea", 'data-tooltip': "Son iniciativas de inversión pública, que no cuentan con estudios ni con la viabilidad requerida, y que responde a los criterios de priorización de Proyectos del Presupuesto Participativo" %>&nbsp;&nbsp;&nbsp;
+      <%= f.radio_button :level, "Idea", class: "idea", 'data-tooltip': "Son iniciativas de inversión pública, que no cuentan con estudios ni con la viabilidad requerida, y que responde a los criterios de priorización de Proyectos del Presupuesto Participativo" %>&nbsp;&nbsp;&nbsp;
       <%= f.radio_button :level, "Perfil", class: "perfil",'data-tooltip': "Proyectos que cuentan con estudios incompletos, en el marco del Sistema nacional de Programación Multianual y Gestión de Inversiones - Invierte Perú" %>&nbsp;&nbsp;&nbsp;
       <%= f.radio_button :level, "Expediente Técnico", class: "perfil",'data-tooltip': "Proyectos que cuentan con estudios aprobados, en el marco del Sistema nacional de Programación Multianual y Gestión de Inversiones - Invierte Perú" %>
     </div>
@@ -23,7 +23,7 @@
 
     <%= f.invisible_captcha :subtitle %>
 
-    <div class="small-12 column" id="proposal_snip" style="display: none">
+    <div class="small-12 column" id="proposal_snip">
       <%= f.label :snip, t("proposals.form.snip") %>
       <%= f.text_field :snip, maxlength: 8, placeholder: t("proposals.form.snip"), label: false %>
     </div>
@@ -75,27 +75,27 @@
       <%= f.number_field :population, placeholder: t("proposals.form.population"), label: false %>
     </div>
 
-    <div class="small-12 column" id="proposal_price" style="display: none">
+    <div class="small-12 column" id="proposal_price">
       <%= f.label :price, t("proposals.form.price") %>
       <%= f.number_field :price, placeholder: t("proposals.form.price"), label: false %>
     </div>
 
-    <div class="small-12 column" id="proposal_executor" style="display: none">
+    <div class="small-12 column" id="proposal_executor">
       <%= f.label :executor, t("proposals.form.executor") %>
       <%= f.text_field :executor, placeholder: t("proposals.form.executor"), label: false %>
     </div>
 
-    <div class="small-12 column" id="proposal_responsable" style="display: none">
+    <div class="small-12 column" id="proposal_responsable">
       <%= f.label :responsable, t("proposals.form.responsable") %>
       <%= f.text_field :responsable, placeholder: t("proposals.form.responsable"), label: false %>
     </div>
 
-    <div class="small-12 column" id="proposal_duration" style="display: none">
+    <div class="small-12 column" id="proposal_duration">
       <%= f.label :duration, t("proposals.form.duration") %>
       <%= f.text_field :duration, placeholder: t("proposals.form.duration"), label: false %>
     </div>
 
-    <div class="small-12 column" id="proposal_price_first_year" style="display: none">
+    <div class="small-12 column" id="proposal_price_first_year">
       <%= f.label :price_first_year, t("proposals.form.price_first_year") %>
       <%= f.number_field :price_first_year, placeholder: t("proposals.form.price_first_year"), label: false %>
     </div>
