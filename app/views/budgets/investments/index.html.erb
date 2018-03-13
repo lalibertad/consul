@@ -35,12 +35,12 @@
   <div class="row">
     <div id="budget-investments" class="budget-investments-list small-12 medium-9 column">
 
-      <% if @current_filter == "unfeasible" && @heading.present? %>
+      <% if @current_filter == "unfeasible" %>
         <div class="small-12 margin-bottom">
           <h2><%= t("budgets.investments.index.unfeasible") %>: <%= @heading.name %></h2>
           <div class="callout primary margin">
               <%= t("budgets.investments.index.unfeasible_text",
-              definitions: link_to(t("budgets.investments.index.unfeasible_text_definitions"), "#")).html_safe %>
+              definitions: link_to(t("budgets.investments.index.unfeasible_text_definitions"), "https://decide.madrid.es/participatory_budget_info#20")).html_safe %>
           </div>
         </div>
       <% end %>
