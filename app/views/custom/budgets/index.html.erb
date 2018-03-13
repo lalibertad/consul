@@ -3,6 +3,7 @@
   <%= render "shared/canonical", href: budgets_url %>
 <% end %>
 
+<% if current_budget.present? %>
 <div id="budget_heading" class="expanded budget no-margin-top">
   <div class="row" data-equalizer data-equalizer-on="medium">
     <div class="small-12 medium-9 column padding" data-equalizer-watch>
@@ -143,7 +144,9 @@
       </div>
     </div>
   <% end %>
-
+</div>
+<% end %>
+<div id="budget_info" class="budget-info">
   <div class="row">
     <div class="small-12 column">
       <div id="section_help" class="margin" data-magellan-target="section_help">
