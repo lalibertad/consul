@@ -47,7 +47,7 @@ class Budget
     validates :unfeasibility_explanation, presence: { if: :unfeasibility_explanation_required? }
     validates :price, presence: { if: :price_required? }
 
-    validates :title, length: { in: 4..Budget::Investment.title_max_length }
+    validates :title, length: { in: 4..Budget::Investment.question_max_length }
     validates :description, length: { maximum: Budget::Investment.description_max_length }
     validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
 

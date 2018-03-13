@@ -1,6 +1,16 @@
 ---
 en:
   admin:
+    budgets:
+      index:
+        table_manage_budget: Manage projects
+        add_investments: Add projects
+    budget_manages:
+      index:
+        headers:
+          proposals: Proposals
+          select: Select
+          budget_item: budget Item
     users:
       columns:
         action: Action

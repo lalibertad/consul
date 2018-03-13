@@ -1,0 +1,6 @@
+es:
+  flash:
+    actions:
+      create:
+        budget_investment: "Proyectos de inversión creados correctamente."
+        error_investment: "Hubo problemas al agregar %{count} propuestas."

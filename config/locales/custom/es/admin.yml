@@ -2,11 +2,20 @@
 es:
   admin:
     budgets:
+      index:
+        table_manage_budget: Gestionar proyectos
+        add_investments: Agregar proyectos
       form:
         amount: Monto presupuestal
         population: "Beneficiados (opcional)"
         table_amount: Monto
         table_population: Beneficiados
+    budget_manages:
+      index:
+        headers:
+          proposals: Propuestas
+          select: Seleccionar
+          budget_item: Partida Presupuestaria
     menu:
       geozones: Gestionar provincias o distritos
     users:

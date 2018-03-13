@@ -1,0 +1,55 @@
+<h2 class="inline-block"><%= @budget.name %> - <%= t("admin.budget_investments.index.title") %></h2>
+
+<% if @proposals.any? %>
+  <%= form_tag admin_budget_budget_manages_path(request.query_parameters), method: :post do %>
+
+    <div class="small-12 medium-8 column">
+      <%= label_tag "heading_id", t("admin.budget_manages.index.headers.budget_item") %>
+      <%= select_tag "heading_id", options_for_select(budget_heading_select_options(@budget)) %>
+    </div>
+
+    <h3 class="small-8 large-8 columns"><%= page_entries_info @proposals %></h3>
+
+    <table class="clear">
+      <tr>
+        <th><%= t("admin.budget_manages.index.headers.proposals") %></th>
+        <th><%= t("admin.budget_manages.index.headers.select") %></th>
+      </tr>
+      <% @proposals.each do |proposal| %>
+        <tr id="proposal_<%= proposal.id %>">
+          <td>
+            <%= link_to proposal.title, proposal, target: "_blank" %>
+            <br>
+            <% if proposal.snip.present? %>
+              <span>SNIP: <%= proposal.snip %></span>
+              <span class="bullet">&nbsp;&bull;&nbsp;</span>
+            <% end %>
+            <span class="date"><%= proposal.level %></span>
+            <span class="bullet">&nbsp;&bull;&nbsp;</span>
+            <%= proposal.cached_votes_up %> <i class="fa fa-thumbs-o-up" style="color: #ff3b30"></i>
+            <span class="bullet">&nbsp;&bull;&nbsp;</span>
+            <%= proposal.author.username %>
+            <br>
+            <blockquote style="color: #515151; font-size: 0.9rem;">
+              <%= proposal.summary %>
+            </blockquote>
+            <div class="moderation-description">
+              <%= proposal.description %>
+            </div>
+          </td>
+          <td class="text-center">
+            <%= check_box_tag "proposal_ids[]", proposal.id, nil, id: "#{dom_id(proposal)}_check" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= submit_tag t("admin.budget_phases.edit.save_changes"), class: "button success" %>
+
+    <%= paginate @proposals %>
+  <% end %>
+<% else %>
+  <div class="callout primary">
+    <%= t("admin.budget_investments.index.no_budget_investments") %>
+  </div>
+<% end %>

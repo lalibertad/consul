@@ -1,0 +1,6 @@
+en:
+  flash:
+    actions:
+      create:
+        budget_investment: "Budgets Investment created successfully."
+        error_investment: "There were problems adding %{count} proposals."

@@ -53,6 +53,8 @@ namespace :admin do
     end
 
     resources :budget_phases, only: [:edit, :update]
+
+    resources :budget_manages, only: [:index, :create]
   end
 
   resources :signature_sheets, only: [:index, :new, :create, :show]
