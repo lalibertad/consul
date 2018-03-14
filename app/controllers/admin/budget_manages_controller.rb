@@ -55,7 +55,7 @@ class Admin::BudgetManagesController < Admin::BaseController
         :author_id => seed.author_id,
         :administrator_id => current_user.id,
         :title => seed.title,
-        :description => seed.description,
+        :description => add_details(seed) + seed.description,
         :external_url => seed.external_url,
         :price => seed.price,
         :price_first_year => seed.price_first_year,
@@ -74,6 +74,18 @@ class Admin::BudgetManagesController < Admin::BaseController
         :skip_map => "1",
         :proposal_id => seed.id
       )
+    end
+
+    def add_details(detail)
+      @txt =  detail.snip.present? ? "<p>SNIP: <strong>" + detail.snip + "</strong></p>" : ""
+      @txt += "<p><strong>Nivel de estudio del proyecto:</strong> " + detail.level + "</p>"
+      @txt += "<p><strong>Brecha a la que contribuye:</strong> " + detail.gap_contributes + "</p>" if detail.gap_contributes.present?
+      @txt += "<p><strong>Objetivo estratégico del PDRG-LL 2016-2021 al que contribuye:</strong> " + detail.strategic_objective + "</p>" if detail.strategic_objective.present?
+      @txt += "<p><strong>Objetivos específicos:</strong> " + detail.specific_objective + "</p>" if detail.specific_objective.present?
+      @txt += "<p><strong>Problema específico que contribuye a solucionar:</strong> " + detail.problem_solve + "</p>" if detail.problem_solve.present?
+      @txt += "<p><strong>Potencialidad que aprovecha para desarrollar:</strong> " + detail.potentiality_solve + "</p>" if detail.potentiality_solve.present?
+      @txt += "<p><strong>Unidad ejecutora:</strong> " + detail.executor + "</p>" if detail.executor.present?
+      @txt += "<p><strong>Entidad responsable del mantenimiento:</strong> " + detail.responsable + "</p>" if detail.responsable.present?
     end
 
     def save_image(p, i)
