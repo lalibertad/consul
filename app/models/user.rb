@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   validates :document_number, presence: true, uniqueness: { scope: :document_type }, allow_nil: true
 
   validate :validate_username_length
-  validate :allowed_age
+  validate :allowed_age, if: :date_of_birth?
 
   validates :official_level, inclusion: {in: 0..5}
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
@@ -150,6 +150,10 @@ class User < ActiveRecord::Base
 
   def organization?
     organization.present?
+  end
+
+  def date_of_birth?
+    date_of_birth.present?
   end
 
   def verified_organization?

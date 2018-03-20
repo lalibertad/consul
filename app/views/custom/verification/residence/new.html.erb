@@ -33,38 +33,42 @@
     <%= form_for @residence, as: "residence", url: residence_path do |f| %>
       <%= render "errors" %>
 
-        <div class="small-12 medium-5 clear">
-          <p class="help-text" id="postal-code-help-text"><%= t("verification.residence.new.postal_code_note") %></p>
-          <%= f.label t("verification.residence.new.province") %>
-          <div class="medium-6">
-            <%= f.select :postal_code, geozone_select_options, {label: false}, class: "geozone_province" %>
-          </div>
+      <div class="small-12 medium-5 column">
+        <%= f.label t("verification.residence.new.province") %>
+        <%= f.text_field :portal_code, label: false, value: @province.name, :readonly => true %>
+      </div>
+
+      <div class="small-12 medium-5 column">
+        <%= f.label :portal_code, t("verification.residence.new.district") %>
+        <%= f.text_field :portal_code, label: false, value: @district.name, :readonly => true %>
+      </div>
+
+      <div class="small-12 medium-5 column">
+        <%= f.label :hamlet_or_urbanization, t("verification.residence.new.hamlet_or_urba") %>
+        <%= f.text_field :hamlet_or_urbanization, label: false, aria: {describedby: "postal-code-help-text"}, maxlength: "30", minlength: "3", required: "required" %>
+      </div>
+
+      <div class="date-of-birth small-12 medium-6 clear" style="padding-left: 12px">
+        <%= f.label t("verification.residence.new.date_of_birth") %>
+        <%= f.date_select :date_of_birth,
+                          prompt: true,
+                          start_year: 1940, end_year: 18.years.ago.year,
+                          label: false %>
+      </div>
+
+      <div class="small-10 medium-5 clear">
+        <div class="small-6 medium-6 column">
+          <%= f.label t("admin.users.information.gender") %>
+          <%= f.select :genre, options_for_select(["Masculino", "Femenino"]), label: false %>
         </div>
 
-        <div class="small-12 medium-5 clear">
-          <%= f.label :portal_code, t("verification.residence.new.district") %>
-          <div class="medium-6">
-            <%= f.select :postal_code, geozone_select_district, {label: false}, class: "geozone_district" %>
-          </div>
-        </div>
-
-        <%= javascript_include_tag "geozone"%>
-
-        <div class="small-12 medium-5 clear">
-          <%= f.label :hamlet_or_urbanization, t("verification.residence.new.hamlet_or_urba") %>
-          <div class="medium-6">
-            <%= f.text_field :hamlet_or_urbanization, label: false, aria: {describedby: "postal-code-help-text"}, maxlength: "30", minlength: "3", required: "required" %>
-          </div>
-        </div>
-
-        <div class="small-12 medium-5 clear">
+        <div class="small-6 medium-6 column">
           <%= f.label :profession, t("verification.residence.new.profession") %>
-          <div class="medium-6">
-            <%= f.text_field :profession, label: false, required: "required" %>
-          </div>
+          <%= f.text_field :profession, label: false, required: "required" %>
         </div>
+      </div>
 
-      <div class="small-12">
+      <div class="small-12 clear">
         <%= f.label :terms_of_service do %>
           <%= f.check_box :terms_of_service, title: t('verification.residence.new.accept_terms_text_title'), label: false, required: "required" %>
           <span class="checkbox">

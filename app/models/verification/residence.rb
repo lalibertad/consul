@@ -3,56 +3,41 @@ class Verification::Residence
   include ActiveModel::Dates
   include ActiveModel::Validations::Callbacks
 
-  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service, :profession, :hamlet_or_urbanization
+  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service, :profession, :hamlet_or_urbanization, :genre
 
-  before_validation :retrieve_census_data
+  #before_validation :retrieve_census_data
 
-  validates :document_number, presence: true
-  validates :document_type, presence: true
+  #validates :document_number, presence: true
+  #validates :document_type, presence: true
   validates :date_of_birth, presence: true
-  validates :postal_code, presence: true
+  #validates :postal_code, presence: true
   validates :terms_of_service, acceptance: { allow_nil: false }
-  validates :postal_code, length: { is: 5 }
+  #validates :postal_code, length: { is: 5 }
+  validates :hamlet_or_urbanization, presence: true
+  validates :profession, presence: true
 
   validate :allowed_age
-  validate :document_number_uniqueness
+  #validate :document_number_uniqueness
 
   def initialize(attrs = {})
     self.date_of_birth = parse_date('date_of_birth', attrs)
     attrs = remove_date('date_of_birth', attrs)
     super
-    clean_document_number
+    #clean_document_number
   end
 
   def save
-    #return false unless valid?
+    return false unless valid?
 
     #user.take_votes_if_erased_document(document_number, document_type)
 
-    #user.update(document_number:       document_number,
-    #            document_type:         document_type,
-    #            geozone:               geozone,
-    #            date_of_birth:         date_of_birth.to_datetime,
-    #            gender:                gender,
-    #            residence_verified_at: Time.current)
-    begin
-      if terms_of_service == "0"
-        errors.add(:terms_of_service, I18n.t('verification.residence.new.error_not_terms_service'))
-        return false
-      end
-      unless geozone
-        errors.add(:postal_code, I18n.t('verification.residence.new.error_not_allowed_postal_code'))
-        return false
-      end
-      user.update(geozone: geozone,
-                  profession: profession,
-                  hamlet_or_urbanization: hamlet_or_urbanization,
-                  confirmed_phone: Faker::PhoneNumber.phone_number,
-                  residence_verified_at: Time.current)
-    rescue => e
-      errors.add(:terms_of_service, e)
-      return false
-    end
+    user.update(profession: profession,
+                hamlet_or_urbanization: hamlet_or_urbanization,
+                date_of_birth: date_of_birth.to_datetime,
+                gender: genre,
+                residence_verified_at: Time.current,
+                confirmed_phone: Faker::PhoneNumber.phone_number
+    )
   end
 
   def allowed_age

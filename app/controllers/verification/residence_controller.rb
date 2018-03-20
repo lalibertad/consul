@@ -2,6 +2,7 @@ class Verification::ResidenceController < ApplicationController
   before_action :authenticate_user!
   before_action :verify_verified!
   before_action :verify_lock, only: [:new, :create]
+  before_action :load_geozones
   skip_authorization_check
 
   def new
@@ -20,7 +21,7 @@ class Verification::ResidenceController < ApplicationController
   private
 
     def residence_params
-      params.require(:residence).permit(:postal_code, :terms_of_service, :profession, :hamlet_or_urbanization)
+      params.require(:residence).permit(:terms_of_service, :profession, :hamlet_or_urbanization, :date_of_birth, :gender)
     end
 
     def redirect_to_next_path
@@ -30,5 +31,10 @@ class Verification::ResidenceController < ApplicationController
       else
         redirect_to new_letter_path, notice: t('verification.sms.update.flash.level_two.success')
       end
+    end
+
+    def load_geozones
+      @district = Geozone.where(id: current_user.geozone_id).first
+      @province = Geozone.where(id: @district.geozone_id).first
     end
 end
