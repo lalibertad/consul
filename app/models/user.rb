@@ -36,9 +36,10 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
-  validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
+  validates :document_number, presence: true, uniqueness: { scope: :document_type }, allow_nil: true
 
   validate :validate_username_length
+  validate :allowed_age
 
   validates :official_level, inclusion: {in: 0..5}
   validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
@@ -340,6 +341,11 @@ class User < ActiveRecord::Base
         attributes: :username,
         maximum: User.username_max_length)
       validator.validate(self)
+    end
+
+    def allowed_age
+      return if errors[:date_of_birth].any? || Age.in_years(date_of_birth) >= User.minimum_required_age
+      errors.add(:date_of_birth, I18n.t('verification.residence.new.error_not_allowed_age'))
     end
 
 end

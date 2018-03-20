@@ -1,8 +1,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  include ApiReniec
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :finish_signup, :do_finish_signup]
 
   invisible_captcha only: [:create], honeypot: :family_name, scope: :user
-  $message = ''
+  before_action :get_information, only: :create
 
   def new
     super do |user|
@@ -15,9 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.valid?
       super
     else
-      if $message != ''
-        flash.now[:alert] = $message
-      end
+      flash.now[:alert] = @message
       render :new
     end
   end
@@ -63,32 +62,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def sign_up_params
       params[:user].delete(:redeemable_code) if params[:user].present? && params[:user][:redeemable_code].blank?
-      begin
-        params[:user][:document_type] = "1"
-        response = HTTParty.get("#{Rails.application.secrets.api_reniec}/consultadni/#{params[:user][:document_number]}")
-        datos = JSON.parse(response.body)["resultado"]
-        if datos.nil? || datos.empty?
-          $message = t("devise_views.users.registrations.new.username_is_not_valid")
-        else
-          if datos["FENAC"] != {}
-            params[:user][:date_of_birth] = DateTime.strptime(datos["FENAC"] + "120000", "%Y%m%d%H%M%S")
-          end
-          if datos["SEXO"] != {}
-            if datos["SEXO"] == "M"
-              params[:user][:gender] = "Masculino"
-            else
-              params[:user][:gender] = "Femenino"
-            end
-          end
-          #if (Time.now.strftime("%Y%m%d") - datos["FENAC"]) < (User.minimum_required_age * 10000)
-          #end
-          params[:user][:username] = "#{datos["NOMBRES"]}" + " " + "#{datos["APPAT"]}" + " " + "#{datos["APMAT"]}"
-        end
-      rescue
-        $message = t("devise_views.users.registrations.new.service_is_not_available")
-      end
       params.require(:user).permit(:document_number, :document_type, :username, :email, :password,
-                                   :password_confirmation, :terms_of_service, :locale,
+                                   :password_confirmation, :terms_of_service, :locale, :geozone_id,
                                    :redeemable_code, :date_of_birth, :gender)
     end
 

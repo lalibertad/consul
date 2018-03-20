@@ -5,11 +5,7 @@
   </h1>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
-    <% if @resource.gender == "Masculino" %>
-      <%= t("devise_views.mailer.confirmation_instructions.welcome_m") %>
-    <% else %>
-      <%= t("devise_views.mailer.confirmation_instructions.welcome_f") %>
-    <% end %>
+    <%= t("devise_views.mailer.reset_password_instructions.hello") %>
     <strong><%= @resource.username %></strong>
   </p>
 
