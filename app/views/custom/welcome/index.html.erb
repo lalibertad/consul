@@ -62,54 +62,63 @@
 </section>
 
 <% cache [locale_and_user_status, @featured_debates, @featured_proposals, 'featured'] do %>
-    <section class="content-2 col-4" id="features1-4" style="background-color: rgb(193, 193, 193); min-width: 340px">
-      <div class="container">
-        <div class="row">
-          <div>
-            <div class="thumbnail">
-              <a href="/debates"><img alt="" src="/assets/evaluacion.png" /></a>
-              <div class="caption">
-                <div>
-                  <h3><%= t("welcome.debates.title") %></h3>
-                  <p><%= t("welcome.debates.description") %></p>
-                </div>
-              </div>
-            </div>
+  <section class="screen situation active" style="position: relative !important; z-index: 1; overflow: hidden">
+  <div class="wrapperx">
+    <h2>¡Entérese de lo que puede hacer!</h2>
+    <ul>
+      <% if feature?(:debates) %>
+        <li class="office">
+          <div class="bg"></div>
+          <div class="text">
+            <%= layout_menu_link_to t("layouts.header.debates"),
+                                    debates_path,
+                                    controller_name == 'debates',
+                                    accesskey: "1",
+                                    title: t("shared.go_to_page") + t("layouts.header.debates") %>
+            <p><%= t("welcome.debates.description") %></p>
           </div>
-          <div>
-            <div class="thumbnail">
-              <a href="/proposals"><img alt="" src="/assets/proyectos.png" /></a>
-              <div class="caption">
-                <div>
-                  <h3><%= t("welcome.proposal.title") %></h3>
-                  <p><%= t("welcome.proposal.description") %></p>
-                </div>
-              </div>
-            </div>
+        </li>
+      <% end %>
+      <% if feature?(:proposals) %>
+        <li class="classroom active">
+          <div class="bg"></div>
+          <div class="text">
+            <%= layout_menu_link_to t("layouts.header.proposals"),
+                                    proposals_path,
+                                    controller_name == 'proposals',
+                                    accesskey: "2",
+                                    title: t("shared.go_to_page") + t("layouts.header.proposals") %>
+            <p><%= t("welcome.proposal.description") %></p>
           </div>
-          <div>
-            <div class="thumbnail">
-              <a href="/polls"><img alt="" src="/assets/votacion.png" /></a>
-              <div class="caption">
-                <div>
-                  <h3><%= t("welcome.decide.title") %></h3>
-                  <p><%= t("welcome.decide.description") %></p>
-                </div>
-              </div>
-            </div>
+        </li>
+      <% end %>
+      <% if feature?(:polls) %>
+        <li class="alive">
+          <div class="bg"></div>
+          <div class="text">
+            <%= layout_menu_link_to t("layouts.header.poll_questions"),
+                                    polls_path,
+                                    controller_name == "polls" || (controller_name == "questions" && controller.class.parent == Polls),
+                                    accesskey: "3",
+                                    title: t("shared.go_to_page") + t("layouts.header.poll_questions") %>
+            <p><%= t("welcome.decide.description") %></p>
           </div>
-          <div>
-            <div class="thumbnail">
-              <a href="/budgets"><img alt="" src="/assets/ejecucion.png" /></a>
-              <div class="caption">
-                <div>
-                  <h3><%= t("welcome.do.title") %></h3>
-                  <p><%= t("welcome.do.description") %></p>
-                </div>
-              </div>
-            </div>
+        </li>
+      <% end %>
+      <% if feature?(:budgets) %>
+        <li class="home">
+          <div class="bg"></div>
+          <div class="text">
+            <%= layout_menu_link_to t("layouts.header.budgets"),
+                                    budgets_path,
+                                    controller_name == "budgets" || controller_name == "investments",
+                                    accesskey: "4",
+                                    title: t("shared.go_to_page") + t("layouts.header.budgets") %>
+            <p><%= t("welcome.do.description") %></p>
           </div>
-        </div>
-      </div>
-    </section>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>
 <% end %>
