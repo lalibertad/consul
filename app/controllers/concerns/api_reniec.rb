@@ -8,15 +8,15 @@ module ApiReniec
         @message = JSON.parse(response.body)["message"]
         if datos.present?
           params[:user][:document_type] = "1"
-          unless datos["UBIGEO"].split("/").first == "LA LIBERTAD"
+          if datos["UBIGEO"].present? && datos["UBIGEO"].split("/").first != "LA LIBERTAD"
             return @message = t("devise_views.users.registrations.new.username_is_not_valid")
           end
           params[:user][:geozone_id] = geozone(datos["UBIGEO"].split("/").last).to_i if datos["UBIGEO"].present?
           params[:user][:date_of_birth] = DateTime.strptime(datos["FENAC"] + "120000", "%Y%m%d%H%M%S") if datos["FENAC"].present?
           params[:user][:username] = "#{datos["NOMBRES"]}" + " " + "#{datos["APPAT"]}" + " " + "#{datos["APMAT"]}"
           if datos["SEXO"].present?
-            params[:user][:gender] = "Male" if datos["SEXO"] == "M"
-            params[:user][:gender] = "Female" if datos["SEXO"] == "F"
+            params[:user][:gender] = "Masculino" if datos["SEXO"] == "M"
+            params[:user][:gender] = "Femenino" if datos["SEXO"] == "F"
           end
         end
       rescue
