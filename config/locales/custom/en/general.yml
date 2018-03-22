@@ -77,5 +77,11 @@ en:
       districts: "Provinces"
       districts_list: "Provinces list"
   welcome:
+    debates:
+      description: For meeting, discussing and sharing the things that matter to us in our region.
+    decide:
+      description: The public decides if it accepts or rejects citizen proposals or questions of participatory consultation.
     do:
       description: If the proposal is accepted mainly, the Regional Government assumes it as its own and is done.
+    proposal:
+      description: Open space for citizen proposals about the kind of region we want.

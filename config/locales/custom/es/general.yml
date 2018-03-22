@@ -77,5 +77,11 @@ es:
       districts: "Provincias"
       districts_list: "Listado de provincias"
   welcome:
+    debates:
+      description: Encontrarnos, debatir y compartir lo que nos parece importante en nuestra región.
+    decide:
+      description: La ciudadanía decide si acepta o rechaza propuestas ciudadanos o cuestiones de consulta participativa.
     do:
       description: Si la propuesta es aceptada mayoritariamente, el Gobierno Regional la asume como propia y se hace.
+    proposal:
+      description: Espacio abierto para propuestas ciudadanas sobre el tipo de región que queremos.
