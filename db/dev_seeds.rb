@@ -17,6 +17,7 @@ require_relative 'dev_seeds/settings'
 require_relative 'dev_seeds/geozones'
 require_relative 'dev_seeds/users'
 require_relative 'dev_seeds/tags_categories'
+=begin
 require_relative 'dev_seeds/debates'
 require_relative 'dev_seeds/proposals'
 require_relative 'dev_seeds/budgets'
@@ -31,5 +32,6 @@ require_relative 'dev_seeds/communities'
 require_relative 'dev_seeds/legislation_processes'
 require_relative 'dev_seeds/newsletters'
 require_relative 'dev_seeds/notifications'
+=end
 
 log "All dev seeds created successfuly 👍"
