@@ -55,7 +55,7 @@ class Admin::BudgetManagesController < Admin::BaseController
         :author_id => seed.author_id,
         :administrator_id => current_user.id,
         :title => seed.title,
-        :description => add_details(seed) + seed.description,
+        :description => (add_details(seed).to_s + seed.description.to_s),
         :external_url => seed.external_url,
         :price => seed.price,
         :price_first_year => seed.price_first_year,
