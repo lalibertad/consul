@@ -14,6 +14,8 @@ en:
           username_is_not_valid: "You do not reside in this region, update your residence in RENIEC"
           service_is_not_available: "RENIEC service not available, try again later"
           document_number: Document number
+          min_password: Minimum password of 8 characters
+          password: Password
     organizations:
       registrations:
         new:
