@@ -65,6 +65,6 @@ module BudgetsHelper
   end
 
   def current_budget_map_locations
-    MapLocation.where(investment_id: current_budget.investments).map { |l| l.json_data }
+      MapLocation.where(investment_id: current_budget.investments).map { |l| l.json_data } if current_budget.present?
   end
 end
