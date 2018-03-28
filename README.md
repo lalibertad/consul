@@ -45,15 +45,15 @@ RAILS_ENV=test rake db:setup
 
 Run the app locally:
 
-```
+```bash
 bin/rails s
 ```
 
-Prerequisites for testing: install PhantomJS >= 2.1.1
+Prerequisites for testing: install ChromeDriver >= 2.33
 
 Run the tests with:
 
-```
+```bash
 bin/rspec
 ```
 
