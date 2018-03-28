@@ -23,4 +23,8 @@ class Geozone < ActiveRecord::Base
       association.klass.where(geozone: self).empty?
     end
   end
+
+  def name=(value)
+    self[:name] = value.strip
+  end
 end

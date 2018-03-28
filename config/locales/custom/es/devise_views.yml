@@ -15,6 +15,7 @@ es:
           username_note: Su DNI será validado con la base de datos de RENIEC
           username_is_not_valid: "No reside en esta región, actualiza tu residencia en RENIEC"
           service_is_not_available: "Servicio RENIEC no está disponible, inténtelo más tarde"
+          geozone_unavailable: "Su distrito no fue encontrado, contacte con el administrador"
           document_number: Número de documento
           min_password: Contraseña mínima de 8 caracteres
           password: Contraseña

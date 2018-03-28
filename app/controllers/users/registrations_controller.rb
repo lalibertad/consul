@@ -16,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.valid?
       super
     else
-      flash.now[:alert] = @message
+      flash.now[:alert] = @message if @message != "Correcto"
       render :new
     end
   end
