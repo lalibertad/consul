@@ -63,7 +63,7 @@
 
 <% cache [locale_and_user_status, @featured_debates, @featured_proposals, 'featured'] do %>
   <section class="screen situation active" style="position: relative !important; z-index: 1; overflow: hidden">
-  <div class="wrapperx">
+  <div class="wrapperx" style="margin: 0 auto; max-width: 85%;">
     <h2>¡Entérese de lo que puede hacer!</h2>
     <ul>
       <% if feature?(:debates) %>
