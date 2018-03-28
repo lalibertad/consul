@@ -3,6 +3,7 @@
 //= require foundation
 //= require app
 //= require dropdown
+//= require olark
 
 $(function(){
   App.Dropdown.initialize();

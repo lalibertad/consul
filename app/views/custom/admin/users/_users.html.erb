@@ -13,7 +13,7 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= user.name %></td>
+          <td><%= link_to user.name, user_path(user), target: "_blank" %></td>
           <td><%= display_user_roles(user) %></td>
           <td><%= user.user_type %></td>
           <td>

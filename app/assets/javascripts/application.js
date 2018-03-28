@@ -76,6 +76,7 @@
 //= require table_sortable
 //= require investment_report_alert
 //= require send_newsletter_alert
+//= require olark
 
 var initialize_modules = function() {
   App.Comments.initialize();
@@ -145,3 +146,5 @@ $(function(){
     }
   });
 });
+
+
