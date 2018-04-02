@@ -10196,9 +10196,12 @@ html {
   .mbr-arrow {
     bottom: 31px;
   }
-}.mbr-box {
-   display: table;
-   width: 100%}
+}
+.mbr-box {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
 .mbr-box--stretched {
   height: 100%}
 .mbr-box__magnet {
