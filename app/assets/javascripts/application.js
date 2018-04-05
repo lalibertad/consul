@@ -77,6 +77,7 @@
 //= require investment_report_alert
 //= require send_newsletter_alert
 //= require managers
+//= require olark
 
 var initialize_modules = function() {
   App.Comments.initialize();

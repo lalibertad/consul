@@ -33,7 +33,7 @@ class Verification::Residence
 
     user.update(profession: profession,
                 hamlet_or_urbanization: hamlet_or_urbanization,
-                date_of_birth: date_of_birth.to_datetime,
+                date_of_birth: date_of_birth.in_time_zone.to_datetime,
                 gender: genre,
                 residence_verified_at: Time.current,
                 confirmed_phone: Faker::PhoneNumber.phone_number
