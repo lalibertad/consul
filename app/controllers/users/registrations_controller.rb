@@ -1,6 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   include ApiReniec
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy, :finish_signup, :do_finish_signup]
+  before_filter :configure_permitted_parameters
 
   invisible_captcha only: [:create], honeypot: :family_name, scope: :user
   before_action :get_information, only: :create
@@ -65,6 +66,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params.require(:user).permit(:document_number, :document_type, :username, :email, :password,
                                    :password_confirmation, :terms_of_service, :locale, :geozone_id,
                                    :redeemable_code, :date_of_birth, :gender)
+    end
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:account_update).push(:email)
     end
 
     def erase_params
