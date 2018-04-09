@@ -1,0 +1,36 @@
+<nav class="socialx">
+  <ul>
+    <% if setting['twitter_handle'] %>
+      <li>
+        <%= link_to "https://twitter.com/#{setting['twitter_handle']}", target: "_blank",
+                    title: t("shared.go_to_page") + t("social.twitter", org: setting['org_name']) + t('shared.target_blank_html') do %>
+          Twitter <i class="fa fa-twitter"></i>
+        <% end %>
+      </li>
+    <% end %>
+    <% if setting['facebook_handle'] %>
+      <li>
+        <%= link_to "https://www.facebook.com/#{setting['facebook_handle']}/", target: "_blank",
+                    title: t("shared.go_to_page") + t("social.facebook", org: setting['org_name']) + t('shared.target_blank_html') do %>
+          Facebook <i class="fa fa-facebook"></i>
+        <% end %>
+      </li>
+    <% end %>
+    <% if setting['youtube_handle'] %>
+      <li>
+        <%= link_to "https://www.youtube.com/#{setting['youtube_handle']}", target: "_blank",
+                    title: t("shared.go_to_page") + t("social.youtube", org: setting['org_name']) + t('shared.target_blank_html') do %>
+          YouTube <i class="fa fa-youtube"></i>
+        <% end %>
+      </li>
+    <% end %>
+    <% if setting['instagram_handle'] %>
+      <li>
+        <%= link_to "https://instagram.com/#{setting['instagram_handle']}", target: "_blank",
+                    title: t("shared.go_to_page") + t("social.instagram", org: setting['org_name']) + t('shared.target_blank_html') do %>
+          Instagram <i class="fa fa-instagram"></i>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
