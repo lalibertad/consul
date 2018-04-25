@@ -29,6 +29,14 @@
     <%= content_for :social_media_meta_tags %>
 
     <%= setting['per_page_code_head'].try(:html_safe) %>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79854904-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-79854904-7');
+    </script>
   </head>
   <body data-no-turbolink>
     <section class="mbr-navbar mbr-navbar--freeze mbr-navbar--absolute mbr-navbar--transparent mbr-navbar--sticky mbr-navbar--auto-collapse" id="menu-0">
