@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(version: 20180320104823) do
     t.integer  "geozone_id"
     t.integer  "proposal_id"
     t.integer  "valuator_group_assignments_count",            default: 0
-    t.boolean  "visible_to_valuators",                  default: false
+    t.boolean  "visible_to_valuators",                        default: false
   end
 
   add_index "budget_investments", ["administrator_id"], name: "index_budget_investments_on_administrator_id", using: :btree

@@ -5,6 +5,7 @@ class DebatesController < ApplicationController
 
   before_action :parse_tag_filter, only: :index
   before_action :authenticate_user!, except: [:index, :show, :map]
+  before_action :load_categories, only: [:index, :new, :create, :edit, :map, :summary]
   before_action :set_view, only: :index
 
   feature_flag :debates
