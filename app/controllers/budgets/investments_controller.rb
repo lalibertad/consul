@@ -16,6 +16,7 @@ module Budgets
     before_action :set_random_seed, only: :index
     before_action :load_categories, only: [:index, :new, :create]
     before_action :set_default_budget_filter, only: :index
+    before_action :set_view, only: :index
 
     skip_authorization_check only: :json_data
 
@@ -97,65 +98,69 @@ module Budgets
 
     private
 
-    def resource_model
-      Budget::Investment
-    end
-
-    def resource_name
-      "budget_investment"
-    end
-
-    def load_investment_votes(investments)
-      @investment_votes = current_user ? current_user.budget_investment_votes(investments) : {}
-    end
-
-    def set_random_seed
-      if params[:order] == 'random' || params[:order].blank?
-        seed = params[:random_seed] || session[:random_seed] || rand(-100000..100000)
-        params[:random_seed] ||= Float(seed) rescue 0
-      else
-        params[:random_seed] = nil
+      def resource_model
+        Budget::Investment
       end
-    end
 
-    def investment_params
-      params.require(:budget_investment)
-        .permit(:title, :description, :heading_id, :tag_list,
-                :organization_name, :location, :terms_of_service, :skip_map,
-                image_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
-                documents_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
-                map_location_attributes: [:latitude, :longitude, :zoom])
-    end
-
-    def load_ballot
-      query = Budget::Ballot.where(user: current_user, budget: @budget)
-      @ballot = @budget.balloting? ? query.first_or_create : query.first_or_initialize
-    end
-
-    def load_heading
-      if params[:heading_id].present?
-        @heading = @budget.headings.find(params[:heading_id])
-        @assigned_heading = @ballot.try(:heading_for_group, @heading.try(:group))
+      def resource_name
+        "budget_investment"
       end
-    end
 
-    def load_categories
-      @categories = ActsAsTaggableOn::Tag.category.order(:name)
-    end
-
-    def tag_cloud
-      TagCloud.new(Budget::Investment, params[:search])
-    end
-
-    def investments
-      if @current_order == 'random'
-        @investments.apply_filters_and_search(@budget, params, @current_filter)
-          .send("sort_by_#{@current_order}", params[:random_seed])
-      else
-        @investments.apply_filters_and_search(@budget, params, @current_filter)
-          .send("sort_by_#{@current_order}")
+      def load_investment_votes(investments)
+        @investment_votes = current_user ? current_user.budget_investment_votes(investments) : {}
       end
-    end
+
+      def set_random_seed
+        if params[:order] == 'random' || params[:order].blank?
+          seed = params[:random_seed] || session[:random_seed] || rand(-100000..100000)
+          params[:random_seed] ||= Float(seed) rescue 0
+        else
+          params[:random_seed] = nil
+        end
+      end
+
+      def investment_params
+        params.require(:budget_investment)
+              .permit(:title, :description, :heading_id, :tag_list,
+                      :organization_name, :location, :terms_of_service, :skip_map,
+                      image_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
+                      documents_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
+                      map_location_attributes: [:latitude, :longitude, :zoom])
+      end
+
+      def load_ballot
+        query = Budget::Ballot.where(user: current_user, budget: @budget)
+        @ballot = @budget.balloting? ? query.first_or_create : query.first_or_initialize
+      end
+
+      def load_heading
+        if params[:heading_id].present?
+          @heading = @budget.headings.find(params[:heading_id])
+          @assigned_heading = @ballot.try(:heading_for_group, @heading.try(:group))
+        end
+      end
+
+      def load_categories
+        @categories = ActsAsTaggableOn::Tag.category.order(:name)
+      end
+
+      def tag_cloud
+        TagCloud.new(Budget::Investment, params[:search])
+      end
+
+      def set_view
+        @view = (params[:view] == "minimal") ? "minimal" : "default"
+      end
+
+      def investments
+        if @current_order == 'random'
+          @investments.apply_filters_and_search(@budget, params, @current_filter)
+                      .send("sort_by_#{@current_order}", params[:random_seed])
+        else
+          @investments.apply_filters_and_search(@budget, params, @current_filter)
+                      .send("sort_by_#{@current_order}")
+        end
+      end
 
   end
 
