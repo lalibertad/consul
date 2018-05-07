@@ -127,11 +127,15 @@ var initialize_modules = function() {
 
 $(function(){
   Turbolinks.enableProgressBar();
+  webshims.setOptions('basePath', '/assets/webshims/shims/');
+  webshims.setOptions('forms-ext', {
+    replaceUI: 'auto',
+    types: 'number'
+  });
+  webshims.polyfill('forms forms-ext');
 
   $(document).ready(initialize_modules);
   $(document).on('page:load', initialize_modules);
   $(document).on('ajax:complete', initialize_modules);
-
-  jQuery(document).on('page:load', function(){$(this).updatePolyfill();});
-  jQuery(document).ready(function($) {$(this).updatePolyfill();});
+  $(document).on('page:load', function() {$(this).updatePolyfill();});
 });
