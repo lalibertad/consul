@@ -78,6 +78,7 @@
 //= require send_newsletter_alert
 //= require managers
 //= require olark
+//= require webshims/polyfiller
 
 var initialize_modules = function() {
   App.Comments.initialize();
@@ -130,4 +131,7 @@ $(function(){
   $(document).ready(initialize_modules);
   $(document).on('page:load', initialize_modules);
   $(document).on('ajax:complete', initialize_modules);
+
+  jQuery(document).on('page:load', function(){$(this).updatePolyfill();});
+  jQuery(document).ready(function($) {$(this).updatePolyfill();});
 });
