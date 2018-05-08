@@ -29,3 +29,6 @@ es:
       sorry: "Sentimos las molestias ocasionadas y volvemos a darte las gracias por tu inestimable participación."
       subject: "Tu propuesta '%{code}' ha sido marcada como inviable"
       unfeasible_html: "Desde el Gobierno Regional queremos agradecer tu participación. Lamentamos informarte de que tu propuesta <strong>'%{title}'</strong> quedará excluido por el siguiente motivo:"
+    user_waiting:
+      subject: "Servicio RENIEC no disponible, su DNI será validado lo antes posible"
+      new_html: "Sus datos serán validados apenas el servicio de RENIEC se encuentre activo. Lo notificaremos cuando se haya completado el proceso."

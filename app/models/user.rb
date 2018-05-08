@@ -34,9 +34,9 @@ class User < ActiveRecord::Base
   has_many :follows
   belongs_to :geozone
 
-  validates :username, presence: true, if: :username_required?
+  validates :username, presence: false
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
-  validates :document_number, presence: true, uniqueness: { scope: :document_type }, allow_nil: true
+  validates :document_number, presence: true, uniqueness: { scope: :registering_with_oauth }
 
   validate :validate_username_length
   validate :allowed_age, if: :date_of_birth?

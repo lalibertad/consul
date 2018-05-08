@@ -4,7 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters
 
   invisible_captcha only: [:create], honeypot: :family_name, scope: :user
-  before_action :get_information, only: :create
 
   def new
     super do |user|
@@ -15,9 +14,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     if resource.valid?
-      super
+      success, message = get_information
+      if success == 1
+        super
+      else
+        if success == 2
+          resource.document_type = "1"
+          resource.hidden_at = Time.current
+          if resource.save
+            flash.now[:alert] = message
+          else
+            flash.now[:alert] = "Error al guardar. Contacte al administrador"
+          end
+        else
+          flash.now[:alert] = message
+        end
+        render :new
+      end
     else
-      flash.now[:alert] = @message if @message != "Correcto"
       render :new
     end
   end

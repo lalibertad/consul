@@ -29,3 +29,6 @@ en:
       sorry: "Sorry for the inconvenience and we again thank you for your invaluable participation."
       subject: "Your proposal '%{code}' has been marked as unfeasible"
       unfeasible_html: "From the Regional Government we want to thank you for your participation in the <strong>proposals</strong>. We regret to inform you that your proposal <strong>'%{title}'</strong> will be excluded for the following reason:"
+    user_waiting:
+      subject: "RENIEC service not available, your DNI will be validated as soon as possible"
+      new_html: "Your data will be validated as soon as the RENIEC service is active. We will notify you when the process has been completed."

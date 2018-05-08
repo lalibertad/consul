@@ -7,7 +7,7 @@ class Organization < ActiveRecord::Base
   validates :name, presence: true
   validates :name, uniqueness: true
   validate  :validate_name_length
-  validates :responsible_name, presence: true
+  validates :responsible_name, presence: false
   validate  :validate_responsible_name_length
 
   delegate :email, :phone_number, to: :user
