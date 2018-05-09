@@ -32,3 +32,5 @@ es:
     user_waiting:
       subject: "Servicio RENIEC no disponible, su DNI será validado lo antes posible"
       new_html: "Sus datos serán validados apenas el servicio de RENIEC se encuentre activo. Lo notificaremos cuando se haya completado el proceso."
+      reject_html: "Su registro ha sido rechazado por <strong>%{reject}</strong>, si consideras que se trata de un error podrás comunicarlo al correo decide@regionlalibertad.gob.pe."
+      fail_html: "En la validación del registro de <strong>%{user}</strong> hubo los problemas <strong>%{fail}</strong>. Contacte al que corresponda para solucionarlo."

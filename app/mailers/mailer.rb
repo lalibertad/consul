@@ -79,6 +79,24 @@ class Mailer < ApplicationMailer
     end
   end
 
+  def waiting_user(user, notification, success)
+    @notification = notification
+    @user = user
+    @email_to = user.email
+
+    with_user(user) do
+      case success
+        when 1
+          @template = "accept_user"
+          mail(to: @email_to, subject: "Instrucciones de confirmación", template_name: "accept_user")
+        when 0
+          mail(to: @email_to, subject: "Su registro ha sido rechazado", template_name: "reject_user")
+        else
+          mail(to: "decide@regionlalibertad.gob.pe", subject: "Fallas de registro de usuarios", template_name: "fail_user")
+      end
+    end
+  end
+
   def user_invite(email)
     @email_to = email
 

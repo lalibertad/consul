@@ -19,6 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
+every 1.day, at: '02:00 am' do
+  rake "daily_tasks:verify_users"
+end
+
 every 1.minute do
   command "date > ~/cron-test.txt"
 end

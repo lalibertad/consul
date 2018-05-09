@@ -32,3 +32,5 @@ en:
     user_waiting:
       subject: "RENIEC service not available, your DNI will be validated as soon as possible"
       new_html: "Your data will be validated as soon as the RENIEC service is active. We will notify you when the process has been completed."
+      reject_html: "Your registration has been rejected by <strong>%{reject}</strong>, if you consider that it is an error you will be able to communicate it to the mail of decide@regionlalibertad.gob.pe."
+      fail_html: "In the validation of the registration of <strong>%{user}</strong> there were problems <strong>%{fail}</strong>. Contact the one that corrects to solve it."
