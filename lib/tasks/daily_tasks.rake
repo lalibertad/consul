@@ -24,7 +24,7 @@ namespace :daily_tasks do
   private
     def get_information(user)
       begin
-        response = HTTParty.get("#{Rails.application.secrets.api_reniec}/consultani/#{user.document_number}")
+        response = HTTParty.get("#{Rails.application.secrets.api_reniec}/consultadni/#{user.document_number}")
         @status = JSON.parse(response.body)["status"].to_i
         @notice = JSON.parse(response.body)["message"]
         if @status == 1
