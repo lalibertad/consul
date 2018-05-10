@@ -1,7 +1,6 @@
 namespace :daily_tasks do
   desc "Authenticate users and notify by email"
   task verify_users: :environment do
-    puts("verificando usuarios")
     User.find_by_sql('select * from users where username is null and hidden_at is not null and validated is not true').each do |user|
       success, message = get_information user
       case success
@@ -24,7 +23,7 @@ namespace :daily_tasks do
   private
     def get_information(user)
       begin
-        response = HTTParty.get("#{Rails.application.secrets.api_reniec}/consultani/#{user.document_number}")
+        response = HTTParty.get("#{Rails.application.secrets.api_reniec}/consultadni/#{user.document_number}")
         @status = JSON.parse(response.body)["status"].to_i
         @notice = JSON.parse(response.body)["message"]
         if @status == 1

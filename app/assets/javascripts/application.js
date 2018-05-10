@@ -78,6 +78,8 @@
 //= require send_newsletter_alert
 //= require managers
 //= require globalize
+//= require olark
+//= require webshims/polyfiller
 
 var initialize_modules = function() {
   App.Comments.initialize();
@@ -127,8 +129,15 @@ var initialize_modules = function() {
 
 $(function(){
   Turbolinks.enableProgressBar();
+  webshims.setOptions('basePath', '/assets/webshims/shims/');
+  webshims.setOptions('forms-ext', {
+    replaceUI: 'auto',
+    types: 'number'
+  });
+  webshims.polyfill('forms forms-ext');
 
   $(document).ready(initialize_modules);
   $(document).on('page:load', initialize_modules);
   $(document).on('ajax:complete', initialize_modules);
+  $(document).on('page:load', function() {$(this).updatePolyfill();});
 });
