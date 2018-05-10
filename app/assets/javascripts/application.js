@@ -77,8 +77,7 @@
 //= require investment_report_alert
 //= require send_newsletter_alert
 //= require managers
-//= require olark
-//= require webshims/polyfiller
+//= require globalize
 
 var initialize_modules = function() {
   App.Comments.initialize();
@@ -123,19 +122,13 @@ var initialize_modules = function() {
   App.InvestmentReportAlert.initialize();
   App.SendNewsletterAlert.initialize();
   App.Managers.initialize();
+  App.Globalize.initialize();
 };
 
 $(function(){
   Turbolinks.enableProgressBar();
-  webshims.setOptions('basePath', '/assets/webshims/shims/');
-  webshims.setOptions('forms-ext', {
-    replaceUI: 'auto',
-    types: 'number'
-  });
-  webshims.polyfill('forms forms-ext');
 
   $(document).ready(initialize_modules);
   $(document).on('page:load', initialize_modules);
   $(document).on('ajax:complete', initialize_modules);
-  $(document).on('page:load', function() {$(this).updatePolyfill();});
 });
