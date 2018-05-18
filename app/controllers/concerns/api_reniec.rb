@@ -11,9 +11,9 @@ module ApiReniec
           if datos.present?
             params[:user][:document_type] = "1"
             params[:user][:username] = "#{datos["NOMBRES"]}" + " " + "#{datos["APPAT"]}" + " " + "#{datos["APMAT"]}"
-            if datos["UBIGEO"].present? && datos["UBIGEO"].split("/").first != "LA LIBERTAD"
-              return 0, t("devise_views.users.registrations.new.username_is_not_valid")
-            end
+            # if datos["UBIGEO"].present? && datos["UBIGEO"].split("/").first != "LA LIBERTAD"
+            #   return 0, t("devise_views.users.registrations.new.username_is_not_valid")
+            # end
             begin
               params[:user][:geozone_id] = geozone(datos["UBIGEO"].split("/").last).to_i if datos["UBIGEO"].present?
             rescue

@@ -16,6 +16,7 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     if resource.valid?
       success, message = get_information
+      params[:user][:organization_attributes][:responsible_name] = params[:user][:username]
       if success == 1
         super
       else

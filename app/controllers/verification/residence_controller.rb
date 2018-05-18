@@ -35,6 +35,6 @@ class Verification::ResidenceController < ApplicationController
 
     def load_geozones
       @district = Geozone.where(id: current_user.geozone_id).first
-      @province = Geozone.where(id: @district.geozone_id).first
+      @province = Geozone.where(id: @district.geozone_id).first if @district.present?
     end
 end

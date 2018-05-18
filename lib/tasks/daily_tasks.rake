@@ -6,6 +6,8 @@ namespace :daily_tasks do
       case success
         when 1
           user.validated = true
+          user.hidden_at = nil
+          user.organization.responsible_name = user.username if user.organization?
           unless user.save
             message = user.errors.messages
             success = 2
@@ -31,9 +33,9 @@ namespace :daily_tasks do
           if datos.present?
             user.document_type = "1"
             user.username = "#{datos["NOMBRES"]}" + " " + "#{datos["APPAT"]}" + " " + "#{datos["APMAT"]}"
-            if datos["UBIGEO"].present? && datos["UBIGEO"].split("/").first != "LA LIBERTAD"
-              return 0, "No reside en esta región, actualiza tu residencia en RENIEC"
-            end
+            # if datos["UBIGEO"].present? && datos["UBIGEO"].split("/").first != "LA LIBERTAD"
+            #   return 0, "No reside en esta región, actualiza tu residencia en RENIEC"
+            # end
             begin
               user.geozone_id = (Geozone.select("id").where("lower(unaccent(name)) = ?", (datos["UBIGEO"].split("/").last).downcase)
                                    .where.not(geozone_id: nil).first.id).to_i if datos["UBIGEO"].present?

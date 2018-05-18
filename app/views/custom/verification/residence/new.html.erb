@@ -33,15 +33,33 @@
     <%= form_for @residence, as: "residence", url: residence_path do |f| %>
       <%= render "errors" %>
 
-      <div class="small-12 medium-5 column">
-        <%= f.label t("verification.residence.new.province") %>
-        <%= f.text_field :portal_code, label: false, value: @province.name, :readonly => true %>
-      </div>
+      <% if @province.present? %>
 
-      <div class="small-12 medium-5 column">
-        <%= f.label :portal_code, t("verification.residence.new.district") %>
-        <%= f.text_field :portal_code, label: false, value: @district.name, :readonly => true %>
-      </div>
+        <div class="small-12 medium-5 column">
+          <%= f.label t("verification.residence.new.province") %>
+          <%= f.text_field :portal_code, label: false, value: @province.name, :readonly => true %>
+        </div>
+
+        <div class="small-12 medium-5 column">
+          <%= f.label :portal_code, t("verification.residence.new.district") %>
+          <%= f.text_field :portal_code, label: false, value: @district.name, :readonly => true %>
+        </div>
+
+      <% else %>
+
+        <div class="small-12 medium-5 column">
+          <%= f.label t("verification.residence.new.province") %>
+            <%= f.select :postal_code, geozone_select_options, {label: false}, class: "geozone_province" %>
+        </div>
+
+        <div class="small-12 medium-5 column">
+          <%= f.label :portal_code, t("verification.residence.new.district") %>
+            <%= f.select :postal_code, geozone_select_district, {label: false}, class: "geozone_district" %>
+        </div>
+
+        <%= javascript_include_tag "geozone"%>
+
+      <% end %>
 
       <div class="small-12 medium-5 column">
         <%= f.label :hamlet_or_urbanization, t("verification.residence.new.hamlet_or_urba") %>
