@@ -5177,8 +5177,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 .btn-default.inverse, .btn-inverse .btn-default {
   border-color: #fff;
-  color: #3c3c3b;
-  background:  rgba( 255,  255,  255,  0.5);
+  color: #ffffff;
   border:  2px solid #fff;
   border-radius:  5px;
 }
@@ -5188,7 +5187,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   border-color: #fff;
 }
 .btn-lg, .btn-group-lg>.btn {
-  font-size: 14px;
+  font-size: 15px;
 }
 .btn-decorator .btn:after {
   -webkit-transform: scale(0,  1);
