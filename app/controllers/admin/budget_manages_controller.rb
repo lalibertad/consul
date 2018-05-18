@@ -78,7 +78,7 @@ class Admin::BudgetManagesController < Admin::BaseController
     end
 
     def add_details(detail)
-      txt =  detail.snip.present? ? "<p>SNIP: <strong>" + detail.snip + "</strong></p>" : ""
+      txt =  detail.snip.present? ? "<p>INVIERTE:PE: <strong>" + detail.snip + "</strong></p>" : ""
       txt += "<p><strong>Nivel de estudio del proyecto:</strong> " + detail.level + "</p>"
       txt += "<p><strong>Brecha a la que contribuye:</strong> " + detail.gap_contributes + "</p>" if detail.gap_contributes.present?
       txt += "<p><strong>Objetivo estratégico del PDRG-LL 2016-2021 al que contribuye:</strong> " + detail.strategic_objective + "</p>" if detail.strategic_objective.present?

@@ -10,6 +10,8 @@ es:
         population: "Beneficiados (opcional)"
         table_amount: Monto
         table_population: Beneficiados
+      new:
+        title: Nuevo presupuesto participativo
     budget_manages:
       index:
         headers:
