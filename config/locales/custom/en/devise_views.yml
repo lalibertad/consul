@@ -22,3 +22,5 @@ en:
         new:
           responsible_name_label: DNI of the person responsible for the organization
           responsible_name_note: It will be the person representing the association / group on whose behalf the proposals are presented. Your DNI will be validated with the RENIEC database
+          document: Registration form
+          download_document: "Download the %{inscription}, fill it and upload it to pdf file."

@@ -49,7 +49,7 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
     def sign_up_params
       params.require(:user).permit(:document_number, :document_type, :username, :email, :password, :phone_number,
                                    :password_confirmation, :terms_of_service, :date_of_birth, :gender, :geozone_id,
-                                   organization_attributes: [:name, :responsible_name])
+                                   organization_attributes: [:name, :responsible_name, :document])
     end
 
 end

@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509155912) do
+ActiveRecord::Schema.define(version: 20180521174451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "unaccent"
   enable_extension "pg_trgm"
+  enable_extension "unaccent"
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -676,10 +676,14 @@ ActiveRecord::Schema.define(version: 20180509155912) do
 
   create_table "organizations", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "name",             limit: 60
+    t.string   "name",                  limit: 60
     t.datetime "verified_at"
     t.datetime "rejected_at"
-    t.string   "responsible_name", limit: 60
+    t.string   "responsible_name",      limit: 60
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   add_index "organizations", ["user_id"], name: "index_organizations_on_user_id", using: :btree

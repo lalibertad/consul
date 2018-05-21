@@ -6,7 +6,7 @@
    <div class="row">
      <div class="small-12 column">
 
-      <%= f.fields_for :organization do |fo| %>
+      <%= f.fields_for :organization, html: { multipart: true } do |fo| %>
         <%= fo.text_field :name, autofocus: true, maxlength: Organization.name_max_length, placeholder: t("devise_views.organizations.registrations.new.organization_name_label") %>
       <% end %>
 
@@ -31,6 +31,12 @@
       <%= f.password_field :password_confirmation, autocomplete: "off",
                            label: t("devise_views.organizations.registrations.new.password_confirmation_label"),
                            placeholder: t("devise_views.organizations.registrations.new.password_confirmation_label") %>
+
+       <label>
+         <%= t("devise_views.organizations.registrations.new.download_document", inscription: link_to('ficha de incripción','/downloadfile', target: "_blank", rel: "nofollow", class: '')).html_safe %>
+       </label>
+
+       <%= f.file_field  :document, label: false, required: true, accept: "application/pdf" %>
 
       <%= f.label :terms_of_service do %>
         <%= f.check_box :terms_of_service, title: t('devise_views.users.registrations.new.terms_title'), label: false %>
