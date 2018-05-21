@@ -24,6 +24,7 @@ en:
       open_data_text: All the details of the Regional Government are yours.
       participation_text: Decide how to shape the region you want to live in.
       transparency_text: Find out anything about the region.
+      transparency_url: http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=10149&id_tema=1&ver=D#.Wv80QYgvwdX
   map:
     title: "Provinces"
     proposal_for_district: "Start a proposal for your province or district"

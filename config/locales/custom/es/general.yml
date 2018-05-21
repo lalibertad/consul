@@ -24,6 +24,7 @@ es:
       open_data_text: Todos los datos del Gobierno Regional son tuyos.
       participation_text: Decide cómo debe ser la región que quieres.
       transparency_text: Obtén cualquier información sobre la región.
+      transparency_url: http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=10149&id_tema=1&ver=D#.Wv80QYgvwdX
   map:
     title: "Provincias"
     proposal_for_district: "Crea una propuesta para tu provincia o distrito"
