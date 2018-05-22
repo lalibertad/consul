@@ -35,7 +35,7 @@
     <% @organizations.each do |organization| %>
       <% hidden += 1 and next if organization.user.nil? || organization.user.hidden? %>
       <tr id="<%= dom_id(organization) %>">
-      <td><%= organization.name %></td>
+      <td><%= link_to "#{organization.name}", organization.document.url, target: '_blank' %></td>
       <td><%= organization.email %></td>
       <td><%= organization.phone_number %></td>
       <td><%= organization.responsible_name %></td>
