@@ -35,12 +35,4 @@ class PagesController < ApplicationController
     )
   end
 
-  def download_file
-    send_file(
-      "#{Rails.root}/public/docs/formato_ficha_inscripcion.docx",
-      filename: "formato_ficha_inscripcion.docx",
-      type: "application/doc"
-    )
-  end
-
 end

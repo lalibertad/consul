@@ -47,7 +47,6 @@ Rails.application.routes.draw do
   get 'help/faq',                 to: 'pages#show', id: 'help/faq/index',            as: 'faq'
   get 'more-show/:id',            to: 'pages#more'
   get 'download',                 to: 'pages#download'
-  get 'downloadfile',             to: 'pages#download_file'
 
   # Static pages
   get '/blog' => redirect("http://blog.consul/")
