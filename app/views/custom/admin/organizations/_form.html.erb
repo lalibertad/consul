@@ -1,14 +1,14 @@
-<%= form_for [:admin, @user] do |f| %>
+<%= form_for @user, url: admin_organizations_path do |f| %>
 
   <div clas="row">
     <div class="small-12 medium-6 large-6 column">
       <%= f.fields_for :organization do |fo| %>
-        <%= fo.text_field :name, autofocus: true, maxlength: Organization.name_max_length %>
+        <%= fo.text_field :name, autofocus: true, maxlength: Organization.name_max_length, required: true %>
       <% end %>
     </div>
 
     <div class="small-12 medium-6 large-6 column">
-      <%= f.text_field :username %>
+      <%= f.text_field :username, required: true %>
     </div>
   </div>
 
@@ -17,15 +17,15 @@
       <%= f.label :document_number, t("devise_views.users.registrations.new.document_number") %>
       <%= f.text_field :document_number,
                        oninput: "this.value=this.value.replace(/[^0-9]/g,'');", maxlength: "8", minlength: "8", label: false,
-                       aria: {describedby: "responsible-name-help-text"} %>
+                       aria: {describedby: "responsible-name-help-text"}, required: true %>
     </div>
 
     <div class="small-12 medium-6 large-4 column">
-      <%= f.email_field :email %>
+      <%= f.email_field :email, required: true %>
     </div>
 
     <div class="small-12 medium-6 large-4 column">
-      <%= f.text_field  :phone_number %>
+      <%= f.text_field  :phone_number, required: true %>
     </div>
   </div>
 

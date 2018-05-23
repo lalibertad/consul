@@ -4,6 +4,7 @@ en:
     organizations:
       index:
         new: Create organization
+        success: Organization created correctly
     budgets:
       index:
         table_manage_budget: Manage projects
