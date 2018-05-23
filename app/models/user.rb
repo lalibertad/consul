@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   belongs_to :geozone
 
   validates :username, presence: false
-  validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
+  # validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
   validates :document_number, presence: true, uniqueness: { scope: :registering_with_oauth }
 
   validate :validate_username_length
@@ -199,6 +199,7 @@ class User < ActiveRecord::Base
     update(
       erased_at: Time.current,
       erase_reason: erase_reason,
+      document_number: nil,
       username: nil,
       email: nil,
       unconfirmed_email: nil,
