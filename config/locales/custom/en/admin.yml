@@ -1,6 +1,9 @@
 ---
 en:
   admin:
+    organizations:
+      index:
+        new: Create organization
     budgets:
       index:
         table_manage_budget: Manage projects

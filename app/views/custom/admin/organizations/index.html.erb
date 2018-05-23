@@ -12,6 +12,9 @@
   <% end %>
 </div>
 
+<%= link_to t("admin.organizations.index.new"),
+            new_admin_organization_path, class: "button success float-right" %>
+
 <%= render 'shared/filter_subnav', i18n_namespace: "admin.organizations.index" %>
 
 <% if @organizations.any? %>
