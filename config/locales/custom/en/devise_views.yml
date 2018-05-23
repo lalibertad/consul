@@ -24,3 +24,4 @@ en:
           responsible_name_note: It will be the person representing the association / group on whose behalf the proposals are presented. Your DNI will be validated with the RENIEC database
           document: Registration form
           download_document: "Download %{inscription}, fill it and upload it"
+          document_present: There is a loaded file, but you can update it

@@ -25,6 +25,9 @@
                 <%= fo.text_field :responsible_name, maxlength: Organization.responsible_name_max_length, placeholder: t("account.show.organization_responsible_name_placeholder"), readonly: true %>
                 <%= fo.label :document, t("devise_views.organizations.registrations.new.download_document", inscription: link_to('ficha de inscripción', '/docs/formato_ficha_inscripcion.docx', target: '_blank')).html_safe %>
                 <%= fo.file_field :document, label: false, required: true, accept: "application/pdf" %>
+                <% if @account.organization.document.present? %>
+                  <p class="help-text"><%= t("devise_views.organizations.registrations.new.document_present") %></p>
+                <% end %>
               <% end %>
               <%= f.text_field :phone_number, placeholder: t("account.show.phone_number_label") %>
 

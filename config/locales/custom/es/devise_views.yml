@@ -26,3 +26,4 @@ es:
           responsible_name_note: Será la persona representante de la asociación/colectivo en cuyo nombre se presenten las propuestas. Su DNI será validado con la base de datos de RENIEC
           document: Ficha de inscripción
           download_document: "Descargar %{inscription}, llenarlo y subirlo"
+          document_present: Existe una ficha cargada, pero puedes actualizarlo
