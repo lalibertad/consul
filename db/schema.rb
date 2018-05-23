@@ -175,9 +175,9 @@ ActiveRecord::Schema.define(version: 20180521174451) do
     t.boolean  "incompatible",                                default: false
     t.integer  "community_id"
     t.integer  "geozone_id"
-    t.integer  "proposal_id"
-    t.integer  "valuator_group_assignments_count",            default: 0
     t.boolean  "visible_to_valuators",                        default: false
+    t.integer  "valuator_group_assignments_count",            default: 0
+    t.integer  "proposal_id"
   end
 
   add_index "budget_investments", ["administrator_id"], name: "index_budget_investments_on_administrator_id", using: :btree
@@ -999,17 +999,6 @@ ActiveRecord::Schema.define(version: 20180521174451) do
   end
 
   add_index "site_customization_content_blocks", ["name", "locale"], name: "index_site_customization_content_blocks_on_name_and_locale", unique: true, using: :btree
-
-  create_table "site_customization_content_texts", force: :cascade do |t|
-    t.string   "option",     limit: 30
-    t.string   "category",   limit: 30
-    t.string   "locale"
-    t.text     "body"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
-  add_index "site_customization_content_texts", ["option", "category"], name: "index_site_customization_content_texts_on_option_and_category", unique: true, using: :btree
 
   create_table "site_customization_images", force: :cascade do |t|
     t.string   "name",               null: false

@@ -3,6 +3,7 @@ section "Creating Users" do
     password = '12345678'
     User.create!(
       username:               username,
+      document_number:        unique_document_number,
       email:                  email,
       password:               password,
       password_confirmation:  password,

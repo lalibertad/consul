@@ -8,7 +8,6 @@ class Organization < ActiveRecord::Base
   validates :name, presence: true
   validates :name, uniqueness: true
   validates_attachment_content_type :document, content_type: ["application/pdf"]
-  validates :document, presence: true
   validate  :validate_name_length
   validates :responsible_name, presence: false
   validate  :validate_responsible_name_length
