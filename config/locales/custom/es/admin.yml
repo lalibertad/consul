@@ -25,6 +25,9 @@ es:
     menu:
       geozones: Gestionar provincias o distritos
     users:
+      index:
+        new: Crear usuario
+        success: Usuario creado correctamente
       columns:
         action: Acción
         show: Mostrar

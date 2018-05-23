@@ -1,0 +1,32 @@
+<%= form_for [:admin, @user] do |f| %>
+
+  <div clas="row">
+    <div class="small-12 medium-6 large-6 column">
+      <%= f.text_field :username, required: true %>
+    </div>
+
+    <div class="small-12 medium-6 large-6 column">
+      <%= f.email_field :email, required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 large-6 column">
+      <%= f.label :document_number, t("devise_views.users.registrations.new.document_number") %>
+      <%= f.text_field :document_number,
+                       oninput: "this.value=this.value.replace(/[^0-9]/g,'');", maxlength: "8", minlength: "8", label: false,
+                       aria: {describedby: "responsible-name-help-text"}, required: true %>
+    </div>
+
+    <div class="small-12 medium-6 large-6 column">
+      <%= f.text_field  :phone_number, required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 small-centered">
+      <%= f.submit(class: "button expanded", value: t("devise_views.organizations.registrations.new.submit")) %>
+    </div>
+  </div>
+
+<% end %>

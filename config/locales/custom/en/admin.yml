@@ -16,6 +16,9 @@ en:
           select: Select
           budget_item: budget Item
     users:
+      index:
+        new: Create user
+        success: User created correctly
       columns:
         action: Action
         show: Show
