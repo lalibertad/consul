@@ -1,0 +1,4 @@
+es:
+  devise:
+    confirmations:
+      confirmed: "Tu cuenta ha sido confirmada. Por favor autentifícate con tu email y contraseña"
