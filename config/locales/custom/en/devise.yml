@@ -1,0 +1,4 @@
+en:
+  devise:
+    registrations:
+      destroyed: "Goodbye! Your account has been cancelled. We hope to see you again soon. In accordance with your request, personal data registered as a user of the site under the responsibility of the Regional Government La Libertad, they have been canceled under the terms of the provisions in Law 29733 Law of Protection of Personal Data"
