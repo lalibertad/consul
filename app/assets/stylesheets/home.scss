@@ -42,3 +42,26 @@ video {
   -moz-animation: Gradient 30s ease infinite !important;
   animation: Gradient 30s ease infinite !important;
 }
+
+#titulo{
+  padding-top:5%;
+  letter-spacing:0;
+  font-size:60px;
+}
+#resumen{
+  padding-top:4%;
+  font-size:27px;
+}
+@media (max-width: 740px){
+  #titulo{
+    padding-top: 25%;
+    font-size: 30px;
+  }
+  #resumen{
+    padding-top: 20%;
+    font-size: 22px;
+  }
+  #botones{
+    padding-top: 5%;
+  }
+}

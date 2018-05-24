@@ -8,10 +8,10 @@
       <div class="mbr-box mbr-box--stretched">
         <div class="mbr-box__magnet mbr-box__magnet--center-left">
           <div class="mbr-hero animated fadeInUp">
-            <h1 style="padding-top:5%;letter-spacing:0;font-size:60px;"><%= t("layouts.header.open_city_title") %></h1>
-            <p class="mbr-hero__subtext" style="padding-top:4%;font-size:27px;"><%= t("layouts.header.open_city_slogan_html") %></p>
+            <h1 id="titulo"><%= t("layouts.header.open_city_title") %></h1>
+            <p class="mbr-hero__subtext" id="resumen"><%= t("layouts.header.open_city_slogan_html") %></p>
           </div>
-          <div class="mbr-buttons btn-inverse mbr-buttons--left">
+          <div id="botones" class="mbr-buttons btn-inverse mbr-buttons--left">
             <% if feature?(:debates) %>
                 <%= layout_menu_link_to t("layouts.header.debates"),
                                         debates_path,
