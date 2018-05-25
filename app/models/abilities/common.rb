@@ -54,10 +54,10 @@ module Abilities
 
       can [:create, :destroy], DirectUpload
 
-      unless user.organization?
-        can :vote, Debate
-        can :vote, Comment
-      end
+
+      can :vote, Debate
+      can :vote, Comment
+
 
       if user.level_two_or_three_verified?
         can :vote, Proposal
