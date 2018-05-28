@@ -4,3 +4,5 @@ es:
       confirmed: "Tu cuenta ha sido confirmada. Por favor autentifícate con tu email y contraseña"
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto. Le informamos que de conformidad con su petición, sus datos personales registrados como usuario de la Web cuyo responsable es el Gobierno Regional La Libertad, han sido cancelados en los términos de lo previsto en Ley N° 29733 Ley de Protección de Datos Personales"
+    failure:
+      invalid_link: "Enlace de confirmación no válido"
