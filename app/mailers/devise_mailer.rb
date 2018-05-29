@@ -4,7 +4,9 @@ class DeviseMailer < Devise::Mailer
   default template_path: 'devise/mailer'
 
   def confirmation_instructions(record, token, opts={})
-    unless record.hidden_at.nil?
+    unless record.validated.nil?
+      record.hidden_at = Time.current
+      record.save
       opts[:subject] = t('mailers.user_waiting.subject')
       opts[:template_name] = "user_waiting"
     end

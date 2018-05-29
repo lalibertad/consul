@@ -21,8 +21,9 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
         super
       else
         if success == 2
-          resource.document_type = "1"
-          resource.hidden_at = Time.current
+          params[:user][:document_type] = "1"
+          params[:user][:validated] = false
+          build_resource(sign_up_params)
           if resource.save
             flash.now[:alert] = message
           else
@@ -48,7 +49,7 @@ class Organizations::RegistrationsController < Devise::RegistrationsController
 
     def sign_up_params
       params.require(:user).permit(:document_number, :document_type, :username, :email, :password, :phone_number,
-                                   :password_confirmation, :terms_of_service, :date_of_birth, :gender, :geozone_id,
+                                   :password_confirmation, :terms_of_service, :date_of_birth, :gender, :geozone_id, :validated,
                                    organization_attributes: [:name, :responsible_name])
     end
 

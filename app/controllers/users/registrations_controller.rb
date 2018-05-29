@@ -19,8 +19,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         super
       else
         if success == 2
-          resource.document_type = "1"
-          resource.hidden_at = Time.current
+          params[:user][:document_type] = "1"
+          params[:user][:validated] = false
+          build_resource(sign_up_params)
           if resource.save
             flash.now[:alert] = message
           else
@@ -79,7 +80,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user].delete(:redeemable_code) if params[:user].present? && params[:user][:redeemable_code].blank?
       params.require(:user).permit(:document_number, :document_type, :username, :email, :password,
                                    :password_confirmation, :terms_of_service, :locale, :geozone_id,
-                                   :redeemable_code, :date_of_birth, :gender)
+                                   :redeemable_code, :date_of_birth, :gender, :validated)
     end
 
     def configure_permitted_parameters

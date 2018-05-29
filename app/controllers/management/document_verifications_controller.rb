@@ -15,8 +15,6 @@ class Management::DocumentVerificationsController < Management::BaseController
         render :verified
       elsif @document_verification.user?
         render :new
-      elsif @document_verification.in_census?
-        redirect_to new_management_email_verification_path(email_verification: document_verification_params)
       else
         render :invalid_document
       end
