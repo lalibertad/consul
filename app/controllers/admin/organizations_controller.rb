@@ -34,11 +34,24 @@ class Admin::OrganizationsController < Admin::BaseController
   end
 
   def create
-    @user = User.new(organization_params)
-    if @user.save
-            redirect_to new_admin_organization_path, notice: t("admin.organizations.index.success")
+    @user = User.find_by_sql("select * from users where username is null and hidden_at is not null and validated is not true and email = '#{params[:user][:email]}' limit 1").first
+    if @user.blank?
+      @user = User.new(organization_params)
+      if @user.save
+        redirect_to new_admin_organization_path, notice: t("admin.organizations.index.success")
+      else
+        flash.now[:alert] = t("admin.organizations.index.error")
+        render :new
+      end
     else
-      render :new
+      if @user.update(document_number: params[:user][:document_number], username: params[:user][:username],
+                   phone_number: params[:user][:phone_number], hidden_at: nil, validated: nil)
+        Mailer.waiting_user(@user, '', 1).deliver_later
+        redirect_to new_admin_organization_path, notice: t("admin.organizations.index.success")
+      else
+        flash.now[:alert] = t("admin.organizations.index.error")
+        render :new
+      end
     end
   end
 

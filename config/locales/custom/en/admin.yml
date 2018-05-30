@@ -5,6 +5,7 @@ en:
       index:
         new: Create organization
         success: Organization created correctly
+        error: User already exists or was discharged
     budgets:
       index:
         table_manage_budget: Manage projects

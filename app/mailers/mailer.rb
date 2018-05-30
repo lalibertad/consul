@@ -87,7 +87,6 @@ class Mailer < ApplicationMailer
     with_user(user) do
       case success
         when 1
-          @template = "accept_user"
           mail(to: @email_to, subject: "Instrucciones de confirmación", template_name: "accept_user")
         when 0
           mail(to: @email_to, subject: "Su registro ha sido rechazado", template_name: "reject_user")

@@ -5,6 +5,7 @@ es:
       index:
         new: Crear organización
         success: Organización creada correctamente
+        error: Usuario ya existe o fue dado de baja
     budgets:
       index:
         table_manage_budget: Gestionar proyectos
