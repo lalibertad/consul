@@ -21,6 +21,8 @@ namespace :management do
     get :reset_password
     get :edit_password_email
     get :edit_password_manually
+    get :edit_email
+    patch :change_email
   end
 
   resource :session, only: [:create, :destroy]

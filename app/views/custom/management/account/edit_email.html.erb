@@ -1,0 +1,15 @@
+<h2 class="not-print"><%= t("management.account.menu.change_email") %></h2>
+
+<%= form_for managed_user, url: change_email_management_account_path do |f| %>
+  <div class="row">
+    <%= f.label :email %>
+    <div class="columns small-6 end">
+
+      <div class="input-group">
+        <%= f.email_field :email, label: false %>
+      </div>
+
+    </div>
+  </div>
+  <%= f.submit t("management.account.edit.password.save"), class: "button success" %>
+<% end %>

@@ -1,4 +1,7 @@
 en:
   management:
+    account:
+      menu:
+        change_email: Change email
     budget_investments:
       create: Generate investment projects

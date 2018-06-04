@@ -1,0 +1,53 @@
+<div class="admin-sidebar">
+  <ul id="admin_menu" data-accordion-menu data-multi-open="false">
+    <li <%= "class=active" if controller_name == "document_verifications" ||
+                              controller_name == "email_verifications" ||
+                              controller_name == "users" %>>
+      <%= link_to management_document_verifications_path do %>
+        <span class="icon-user"></span>
+        <%= t("management.menu.users") %>
+      <% end %>
+    </li>
+
+    <li class="section-title">
+      <a href="#">
+        <span class="icon-user"></span>
+        <strong><%= t("management.menu.edit_user_accounts") %></strong>
+      </a>
+      <ul <%= "class=is-active" if controller_name == "account" %>>
+        <% if managed_user.email %>
+          <li>
+            <%= link_to t("management.account.menu.reset_password_email"), edit_password_email_management_account_path %>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to t("management.account.menu.reset_password_manually"), edit_password_manually_management_account_path %>
+        </li>
+        <li>
+          <%= link_to t("management.account.menu.change_email"), edit_email_management_account_path %>
+        </li>
+      </ul>
+    </li>
+
+    <li <%= "class=active" if controller_name == "proposals" && action_name == "print" %>>
+      <%= link_to print_management_proposals_path do %>
+        <span class="icon-print"></span>
+        <%= t("management.menu.print_proposals") %>
+      <% end %>
+    </li>
+
+    <li <%= "class=active" if controller_name == "spending_proposals" && action_name == "print" %>>
+      <%= link_to print_management_spending_proposals_path do %>
+        <span class="icon-print"></span>
+        <%= t("management.menu.print_spending_proposals") %>
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to new_management_user_invite_path do %>
+        <span class="icon-letter"></span>
+        <%= t("management.menu.user_invites") %>
+      <% end %>
+    </li>
+  </ul>
+</div>

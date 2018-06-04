@@ -25,10 +25,17 @@ class Management::AccountController < Management::BaseController
     end
   end
 
+  def change_email
+    managed_user.update(email: params[:user][:email])
+    redirect_to management_account_path, notice: t("management.account.edit.password.reset_email_send")
+  end
+
   private
 
     def only_verified_users
-      check_verified_user t("management.account.alert.unverified_user")
+      unless managed_user.email.present?
+        redirect_to management_document_verifications_path, alert: t("management.account.alert.unverified_user")
+      end
     end
 
 end
