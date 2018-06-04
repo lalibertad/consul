@@ -175,8 +175,8 @@ es:
     policy: Política de privacidad
     proposal: la propuesta
     proposal_notification: "la notificación"
-    spending_proposal: la propuesta de inversión
-    budget/investment: el proyecto de inversión
+    spending_proposal: la propuesta de gasto
+    budget/investment: el proyecto de gasto
     budget/heading: la partida presupuestaria
     poll/shift: el turno
     poll/question/answer: la respuesta
@@ -235,8 +235,6 @@ es:
       my_account_link: Mi cuenta
       my_activity_link: Mi actividad
       open: abierto
-      open_city_slogan_html: Existen ciudades gobernadas directamente por sus habitantes, que <strong>debaten</strong> sobre temas que les preocupan, <strong>proponen</strong> ideas para mejorar sus vidas y <strong>deciden</strong> entre todas y todos las que se llevan a cabo.
-      open_city_title: La ciudad que quieres será la ciudad que quieras
       open_gov: Gobierno %{open}
       proposals: Propuestas
       poll_questions: Votaciones
@@ -580,9 +578,9 @@ es:
     followable:
       budget_investment:
         create:
-          notice_html: "¡Ahora estás siguiendo este proyecto de inversión! </br> Te notificaremos los cambios a medida que se produzcan para que estés al día."
+          notice_html: "¡Ahora estás siguiendo este proyecto de gasto! </br> Te notificaremos los cambios a medida que se produzcan para que estés al día."
         destroy:
-          notice_html: "¡Has dejado de seguir este proyecto de inversión! </br> Ya no recibirás más notificaciones relacionadas con este proyecto."
+          notice_html: "¡Has dejado de seguir este proyecto de gasto! </br> Ya no recibirás más notificaciones relacionadas con este proyecto."
       proposal:
         create:
           notice_html: "¡Ahora estás siguiendo esta propuesta ciudadana! </br> Te notificaremos los cambios a medida que se produzcan para que estés al día."
@@ -602,9 +600,9 @@ es:
         see_all: "Ver todos"
       budget_investment:
         found:
-          one: "Existe un proyecto de inversión con el término '%{query}', puedes participar en él en vez de crear uno nuevo."
-          other: "Existen proyectos de inversión de con el término '%{query}', puedes participar en ellos en vez de crear una nuevo."
-        message: "Estás viendo %{limit} de %{count} proyectos de inversión que contienen el término '%{query}'"
+          one: "Existe un proyecto de gasto con el término '%{query}', puedes participar en él en vez de crear uno nuevo."
+          other: "Existen proyectos de gasto de con el término '%{query}', puedes participar en ellos en vez de crear una nuevo."
+        message: "Estás viendo %{limit} de %{count} proyectos de gasto que contienen el término '%{query}'"
         see_all: "Ver todos"
       proposal:
         found:
@@ -630,7 +628,6 @@ es:
       previous_slide: Imagen anterior
       next_slide: Siguiente imagen
     documentation: Documentación adicional
-    more_info: Más información
     view_mode:
       title: Modo de vista
       cards: Tarjetas
@@ -653,7 +650,7 @@ es:
       submit_buttons:
         create: Crear
         new: Crear
-      title: Título de la propuesta de inversión
+      title: Título de la propuesta de gasto
     index:
       title: Presupuestos participativos
       unfeasible: Propuestas de inversión no viables
@@ -675,8 +672,8 @@ es:
       recommendation_one: Es fundamental que haga referencia a una actuación presupuestable.
       recommendation_three: Intenta detallar lo máximo posible la propuesta para que el equipo de gobierno encargado de estudiarla tenga las menor dudas posibles.
       recommendation_two: Cualquier propuesta o comentario que implique acciones ilegales será eliminada.
-      recommendations_title: Cómo crear una propuesta de inversión
-      start_new: Crear una propuesta de inversión
+      recommendations_title: Cómo crear una propuesta de gasto
+      start_new: Crear una propuesta de gasto
     show:
       author_deleted: Usuario eliminado
       code: 'Código de la propuesta:'
@@ -726,7 +723,7 @@ es:
       deleted: Eliminado
       deleted_debate: Este debate ha sido eliminado
       deleted_proposal: Esta propuesta ha sido eliminada
-      deleted_budget_investment: Este proyecto de inversión ha sido eliminado
+      deleted_budget_investment: Este proyecto de gasto ha sido eliminado
       proposals: Propuestas
       debates: Debates
       budget_investments: Proyectos de presupuestos participativos
@@ -752,7 +749,7 @@ es:
       no_private_messages: "Este usuario no acepta mensajes privados."
       private_activity: Este usuario ha decidido mantener en privado su lista de actividades.
       send_private_message: "Enviar un mensaje privado"
-      delete_alert: "¿Estás seguro de que deseas borrar tu proyecto de inversión? Esta acción no se puede deshacer"
+      delete_alert: "¿Estás seguro de que deseas borrar tu proyecto de gasto? Esta acción no se puede deshacer"
     proposals:
       send_notification: "Enviar notificación"
       retire: "Retirar"
@@ -778,28 +775,29 @@ es:
       not_voting_allowed: El periodo de votación está cerrado.
     budget_investments:
       not_logged_in: Necesitas %{signin} o %{signup} para continuar.
-      not_verified: Los proyectos de inversión sólo pueden ser apoyadas por usuarios verificados, %{verify_account}.
+      not_verified: Los proyectos de gasto sólo pueden ser apoyadas por usuarios verificados, %{verify_account}.
       organization: Las organizaciones no pueden votar.
       unfeasible: No se pueden votar propuestas inviables.
       not_voting_allowed: El periodo de votación está cerrado.
       different_heading_assigned:
-        one: "Sólo puedes apoyar proyectos de inversión de %{count} distrito"
-        other: "Sólo puedes apoyar proyectos de inversión de %{count} distritos"
+        one: "Sólo puedes apoyar proyectos de gasto de %{count} distrito"
+        other: "Sólo puedes apoyar proyectos de gasto de %{count} distritos"
   welcome:
-    debates:
-      description: Encontrarnos, debatir y compartir lo que nos parece importante en nuestra ciudad.
-      title: Debates
-    decide:
-      description: La ciudadanía decide si acepta o rechaza las propuestas más apoyadas.
-      title: Decides
-    do:
-      description: Si la propuesta es aceptada mayoritariamente, el Ayuntamiento la asume como propia y se hace.
-      title: Se hace
-    proposal:
-      description: Espacio abierto para propuestas ciudadanas sobre el tipo de ciudad en el que queremos vivir.
-      title: Propones
+    feed:
+      most_active:
+        debates: "Debates más activos"
+        proposals: "Propuestas más activas"
+        processes: "Procesos abiertos"
+      see_all_debates: Ver todos los debates
+      see_all_proposals: Ver todas las propuestas
+      see_all_processes: Ver todos los procesos
+      process_label: Proceso
+      see_process: Ver proceso
+    cards:
+      title: Destacados
     recommended:
       title: Recomendaciones que te pueden interesar
+      help: "Estas recomendaciones se generan por las etiquetas de los debates y propuestas que estás siguiendo."
       debates:
         title: Debates recomendados
         btn_text_link: Todos los debates recomendados
@@ -843,4 +841,7 @@ es:
     content_title:
       proposal: "Propuesta"
       debate: "Debate"
-      budget_investment: "Proyecto de inversión"
+      budget_investment: "Proyecto de gasto"
+  admin/widget:
+    header:
+      title: Administración

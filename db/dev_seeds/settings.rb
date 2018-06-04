@@ -63,4 +63,8 @@ section "Creating Settings" do
   Setting.create(key: 'map_longitude', value: -79.02875661849977)
   Setting.create(key: 'map_zoom', value: 12)
   Setting.create(key: 'related_content_score_threshold', value: -0.3)
+
+  Setting['feature.homepage.widgets.feeds.proposals'] = true
+  Setting['feature.homepage.widgets.feeds.debates'] = true
+  Setting['feature.homepage.widgets.feeds.processes'] = true
 end
