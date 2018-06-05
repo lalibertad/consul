@@ -328,7 +328,7 @@ class User < ActiveRecord::Base
     conditions = warden_conditions.dup
     login = conditions.delete(:login)
     where(conditions.to_hash).where(["lower(email) = ?", login.downcase]).first ||
-    where(conditions.to_hash).where(["username = ?", login]).first
+    where(conditions.to_hash).where(["document_number = ?", login]).first
   end
 
   def interests

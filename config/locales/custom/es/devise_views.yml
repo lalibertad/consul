@@ -27,3 +27,6 @@ es:
           document: Ficha de inscripción
           download_document: "Descargar %{inscription}, llenarlo y subirlo"
           document_present: Existe una ficha cargada, pero puedes actualizarlo
+    sessions:
+      new:
+        login_label: "Correo electrónico o DNI"
