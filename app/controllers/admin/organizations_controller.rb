@@ -36,12 +36,23 @@ class Admin::OrganizationsController < Admin::BaseController
   def create
     @user = User.find_by_sql("select * from users where username is null and hidden_at is not null and validated is not true and email = '#{params[:user][:email]}' limit 1").first
     if @user.blank?
-      @user = User.new(organization_params)
-      if @user.save
-        redirect_to new_admin_organization_path, notice: t("admin.organizations.index.success")
+      @user = User.where(document_number: params[:user][:document_number]).where(email: params[:user][:email]).first
+      if @user.blank?
+        @user = User.new(organization_params)
+        if @user.save
+          redirect_to new_admin_organization_path, notice: t("admin.organizations.index.success")
+        else
+          flash.now[:alert] = t("admin.organizations.index.error")
+          render :new
+        end
       else
-        flash.now[:alert] = t("admin.organizations.index.error")
-        render :new
+        @organization = Organization.new(user_id: @user.id, name: params[:user][:organization_attributes][:name], responsible_name: @user.username)
+        if @organization.save
+          redirect_to new_admin_organization_path, notice: t("admin.organizations.index.success")
+        else
+          flash.now[:alert] = t("admin.organizations.index.error")
+          render :new
+        end
       end
     else
       if @user.update(document_number: params[:user][:document_number], username: params[:user][:username],
