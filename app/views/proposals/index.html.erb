@@ -107,11 +107,9 @@
 
     <div class="small-12 medium-3 column">
       <aside class="margin-bottom">
-        <% if current_user.present? && (current_user.administrator? || current_user.verified_organization?) %>
-        <%= link_to t("proposals.index.start_proposal"),
+        <%#= link_to t("proposals.index.start_proposal"),
                     new_proposal_guide,
                     class: 'button expanded' %>
-        <% end %>
         <% if params[:retired].blank? %>
           <%= render 'categories' %>
           <%= render "shared/tag_cloud", taggable: 'proposal' %>
