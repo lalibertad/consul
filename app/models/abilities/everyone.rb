@@ -8,10 +8,10 @@ module Abilities
       can :read, Comment
       can :read, Poll
       can :results, Poll do |poll|
-        poll.expired? && poll.results_enabled?
+        poll.expired? || poll.results_enabled?
       end
       can :stats, Poll do |poll|
-        poll.expired? && poll.stats_enabled?
+        poll.expired? || poll.stats_enabled?
       end
       can :read, Poll::Question
       can [:read, :welcome], Budget
