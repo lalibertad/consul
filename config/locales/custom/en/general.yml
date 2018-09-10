@@ -20,6 +20,7 @@ en:
       poll_questions: Participatory Consultations
       budgets: Participatory Budgeting
     footer:
+      consul_url: https://github.com/lalibertad/consul
       copyright: DECIDE LA LIBERTAD, %{year}
       open_data_text: All the details of the Regional Government are yours.
       participation_text: Decide how to shape the region you want to live in.
