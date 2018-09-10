@@ -20,6 +20,7 @@ es:
       poll_questions: Consultas Participativas
       budgets: Presupuestos Participativos
     footer:
+      consul_url: https://github.com/lalibertad/consul
       copyright: DECIDE LA LIBERTAD, %{year}
       open_data_text: Todos los datos del Gobierno Regional son tuyos.
       participation_text: Decide cómo debe ser la región que quieres.
